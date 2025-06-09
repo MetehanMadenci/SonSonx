@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Vertebra T7
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Thoracic Vertebra T7
+  boneModelName: Vertebra T7
+  boneDescription: "Thoracic vertebrae (back vertebrae),cervical vertebraewithlumbar
+    vertebraeIt forms the middle section of the vertebral column.[a]Twelve thoraciclifetimeThere
+    are. Thoracic vertebrae are larger than cervical vertebrae and smaller than lumbar
+    vertebrae. This is because the weight carried increases as you go down the spine.[1]Conventionally,
+    the human thoracic vertebrae are numbered T1\u2013T12, with the first (T1) being
+    closest to the skull. Humans have 12 thoracic vertebrae."
+  boneLink: 

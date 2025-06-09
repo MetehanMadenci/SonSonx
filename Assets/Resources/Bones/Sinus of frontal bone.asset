@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Sinus of frontal bone
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Sinus of frontal bone
+  boneModelName: Sinus of frontal bone
+  boneDescription: The frontal sinus has several potential functions. The mucosal
+    lining helps to warm and humidify inhaled air entering from the nasal cavity,
+    whilst its presence as a hollow space in the frontal bone lightens the mass of
+    the skull, allowing the muscles that move the head and neck to work more efficiently.
+  boneLink: 

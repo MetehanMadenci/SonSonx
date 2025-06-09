@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Third rib.r
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Third Rib (Right)
+  boneModelName: Third rib.r
+  boneDescription: Each of the flat bones that join with the ribs, breastbone and
+    vertebrae to form the rib cage, 12 on the right and left, for a total of 24.
+    They form the parallel bones of the rib cage that surround the chest. The upper
+    7 pairs connect to the breast bone by articulating with cartilage in the front
+    of the chest (true ribs). The 8th, 9th and 10th pairs are called false ribs,
+    and they join with the cartilage of the 7th rib. The 11th and 12th pairs (floating
+    ribs) swing freely, and do not connect to the breast bone. With the exception
+    of the first pair, the outer surfaces of the ribs can be felt under the skin.
+  boneLink: 

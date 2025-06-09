@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Maxilla.l
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Maxilla Bone (Left)
+  boneModelName: Maxilla.l
+  boneDescription: 'The upper jaw bone, maxilla or maxilla, is in the facial section
+    of the skeletonFrom the lower jaw boneThis is the next largest area and is doublebone,eye
+    socket,nasal cavityAndoral cavityIt helps to form spaces such as: Inside the
+    upper jaw bonemaxillary indentationThere is a large space called the nasal cavity.
+    In the upper jaw bone, it is shaped like a pyramid with its base facing the nasal
+    cavity.maxilla bodyThere is a body called bone. Also,cheekbone prominence,forehead
+    protrusion,tooth socket protrusionAndpalatal protrusionIt has four protrusions
+    called the ridges and four edges: upper, front, lower and back.'
+  boneLink: 

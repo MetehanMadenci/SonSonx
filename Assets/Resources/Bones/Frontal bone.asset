@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Frontal bone
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Os Frontale
+  boneModelName: Frontal bone
+  boneDescription: 'Os frontale (forehead bone), this is the only boneyour headThe
+    frontal bone forms the front part of the skull (cavum cranii) on the one hand
+    andeyelashIt forms the upper part of the orbit. The bone consists of two main
+    parts: the vertical nasal part (pars squama frontalis) and the orbital nasal
+    part (pars orbitonasalis).'
+  boneLink: 

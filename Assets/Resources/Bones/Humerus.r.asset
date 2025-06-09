@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Humerus.r
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Humerus Bone (Right)
+  boneModelName: Humerus.r
+  boneDescription: Humerus or Hip bone,forearmwith shoulderjointlong betweenarmis
+    the bone.Scapulawith the two bones of the forearmradiusAndulnainterconnected
+    and consists of three parts. The proximal extremity of the humerus consists of
+    a rounded head, a narrow neck, and two short processes. The body of the humerus
+    is cylindrical above and more prismatic below.
+  boneLink: 

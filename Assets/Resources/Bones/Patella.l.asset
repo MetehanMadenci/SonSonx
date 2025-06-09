@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Patella.l
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Patella Bone (Left)
+  boneModelName: Patella.l
+  boneDescription: The kneecap, or patella, is a bone located in the knee area.FemurIt
+    articulates with (patellofemoral joint). The biggest in humanssesame is a bone.[1]From
+    the topquadriceps femorisIt is attached above the tendon of the muscle; it is
+    attached belowligamentum patellae(via the "kneecap ligament"), the force of the
+    quadriceps femoristo the tibiatuberositas tibiaIt transfers by connecting to
+    the protrusion called.
+  boneLink: 

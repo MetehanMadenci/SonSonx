@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Palatine bone.l
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Palatine Bone (Left)
+  boneModelName: Palatine bone.l
+  boneDescription: The palatine bone, os palatinum, which is one of the paired skull
+    bones, is located behind the upper jaw bone and under the basic bone, os sphenoidale.
+    This bone, which provides the formation of the eye socket, nasal cavity, fossa
+    pterygopalatina and oral cavity, has two laminae.
+  boneLink: 

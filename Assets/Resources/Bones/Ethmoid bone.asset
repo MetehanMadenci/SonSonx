@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Ethmoid bone
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Ethmoid bone
+  boneModelName: Ethmoid bone
+  boneDescription: 'The ethmoid bone is an anterior cranial bone located between
+    the eyes. It contributes to the medial wall of the orbit, the nasal cavity, and
+    the nasal septum. The ethmoid has three parts: cribriform plate, ethmoidal labyrinth,
+    and perpendicular plate.'
+  boneLink: 

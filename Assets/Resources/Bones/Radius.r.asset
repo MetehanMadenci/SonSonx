@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Radius.r
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Radius Bone (Right)
+  boneModelName: Radius.r
+  boneDescription: Radius,on the forearmfrom bonesAccording to the anatomical position,
+    the radius is on the lateral (thumb side) part of the forearm.At the elbowwith
+    humerus,on the wristwhereasscaphoidbone andLunatumIt articulates with the forearm
+    bone. It is the more mobile of the two bones in the forearm. It performs pronation
+    (internal rotation) and supination (external rotation) movements.Ulnawhile fixedradiusmoves.
+  boneLink: 

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Anterior cells of ethmoid bone.l
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Anterior cells of ethmoid bone
+  boneModelName: Anterior cells of ethmoid bone.l
+  boneDescription: The ethmoid bone contains a group of approximately 11 air-filled
+    cavities called the anterior cells of ethmoid bone, also known as anterior ethmoidal
+    air cells. These cells are an important part of the ethmoidal labyrinth, along
+    with the middle and posterior ethmoidal air cells.
+  boneLink: 

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Tibia.l
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Tibia Bone (Left)
+  boneModelName: Tibia.l
+  boneDescription: The tibia (orTibia),vertebrateson your legsindexfrom the two bones
+    below (the otherfibula) is the larger and more durable one and connects the knee
+    to the ankle.
+  boneLink: 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Incus.l
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Incus Bone (Left)
+  boneModelName: Incus.l
+  boneDescription: 'Anvil (Latin: incus),in the middle eara foundIt is a bone.Anvilsmall
+    bone in the shape of threefrom the ear boneThe anvil is laterally connected to
+    the hammer bone (Malleus) transmits the vibrations to the stirrup bone (Stapes)
+    transmits. Because of its similarity to anvil, it also has this meaning in Latin."incus"It
+    was named after.'
+  boneLink: 

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a062d8aea71bc499b9e82810aac6eb, type: 3}
+  m_Name: Hyoid bone
+  m_EditorClassIdentifier: 
+  boneID: 0
+  boneName: Os Hyoideum Bone
+  boneModelName: Hyoid bone
+  boneDescription: The hyoid bone or hyoid bone (os hyoideum), a very small area
+    located at the lower back of the lower jawIt is a bone.In the skullplaysaddingIt
+    is one of the two bones that have a central axis. The os hyoideum is composed
+    of flat or round fibrocartilaginous and bony parts.[2]The function of the hyoid
+    bone is to fix the tongue within the skull. This boneTemporal bone(os temporale)
+    connects to the processus styloideus.
+  boneLink: 
