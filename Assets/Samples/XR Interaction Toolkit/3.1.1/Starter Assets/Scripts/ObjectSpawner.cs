@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit.Utilities;
-
+using UnityEngine.Events;
 
 namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 {
@@ -18,12 +18,12 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         [SerializeField]
         [Tooltip("The camera that objects will face when spawned. If not set, defaults to the main camera.")]
         Camera m_CameraToFace;
-        // Class body içine ekle
+        // Class body iï¿½ine ekle
         private bool hasSpawned = false;
         private GameObject spawnedObject;
 
         /// <summary>
-        /// Spawn iþlemini sýfýrlamak için kullanýlýr.
+        /// Spawn iï¿½lemini sï¿½fï¿½rlamak iï¿½in kullanï¿½lï¿½r.
         /// </summary>
         /// 
         public void ResetSpawn()
@@ -262,16 +262,22 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         }
 
 
+
+public UnityEvent onObjectDeleted;
+
     
     public void DeleteSpawnedObject()
-        {
-            if (spawnedObject != null)
-            {
-                Destroy(spawnedObject);
-                hasSpawned = false;
-                spawnedObject = null;
-            }
-        }
-
+{
+    if (spawnedObject != null)
+    {
+        Destroy(spawnedObject);
+        hasSpawned = false;
+        spawnedObject = null;
+if (sliderController != null)
+            sliderController.HideSlider(); //
+        // ðŸ”” UnityEvent tetikle
+        onObjectDeleted?.Invoke();
     }
+}
+}
 }

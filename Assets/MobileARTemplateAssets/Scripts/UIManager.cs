@@ -6,43 +6,36 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    // Button state variables
+    private bool isHideOthersActive = false;
+    private bool isFadeActive = false;
+    private bool isHideActive = false;
 
+    // Existing variables
     public Transform screenCenterTarget;
     private Dictionary<string, BoneInfo> boneInfoLookup;
     public GameObject rightPanel;
     public GameObject middlePanel;
-
     public TextMeshProUGUI boneDescriptionTextInScroll;
-
     public TextMeshProUGUI boneNameText;
-
-
     private Vector3 initialCameraPosition;
     private Quaternion initialCameraRotation;
-
-
     public GameObject skeletonRoot;
     public Camera arCamera;
-
     public Button hideOthersButton;
     public Button fadeButton;
     public Button hideButton;
     public Button resetButton;
-
     public Color normalColor = new Color(0.5f, 0.9f, 1f);
-    public Color activeColor = new Color(0f, 0f, 0.8f);
-
+    public Color activeColor = new Color32(100, 180, 255, 80);
     public GameObject selectedBone;
     private Material selectedMaterial;
-
     private Vector3 savedBoneWorldPosition;
     private Quaternion savedBoneWorldRotation;
     private Vector3 savedModelWorldPosition;
     private Quaternion savedModelWorldRotation;
-
     private Vector3 initialModelPosition;
     private Quaternion initialModelRotation;
-
     private bool isFaded = false;
     private bool isHidden = false;
     public bool othersHidden = false;
@@ -50,28 +43,31 @@ public class UIManager : MonoBehaviour
     private GameObject lastBoneForWhichPanelWasHidden = null;
     public static UIManager Instance;
     private Dictionary<Renderer, Material[]> originalMaterials = new Dictionary<Renderer, Material[]>();
-    // Yeni global değişkenler (UIManager.cs'de en üste)
     private Quaternion isolatedPivotInitialRotation;
     private Vector3 isolatedPivotInitialPosition;
     private Vector3 isolatedBoneInitialPosition;
     private Quaternion isolatedBoneInitialRotation;
-
     private Vector3 fullModelInitialPosition;
     private Quaternion fullModelInitialRotation;
     private Dictionary<Transform, Vector3> boneInitialPositions = new Dictionary<Transform, Vector3>();
     private Dictionary<Transform, Quaternion> boneInitialRotations = new Dictionary<Transform, Quaternion>();
     private bool initialStateCaptured = false;
-
-    void Awake()
-    {
-        Instance = this;
-    }
+    private Vector3 modelHiddenPosition = new Vector3(9999, 9999, 9999);
+    private Vector3 modelOriginalPosition;
+    private Quaternion modelOriginalRotation;
+    public bool isRightPanelVisible = false;
+    public bool isMiddlePanelVisible = false;
 
     private Dictionary<string, string> boneDescriptions = new Dictionary<string, string>()
     {
         { "Vertebra T9", "Göğüs omurlarından biridir." },
         { "Femur", "Uyluk kemiği, vücuttaki en uzun kemiktir." }
     };
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -90,7 +86,6 @@ public class UIManager : MonoBehaviour
         }
 
         BoneInfo[] allBones = Resources.LoadAll<BoneInfo>("Bones");
-
         boneInfoLookup = new Dictionary<string, BoneInfo>();
         foreach (var bone in allBones)
         {
@@ -111,9 +106,178 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void UpdateButtonColors()
+    {
+        UpdateButtonColor(hideOthersButton, isHideOthersActive);
+        UpdateButtonColor(fadeButton, isFadeActive);
+        UpdateButtonColor(hideButton, isHideActive);
+    }
 
+    private void UpdateButtonColor(Button button, bool isActive)
+    {
+        if (button == null) return;
 
+        ColorBlock colors = button.colors;
+        colors.normalColor = isActive ? activeColor : normalColor;
+        colors.highlightedColor = isActive ? activeColor * 1.1f : normalColor * 1.1f;
+        colors.pressedColor = isActive ? activeColor * 0.9f : normalColor * 0.9f;
+        colors.selectedColor = isActive ? activeColor : normalColor;
+        button.colors = colors;
+    }
 
+    public void OnHideOthersButton()
+    {
+        if (selectedBone == null || skeletonRoot == null) return;
+
+        isHideOthersActive = !isHideOthersActive;
+        othersHidden = isHideOthersActive;
+
+        if (isHideOthersActive)
+        {
+            SaveTransforms(selectedBone.transform);
+            modelOriginalPosition = skeletonRoot.transform.position;
+            modelOriginalRotation = skeletonRoot.transform.rotation;
+
+            if (selectedBone.name != "IsolatedBonePivot")
+            {
+                Transform boneRef = selectedBone.transform;
+                isolatedBoneInitialPosition = boneRef.position;
+                isolatedBoneInitialRotation = boneRef.rotation;
+
+                Vector3 pivotPos = GetRendererBoundsCenter(boneRef.gameObject);
+                GameObject pivotWrapper = new GameObject("IsolatedBonePivot");
+                pivotWrapper.transform.position = pivotPos;
+                pivotWrapper.transform.rotation = Quaternion.LookRotation(arCamera.transform.forward);
+                pivotWrapper.transform.SetParent(null);
+                boneRef.SetParent(pivotWrapper.transform);
+
+                if (!pivotWrapper.TryGetComponent(out DragRotate rotator))
+                    pivotWrapper.AddComponent<DragRotate>();
+
+                selectedBone = pivotWrapper;
+            }
+
+            Transform[] allBones = skeletonRoot.GetComponentsInChildren<Transform>(true);
+            foreach (Transform bone in allBones)
+            {
+                if (bone == skeletonRoot.transform) continue;
+                bone.gameObject.SetActive(false);
+            }
+
+            selectedBone.gameObject.SetActive(true);
+            foreach (Transform child in selectedBone.transform)
+                child.gameObject.SetActive(true);
+
+            skeletonRoot.transform.position = modelHiddenPosition;
+        }
+        else
+        {
+            skeletonRoot.transform.position = modelOriginalPosition;
+            skeletonRoot.transform.rotation = modelOriginalRotation;
+
+            Transform[] allBones = skeletonRoot.GetComponentsInChildren<Transform>(true);
+            foreach (Transform bone in allBones)
+            {
+                if (bone == skeletonRoot.transform) continue;
+                bone.gameObject.SetActive(true);
+            }
+
+            RestoreBoneAndModelToSavedPose();
+        }
+
+        UpdateButtonColors();
+    }
+
+    public void OnHideButton()
+    {
+        if (selectedBone == null) return;
+
+        isHideActive = !isHideActive;
+        isHidden = isHideActive;
+        selectedBone.SetActive(!isHideActive);
+
+        UpdateButtonColors();
+    }
+
+    public void OnFadeButton()
+    {
+        if (selectedBone == null) return;
+
+        isFadeActive = !isFadeActive;
+        isFaded = isFadeActive;
+
+        Renderer[] renderers = selectedBone.GetComponentsInChildren<Renderer>(true);
+        foreach (Renderer renderer in renderers)
+        {
+            Material[] materials = renderer.materials;
+            for (int i = 0; i < materials.Length; i++)
+            {
+                Color color = materials[i].color;
+                color.a = isFadeActive ? 0.2f : 1f;
+                materials[i].color = color;
+
+                if (isFadeActive)
+                {
+                    EnableTransparency(materials[i]);
+                }
+            }
+        }
+
+        UpdateButtonColors();
+    }
+
+    public void OnResetButton()
+{
+    isHideOthersActive = false;
+    isFadeActive = false;
+    isHideActive = false;
+    othersHidden = false;
+    isFaded = false;
+    isHidden = false;
+
+    // Reset button colors to normal
+    UpdateButtonColors();
+
+    if (selectedBone != null && selectedBone.name == "IsolatedBonePivot")
+    {
+        Transform originalBone = selectedBone.transform.GetChild(0);
+        originalBone.SetParent(skeletonRoot.transform);
+        Destroy(selectedBone);
+        selectedBone = originalBone.gameObject;
+    }
+
+    skeletonRoot.transform.SetPositionAndRotation(fullModelInitialPosition, fullModelInitialRotation);
+
+    foreach (Transform bone in skeletonRoot.GetComponentsInChildren<Transform>(true))
+    {
+        if (boneInitialPositions.ContainsKey(bone))
+        {
+            bone.position = boneInitialPositions[bone];
+            bone.rotation = boneInitialRotations[bone];
+        }
+        bone.gameObject.SetActive(true);
+    }
+
+    if (arCamera != null)
+    {
+        arCamera.transform.position = initialCameraPosition;
+        arCamera.transform.rotation = initialCameraRotation;
+    }
+
+    selectedBone = null;
+    selectedMaterial = null;
+    originalMaterials.Clear();
+
+    Renderer[] allRenderers = skeletonRoot.GetComponentsInChildren<Renderer>(true);
+    foreach (Renderer rend in allRenderers)
+    {
+        foreach (Material mat in rend.materials)
+        {
+            mat.color = Color.white;
+        }
+    }
+    HidePanels();
+}
 
     public Vector3 GetModelBoundsCenter()
     {
@@ -181,6 +345,7 @@ public class UIManager : MonoBehaviour
         hideOthersButton.interactable = true;
         fadeButton.interactable = true;
         hideButton.interactable = true;
+        UpdateButtonColors();
     }
 
     public void ShowBoneInfo(string boneName)
@@ -200,15 +365,11 @@ public class UIManager : MonoBehaviour
         isMiddlePanelVisible = true;
     }
 
-    public bool isRightPanelVisible = false;
-
     public void ToggleRightPanel()
     {
         isRightPanelVisible = !isRightPanelVisible;
         rightPanel.SetActive(isRightPanelVisible);
     }
-
-    public bool isMiddlePanelVisible = false;
 
     public void ToggleMiddlePanel()
     {
@@ -217,59 +378,6 @@ public class UIManager : MonoBehaviour
     }
 
 
-
-
-
-
-    public void OnHideButton()
-    {
-        if (selectedBone == null) return;
-
-        isHidden = !selectedBone.activeSelf;
-        selectedBone.SetActive(isHidden);
-
-        var colorCtrl = hideButton.GetComponent<ButtonColorController>();
-        if (isHidden)
-            colorCtrl?.SetActiveState();
-        else
-            colorCtrl?.ResetToNormalState();
-    }
-
-    public void OnFadeButton()
-    {
-        if (selectedBone == null) return;
-
-        isFaded = !isFaded;
-
-        Renderer[] renderers = selectedBone.GetComponentsInChildren<Renderer>(true);
-        foreach (Renderer renderer in renderers)
-        {
-            Material[] materials = renderer.materials;
-
-            for (int i = 0; i < materials.Length; i++)
-            {
-                Color color = materials[i].color;
-
-                if (isFaded)
-                {
-                    color.a = 0.2f;
-                    EnableTransparency(materials[i]);
-                }
-                else
-                {
-                    color.a = 1f;
-                }
-
-                materials[i].color = color;
-            }
-        }
-
-        var colorCtrl = fadeButton.GetComponent<ButtonColorController>();
-        if (isFaded)
-            colorCtrl?.SetActiveState();
-        else
-            colorCtrl?.ResetToNormalState();
-    }
 
     private void EnableTransparency(Material mat)
     {
@@ -284,148 +392,6 @@ public class UIManager : MonoBehaviour
         mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
         mat.renderQueue = 3000;
     }
-
-    public void OnResetButton()
-    {
-        resetButton.GetComponent<ButtonColorController>()?.ResetToNormalState();
-
-        othersHidden = false;
-        isFaded = false;
-        isHidden = false;
-
-        hideOthersButton.GetComponent<ButtonColorController>()?.ResetToNormalState();
-        fadeButton.GetComponent<ButtonColorController>()?.ResetToNormalState();
-        hideButton.GetComponent<ButtonColorController>()?.ResetToNormalState();
-
-        if (selectedBone != null && selectedBone.name == "IsolatedBonePivot")
-        {
-            Transform originalBone = selectedBone.transform.GetChild(0);
-            originalBone.SetParent(skeletonRoot.transform);
-            Destroy(selectedBone);
-            selectedBone = originalBone.gameObject;
-        }
-
-        // Modeli ve tüm kemikleri ilk konum/rotasyona döndür
-        skeletonRoot.transform.SetPositionAndRotation(fullModelInitialPosition, fullModelInitialRotation);
-
-        foreach (Transform bone in skeletonRoot.GetComponentsInChildren<Transform>(true))
-        {
-            if (boneInitialPositions.ContainsKey(bone))
-            {
-                bone.position = boneInitialPositions[bone];
-                bone.rotation = boneInitialRotations[bone];
-            }
-
-            bone.gameObject.SetActive(true);
-        }
-
-        // Kamera reset
-        if (arCamera != null)
-        {
-            arCamera.transform.position = initialCameraPosition;
-            arCamera.transform.rotation = initialCameraRotation;
-        }
-
-        // Panel ve Seçim Sıfırla
-        selectedBone = null;
-        selectedMaterial = null;
-        originalMaterials.Clear();
-
-        // Highlight'ları tamamen kaldır: tüm materyalleri beyazla sıfırla
-        Renderer[] allRenderers = skeletonRoot.GetComponentsInChildren<Renderer>(true);
-        foreach (Renderer rend in allRenderers)
-        {
-            foreach (Material mat in rend.materials)
-            {
-                mat.color = Color.white;
-            }
-        }
-
-    }
-
-
-    private Vector3 modelHiddenPosition = new Vector3(9999, 9999, 9999); // gizlemek için
-    private Vector3 modelOriginalPosition;
-    private Quaternion modelOriginalRotation;
-
-    public void OnHideOthersButton()
-    {
-        if (selectedBone == null || skeletonRoot == null) return;
-
-        var colorCtrl = hideOthersButton.GetComponent<ButtonColorController>();
-
-        if (!othersHidden)
-        {
-            othersHidden = true;
-            SetButtonColor(hideOthersButton, activeColor);
-            colorCtrl?.SetActiveState();
-
-            //  KEMİK VE MODEL ROTASYONUNU PİVOT OLUŞTURMADAN ÖNCE KAYDET
-            SaveTransforms(selectedBone.transform);
-
-            modelOriginalPosition = skeletonRoot.transform.position;
-            modelOriginalRotation = skeletonRoot.transform.rotation;
-
-            if (selectedBone.name != "IsolatedBonePivot")
-            {
-                Transform boneRef = selectedBone.transform;
-
-                //  Kemiğin orijinal poz/rot bilgisini kaydet
-                isolatedBoneInitialPosition = boneRef.position;
-                isolatedBoneInitialRotation = boneRef.rotation;
-
-                Vector3 pivotPos = GetRendererBoundsCenter(boneRef.gameObject);
-                GameObject pivotWrapper = new GameObject("IsolatedBonePivot");
-
-                pivotWrapper.transform.position = pivotPos;
-                pivotWrapper.transform.rotation = Quaternion.LookRotation(arCamera.transform.forward);
-                pivotWrapper.transform.SetParent(null);
-
-                boneRef.SetParent(pivotWrapper.transform);
-
-                if (!pivotWrapper.TryGetComponent(out DragRotate rotator))
-                    pivotWrapper.AddComponent<DragRotate>();
-
-                selectedBone = pivotWrapper;
-            }
-
-
-
-            // Kemikleri gizle
-            Transform[] allBones = skeletonRoot.GetComponentsInChildren<Transform>(true);
-            foreach (Transform bone in allBones)
-            {
-                if (bone == skeletonRoot.transform) continue;
-                bone.gameObject.SetActive(false);
-            }
-
-            selectedBone.gameObject.SetActive(true);
-            foreach (Transform child in selectedBone.transform)
-                child.gameObject.SetActive(true);
-
-            // Modeli sahnede uzağa taşı
-            skeletonRoot.transform.position = modelHiddenPosition;
-        }
-        else
-        {
-            othersHidden = false;
-            SetButtonColor(hideOthersButton, normalColor);
-            colorCtrl?.ResetToNormalState();
-
-            skeletonRoot.transform.position = modelOriginalPosition;
-            skeletonRoot.transform.rotation = modelOriginalRotation;
-
-            Transform[] allBones = skeletonRoot.GetComponentsInChildren<Transform>(true);
-            foreach (Transform bone in allBones)
-            {
-                if (bone == skeletonRoot.transform) continue;
-                bone.gameObject.SetActive(true);
-            }
-
-            RestoreBoneAndModelToSavedPose();
-        }
-    }
-
 
 
     private Vector3 GetRendererBoundsCenter(GameObject go)
@@ -576,4 +542,12 @@ public class UIManager : MonoBehaviour
 
         panelRect.anchoredPosition = to;
     }
+    public void HidePanels()
+{
+    rightPanel.SetActive(false);
+    middlePanel.SetActive(false);
+    isRightPanelVisible = false;
+    isMiddlePanelVisible = false;
 }
+
+} 

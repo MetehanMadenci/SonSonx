@@ -9,5 +9,5 @@ public class BoneInfo : ScriptableObject
     [SerializeField] public string boneModelName;
     [TextArea(1,20)]
     [SerializeField] public string boneDescription;
-    [SerializeField] public string boneLink;
+    //[SerializeField] public string boneLink;
 }

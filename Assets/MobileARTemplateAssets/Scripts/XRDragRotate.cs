@@ -136,14 +136,14 @@ public class XRDragRotate : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            var clickHandler = hit.transform.GetComponent<BoneClickHandler>();
+            var clickHandler = hit.transform.GetComponent<XRBoneClickHandler>();
             if (clickHandler != null)
             {
                 clickHandler.SelectBone();
                 return;
             }
 
-            clickHandler = hit.transform.GetComponentInParent<BoneClickHandler>();
+            clickHandler = hit.transform.GetComponentInParent<XRBoneClickHandler>();
             if (clickHandler != null)
             {
                 clickHandler.SelectBone();

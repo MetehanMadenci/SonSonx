@@ -17,24 +17,33 @@ public class SliderScaleController : MonoBehaviour
     }
 
     public void SetTargetModel(GameObject model)
+{
+    targetModel = model;
+    if (model != null)
     {
-        targetModel = model;
-        if (model != null)
-        {
-            initialScale = model.transform.localScale;
-            lastValue = 1f;
-            scaleSlider.value = lastValue;
-        }
+        initialScale = model.transform.localScale;
+        lastValue = 1f;
+        scaleSlider.value = lastValue;
+        scaleSlider.gameObject.SetActive(true); // ðŸ”¹ Model geldi, slider'Ä± gÃ¶ster
     }
+}
+
 
     private void OnScaleChanged(float value)
     {
         if (targetModel == null) return;
 
-        // Küçük deðiþikliklerde güncelleme yapma
+        // Kï¿½ï¿½ï¿½k deï¿½iï¿½ikliklerde gï¿½ncelleme yapma
         if (Mathf.Abs(value - lastValue) < 0.01f) return;
 
         targetModel.transform.localScale = initialScale * value;
         lastValue = value;
     }
+
+    public void HideSlider()
+{
+    if (scaleSlider != null && scaleSlider.gameObject != null)
+        scaleSlider.gameObject.SetActive(false);
+}
+
 }

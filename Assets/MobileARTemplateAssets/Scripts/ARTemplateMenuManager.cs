@@ -16,21 +16,6 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 public class ARTemplateMenuManager : MonoBehaviour
 {
 
-    
-    [SerializeField]
-    [Tooltip("Button that deletes a selected object.")]
-    Button m_DeleteButton;
-
-    /// <summary>
-    /// Button that deletes a selected object.
-    /// </summary>
-    public Button deleteButton
-    {
-        get => m_DeleteButton;
-        set => m_DeleteButton = value;
-    }
-
-
     [SerializeField]
     [Tooltip("The object spawner component in charge of spawning new objects.")]
     ObjectSpawner m_ObjectSpawner;
@@ -120,20 +105,7 @@ public class ARTemplateMenuManager : MonoBehaviour
 
     /// <summary>
     /// See <see cref="MonoBehaviour"/>.
-    /// </summary>
-    void OnEnable()
-    {
-        m_DeleteButton.onClick.AddListener(DeleteFocusedObject);
-    }
-
-    /// <summary>
-    /// See <see cref="MonoBehaviour"/>.
-    /// </summary>
-    void OnDisable()
-    {
-        m_ShowObjectMenu = false;
-        m_DeleteButton.onClick.RemoveListener(DeleteFocusedObject);
-    }
+ 
 
     /// <summary>
     /// See <see cref="MonoBehaviour"/>.
@@ -192,14 +164,6 @@ public class ARTemplateMenuManager : MonoBehaviour
         }
     }
 
-    void DeleteFocusedObject()
-    {
-        var currentFocusedObject = m_InteractionGroup.focusInteractable;
-        if (currentFocusedObject != null)
-        {
-            Destroy(currentFocusedObject.transform.gameObject);
-        }
-    }
 }
 
 
