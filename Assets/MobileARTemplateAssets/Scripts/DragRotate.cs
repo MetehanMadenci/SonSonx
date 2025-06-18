@@ -29,6 +29,8 @@ public class DragRotate : MonoBehaviour
     private const float clickTimeThreshold = 0.3f;
     private const float clickMoveThreshold = 20f;
 
+    private bool hasHiddenImage = false;
+
     void Start()
     {
         initialPosition = transform.position;
@@ -57,9 +59,8 @@ public class DragRotate : MonoBehaviour
         if (Mouse.current.leftButton.wasReleasedThisFrame)
         {
             if (!isDragging && !IsPointerOverUI(Mouse.current.position.ReadValue()))
-            {
                 TrySelectBone(Mouse.current.position.ReadValue());
-            }
+
             isDragging = false;
             return;
         }
@@ -73,6 +74,7 @@ public class DragRotate : MonoBehaviour
                 isDragging = true;
                 prevTouchPos = curPos;
                 isTouchingModel = CheckIfHitsModel(curPos) && !IsPointerOverUI(curPos);
+                HideImageOnFirstTouch(); // 🔹 İlk dokunuşta görseli gizle
                 return;
             }
 
@@ -113,6 +115,7 @@ public class DragRotate : MonoBehaviour
             prevTouchPos = touchPos;
             isDragging = false;
             isTouchingModel = CheckIfHitsModel(touchPos) && !IsPointerOverUI(touchPos);
+            HideImageOnFirstTouch(); // 🔹 İlk dokunuşta görseli gizle
             return;
         }
 
@@ -121,14 +124,10 @@ public class DragRotate : MonoBehaviour
             Vector2 delta = touchPos - prevTouchPos;
 
             if (!isDragging && delta.magnitude > clickMoveThreshold / 2f)
-            {
                 isDragging = true;
-            }
 
             if (isDragging)
-            {
                 RotateXYLocal(delta);
-            }
 
             prevTouchPos = touchPos;
         }
@@ -188,11 +187,9 @@ public class DragRotate : MonoBehaviour
             return;
         }
 
-        // Pan
         Vector2 panDelta = currentAvg - prevTwoFingerAvg;
         transform.Translate(new Vector3(panDelta.x * panSpeed, panDelta.y * panSpeed, 0), Space.World);
 
-        // Zoom - Modified to work with hidden bones
         float zoomDelta = currentDistance - prevTouchDistance;
         Vector3 zoomTarget = GetCurrentZoomTarget();
         Vector3 zoomDir = (zoomTarget - Camera.main.transform.position).normalized;
@@ -206,33 +203,24 @@ public class DragRotate : MonoBehaviour
 
     Vector3 GetCurrentZoomTarget()
     {
-        // Try to get the selected bone first
         BoneClickHandler selectedBone = FindSelectedBone();
         if (selectedBone != null)
-        {
-            // If we have a selected bone, use its position
             return selectedBone.transform.position;
-        }
 
-        // Fallback to the model's center
         return GetRendererBoundsCenter(gameObject);
     }
 
     BoneClickHandler FindSelectedBone()
     {
-        // Find any active BoneClickHandler in the scene
         BoneClickHandler[] handlers = FindObjectsOfType<BoneClickHandler>();
         foreach (var handler in handlers)
         {
             if (handler.gameObject.activeInHierarchy)
-            {
                 return handler;
-            }
         }
         return null;
     }
 
-    // -------------------- COMMON FUNCTIONS --------------------
     void TrySelectBone(Vector2 screenPos)
     {
         Camera cam = Camera.main;
@@ -250,7 +238,6 @@ public class DragRotate : MonoBehaviour
                 return;
             }
 
-            // Check parents if not found on current object
             clickHandler = hit.transform.GetComponentInParent<BoneClickHandler>();
             if (clickHandler != null)
             {
@@ -274,9 +261,7 @@ public class DragRotate : MonoBehaviour
 
         Bounds bounds = renderers[0].bounds;
         foreach (var r in renderers)
-        {
             bounds.Encapsulate(r.bounds);
-        }
         return bounds.center;
     }
 
@@ -298,5 +283,14 @@ public class DragRotate : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(pointerData, results);
         return results.Count > 0;
+    }
+
+    void HideImageOnFirstTouch()
+    {
+        if (!hasHiddenImage && UIManager.Instance != null && UIManager.Instance.imageToHideOnTouch != null)
+        {
+            UIManager.Instance.imageToHideOnTouch.SetActive(false);
+            hasHiddenImage = true;
+        }
     }
 }

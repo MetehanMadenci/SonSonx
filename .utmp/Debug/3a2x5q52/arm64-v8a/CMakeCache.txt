@@ -54,14 +54,29 @@ CMAKE_ASM_FLAGS_RELEASE:STRING=
 // MinSizeRel ...
 CMAKE_BUILD_TYPE:STRING=Debug
 
+//LLVM archiver
+CMAKE_CXX_COMPILER_AR:FILEPATH=/Users/metehanmadenci/Desktop/Bitirme/6000.0.43f1/6000.0.50f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar
+
+//Generate index for LLVM archive
+CMAKE_CXX_COMPILER_RANLIB:FILEPATH=/Users/metehanmadenci/Desktop/Bitirme/6000.0.43f1/6000.0.50f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ranlib
+
 //Flags used by the compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=
 
 //Flags used by the compiler during debug builds.
 CMAKE_CXX_FLAGS_DEBUG:STRING=
 
+//Flags used by the CXX compiler during MINSIZEREL builds.
+CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+
 //Flags used by the compiler during release builds.
 CMAKE_CXX_FLAGS_RELEASE:STRING=
+
+//Flags used by the CXX compiler during RELWITHDEBINFO builds.
+CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+
+//Libraries linked by default with all C++ applications.
+CMAKE_CXX_STANDARD_LIBRARIES:STRING=-latomic -lm
 
 //LLVM archiver
 CMAKE_C_COMPILER_AR:FILEPATH=/Users/metehanmadenci/Desktop/Bitirme/6000.0.43f1/6000.0.50f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar
@@ -242,6 +257,21 @@ Unity_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Unity_SOURCE_DIR:STATIC=/Users/metehanmadenci/Downloads/MobileSonGuncelX-main/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp
 
+//The directory containing a CMake configuration file for game-activity.
+game-activity_DIR:PATH=/Users/metehanmadenci/Downloads/MobileSonGuncelX-main/.utmp/Debug/3a2x5q52/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/game-activity
+
+//Value Computed by CMake
+game_BINARY_DIR:STATIC=/Users/metehanmadenci/Downloads/MobileSonGuncelX-main/.utmp/Debug/3a2x5q52/arm64-v8a/GameActivity
+
+//Value Computed by CMake
+game_IS_TOP_LEVEL:STATIC=OFF
+
+//Dependencies for the target
+game_LIB_DEPENDS:STATIC=general;android;general;game-activity::game-activity_static;general;log;general;c++;
+
+//Value Computed by CMake
+game_SOURCE_DIR:STATIC=/Users/metehanmadenci/Downloads/MobileSonGuncelX-main/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity
+
 
 ########################
 # INTERNAL cache entries
@@ -265,8 +295,22 @@ CMAKE_COMMAND:INTERNAL=/Users/metehanmadenci/Desktop/Bitirme/6000.0.43f1/6000.0.
 CMAKE_CPACK_COMMAND:INTERNAL=/Users/metehanmadenci/Desktop/Bitirme/6000.0.43f1/6000.0.50f1/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/cpack
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=/Users/metehanmadenci/Desktop/Bitirme/6000.0.43f1/6000.0.50f1/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ctest
-//Result of TRY_COMPILE
-CMAKE_C_ABI_COMPILED:INTERNAL=FALSE
+//ADVANCED property for variable: CMAKE_CXX_COMPILER_AR
+CMAKE_CXX_COMPILER_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_COMPILER_RANLIB
+CMAKE_CXX_COMPILER_RANLIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_FLAGS
+CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG
+CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_FLAGS_MINSIZEREL
+CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELEASE
+CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
+CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_STANDARD_LIBRARIES
+CMAKE_CXX_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_AR
 CMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB
@@ -329,7 +373,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

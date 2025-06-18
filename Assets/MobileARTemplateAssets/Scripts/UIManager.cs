@@ -57,6 +57,8 @@ public class UIManager : MonoBehaviour
     private Quaternion modelOriginalRotation;
     public bool isRightPanelVisible = false;
     public bool isMiddlePanelVisible = false;
+    public GameObject imageToHideOnTouch;
+
 
     private Dictionary<string, string> boneDescriptions = new Dictionary<string, string>()
     {

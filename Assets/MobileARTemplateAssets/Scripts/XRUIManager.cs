@@ -10,7 +10,7 @@ public class XRUIManager : MonoBehaviour
     private bool isFadeActive = false;
     private bool isHideActive = false;
 
-    public Transform screenCenterTarget;
+    //public Transform screenCenterTarget;
     private Dictionary<string, BoneInfo> boneInfoLookup;
     public GameObject rightPanel;
     public GameObject middlePanel;
