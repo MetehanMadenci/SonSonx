@@ -208,6 +208,36 @@ public void SetSelectedBone(GameObject boneObj, Material mat, float isolateDista
         mat.renderQueue = 3000;
     }
 
+public void ClearSelectionAndUI()
+{
+    isFadeActive = false;
+    isHideActive = false;
+    isFaded = false;
+    isHidden = false;
+
+    UpdateButtonColors();
+
+    // 🔄 Orijinal materyalleri geri yükle
+    if (originalMaterials != null)
+    {
+        foreach (var kvp in originalMaterials)
+        {
+            if (kvp.Key != null)
+            {
+                kvp.Key.materials = kvp.Value;
+            }
+        }
+    }
+    originalMaterials.Clear();
+
+    selectedBone = null;
+    selectedMaterial = null;
+
+    // Panelleri kapat
+    HidePanels();
+}
+
+
     public void SlidePanel(GameObject panel, Vector2 hiddenPos, Vector2 shownPos, float duration = 0.4f)
     {
         StartCoroutine(SlideCoroutine(panel.GetComponent<RectTransform>(), hiddenPos, shownPos, duration));

@@ -8,7 +8,7 @@ public class DragRotate : MonoBehaviour
     [Header("Speed Settings")]
     public float rotationSpeed = 0.2f;
     public float panSpeed = 0.005f;
-    public float zoomSpeed = 0.01f;
+    public float zoomSpeed = 0.02f;
 
     [Header("Zoom Limits")]
     public float minZoomDistance = 0.5f;
@@ -161,10 +161,13 @@ public class DragRotate : MonoBehaviour
         }
 
         if (touchCount >= 2)
-        {
-            avgPos /= touchCount;
-            HandleTwoFingerPanAndZoom(avgPos);
-        }
+{
+    avgPos /= touchCount;
+    isTouchingModel = false; // İki parmak varsa rotasyonu engelle
+    HandleTwoFingerPanAndZoom(avgPos);
+    return; // 🔒 ROTATE'i engelle
+}
+
         else
         {
             isZooming = false;
@@ -172,34 +175,48 @@ public class DragRotate : MonoBehaviour
     }
 
     void HandleTwoFingerPanAndZoom(Vector2 avgPos)
+{
+    Vector2 p1 = Touchscreen.current.touches[0].position.ReadValue();
+    Vector2 p2 = Touchscreen.current.touches[1].position.ReadValue();
+
+    float currentDistance = Vector2.Distance(p1, p2);
+    Vector2 currentAvg = (p1 + p2) / 2f;
+
+    if (!isZooming)
     {
-        Vector2 p1 = Touchscreen.current.touches[0].position.ReadValue();
-        Vector2 p2 = Touchscreen.current.touches[1].position.ReadValue();
-
-        float currentDistance = Vector2.Distance(p1, p2);
-        Vector2 currentAvg = (p1 + p2) / 2f;
-
-        if (!isZooming)
-        {
-            isZooming = true;
-            prevTwoFingerAvg = currentAvg;
-            prevTouchDistance = currentDistance;
-            return;
-        }
-
-        Vector2 panDelta = currentAvg - prevTwoFingerAvg;
-        transform.Translate(new Vector3(panDelta.x * panSpeed, panDelta.y * panSpeed, 0), Space.World);
-
-        float zoomDelta = currentDistance - prevTouchDistance;
-        Vector3 zoomTarget = GetCurrentZoomTarget();
-        Vector3 zoomDir = (zoomTarget - Camera.main.transform.position).normalized;
-        float targetDistance = Vector3.Distance(Camera.main.transform.position, zoomTarget) - (zoomDelta * zoomSpeed);
-        targetDistance = Mathf.Clamp(targetDistance, minZoomDistance, maxZoomDistance);
-        Camera.main.transform.position = zoomTarget - zoomDir * targetDistance;
-
+        isZooming = true;
         prevTwoFingerAvg = currentAvg;
         prevTouchDistance = currentDistance;
+        return;
     }
+
+    Vector2 panDelta = currentAvg - prevTwoFingerAvg;
+
+    // PAN hareketi
+    Vector3 panMovement = new Vector3(panDelta.x * panSpeed, panDelta.y * panSpeed, 0);
+    transform.Translate(panMovement, Space.World);
+
+    // Limitleme: Model kameradan çok uzaklaşmasın
+    Vector3 modelCenter = GetRendererBoundsCenter(gameObject);
+    Vector3 screenPos = Camera.main.WorldToViewportPoint(modelCenter);
+    if (screenPos.x < 0.1f || screenPos.x > 0.9f || screenPos.y < 0.1f || screenPos.y > 0.9f)
+    {
+        // Geri al pan hareketini
+        transform.Translate(-panMovement, Space.World);
+    }
+
+    // Zoom hareketi
+    float zoomDelta = currentDistance - prevTouchDistance;
+    Vector3 zoomTarget = GetCurrentZoomTarget();
+    Vector3 zoomDir = (zoomTarget - Camera.main.transform.position).normalized;
+    float targetDistance = Vector3.Distance(Camera.main.transform.position, zoomTarget) - (zoomDelta * zoomSpeed);
+    targetDistance = Mathf.Clamp(targetDistance, minZoomDistance, maxZoomDistance);
+    Camera.main.transform.position = zoomTarget - zoomDir * targetDistance;
+
+    prevTwoFingerAvg = currentAvg;
+    prevTouchDistance = currentDistance;
+}
+
 
     Vector3 GetCurrentZoomTarget()
     {

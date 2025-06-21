@@ -8,16 +8,61 @@
 // ad/vendor ids
 #if UNITY_USES_IAD
 #include <AdSupport/ASIdentifierManager.h>
+#include <AppTrackingTransparency/ATTrackingManager.h>
 static id QueryASIdentifierManager()
 {
+    static bool _queryAttempted = false;
+    static id _manager = nil;
+
+    if (_queryAttempted)
+        return _manager;
+
+    _queryAttempted = true;
     NSBundle* bundle = [NSBundle bundleWithPath: @"/System/Library/Frameworks/AdSupport.framework"];
     if (bundle)
     {
         [bundle load];
-        return [NSClassFromString(@"ASIdentifierManager") performSelector: @selector(sharedManager)];
+        _manager = [NSClassFromString(@"ASIdentifierManager") performSelector: @selector(sharedManager)];
+        return _manager;
     }
 
     return nil;
+}
+
+API_AVAILABLE(ios(14))
+static bool QueryAttTrackingAuthorization()
+{
+    static bool _status = false;
+
+    // if authorization is revoked, app is restarted, so we can cache
+    if (!_status)
+    {
+        static Class _ATTrackingManager = nil;
+        static bool _classLoadAttempted = false;
+
+        if (!_classLoadAttempted)
+        {
+            _classLoadAttempted = true;
+            NSBundle* bundle = [NSBundle bundleWithPath: @"/System/Library/Frameworks/AppTrackingTransparency.framework"];
+            if (bundle)
+            {
+                [bundle load];
+                _ATTrackingManager = NSClassFromString(@"ATTrackingManager");
+            }
+        }
+
+        if (_ATTrackingManager)
+        {
+            id status = [_ATTrackingManager valueForKey: @"trackingAuthorizationStatus"];
+            if (status && [status isKindOfClass: NSNumber.class])
+            {
+                NSNumber* tackingStatus = status;
+                _status = ATTrackingManagerAuthorizationStatusAuthorized == tackingStatus.unsignedIntValue;
+            }
+        }
+    }
+
+    return _status;
 }
 
 #endif
@@ -82,10 +127,17 @@ extern "C" int UnityAdTrackingEnabled()
     bool _AdTrackingEnabled = false;
 
 #if UNITY_USES_IAD
-    // ad tracking can be changed during app lifetime
-    id manager = QueryASIdentifierManager();
-    if (manager)
-        _AdTrackingEnabled = [manager performSelector: @selector(isAdvertisingTrackingEnabled)];
+    if (@available(iOS 14.0, tvOS 14.0, *))
+    {
+        _AdTrackingEnabled = QueryAttTrackingAuthorization();
+    }
+    else
+    {
+        // ad tracking can be changed during app lifetime
+        id manager = QueryASIdentifierManager();
+        if (manager)
+            _AdTrackingEnabled = [manager performSelector: @selector(isAdvertisingTrackingEnabled)];
+    }
 #endif
 
     return _AdTrackingEnabled ? 1 : 0;

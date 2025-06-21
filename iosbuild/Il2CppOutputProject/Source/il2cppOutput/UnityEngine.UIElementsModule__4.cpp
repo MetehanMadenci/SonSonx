@@ -862,9 +862,9 @@ IL2CPP_EXTERN_C const RuntimeMethod* PointerEventBase_1_get_position_m62A6C6E457
 IL2CPP_EXTERN_C const RuntimeMethod* PointerEventBase_1_get_position_m9DB69A881411E7B016A3C2AE10DD81D1FDDB7AD7_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* PooledObject_1_System_IDisposable_Dispose_mF63DD4D92CFBD58DC6415A1781018299297FA126_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* RadioButtonGroup_RadioButtonValueChangedCallback_m9C6870FCC0CB7CC8714ED0A2ADFC8B04C94ACA82_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* RadioButtonGroup_U3CScheduleRadioButtonsU3Eb__31_0_m199D997256F95AE1B1AD7D5423CA1E000D5CFBA8_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* RadioButtonGroup_UnityEngine_UIElements_IGroupBox_OnOptionAdded_m0C002427C351A09CBD51D3D956250A92A028B424_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* RadioButtonGroup_UnityEngine_UIElements_IGroupBox_OnOptionRemoved_m116BC227DDB868473823EDD00C720A81E8BC74B8_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* RadioButtonGroup_UpdateRadioButtons_mC94DE7524BAB078ABA7159E4FD51C5C57B8C4361_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* RadioButton_OnOptionAttachToPanel_m5900393B0D2B89803BF71E359847C3EF3F8FFE82_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* RadioButton_OnOptionDetachFromPanel_mE1EE5DF58398D7CA8552ED6D96EB1C80F5192030_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ScrollView_OnAttachToPanel_m478DE1554E56B56B42AFF8F8F44181EB5D137E4B_RuntimeMethod_var;
@@ -885,8 +885,8 @@ IL2CPP_EXTERN_C const RuntimeMethod* ScrollView_OnVerticalScrollDragElementChang
 IL2CPP_EXTERN_C const RuntimeMethod* ScrollView_PostPointerUpAnimation_m6E469159FEA09A0CD440604DF5C8FE466D5FD1D7_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ScrollView_ResetLayoutPass_m1EC1BE30B3D74059D9772A4772ED73326736FC44_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ScrollView_ScrollTo_mE37EABDBF025F65F4C5CB10F09886DFB1F859BEF_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* ScrollView_U3C_ctorU3Eb__138_0_m3EFB0583BB4E9045981DD63EB3F17182165E5FA9_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* ScrollView_U3C_ctorU3Eb__138_1_mC29D7F6E3FE198F892DFB82133CC17BB63AFA030_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ScrollView_U3C_ctorU3Eb__139_0_m544C8F9F860CB4D583F857AC267226D74FD094FF_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ScrollView_U3C_ctorU3Eb__139_1_m1CF7E834FE0BFAA64DA3BA5FE0F7C00AC2E79AF2_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ScrollView_UpdateElasticBehaviour_m5D1C43E1A85749D0D02DFA3718AB41D7F7651DE3_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Scroller_OnSliderValueChange_m7A415D7C561E8DB2113D080827BFAB46B487A214_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Scroller_ScrollPageDown_mF0129BF306030AEF6F00F17A8DFD0AF360581569_RuntimeMethod_var;
@@ -3339,6 +3339,7 @@ struct ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9  : public VisualElem
 	int64_t ___m_ElasticAnimationIntervalMs;
 	VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* ___m_AttachedRootVisualContainer;
 	float ___m_SingleLineHeight;
+	bool ___m_SingleLineHeightDirtyFlag;
 	bool ___m_MouseWheelScrollSizeIsInline;
 	float ___m_HorizontalPageSize;
 	float ___m_VerticalPageSize;
@@ -4202,8 +4203,6 @@ struct TextElement_tD56C5044CCC5552285DC8A9950CC60448C80FEE0_StaticFields
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___doubleClickSelectsWordProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___tripleClickSelectsLineProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___cursorPositionProperty;
-	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectionColorProperty;
-	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___cursorColorProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectAllOnFocusProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectAllOnMouseUpProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectionProperty;
@@ -4805,13 +4804,15 @@ inline ChangeEvent_1_tAB4351D85EACEBEE9040F90F3A0430C076BE372E* ChangeEvent_1_Ge
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void EventBase_set_elementTarget_m8BF8A4CD508F335210DB9FD2D034549A1EC084A8_inline (EventBase_tD7F89B936EB8074AE31E7B15976C072277371F7C* __this, VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AbstractProgressBar_SetValueWithoutNotify_m365D77811FA48B5793DE669FF36BFED70B071C75 (AbstractProgressBar_t953B809E5B45C1CF994EDD60757A74B59267BC30* __this, float ___0_newValue, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float AbstractProgressBar_CalculateProgressWidth_mC7B0FED238A36CC9F95DE72D7A034EAA247768C6 (AbstractProgressBar_t953B809E5B45C1CF994EDD60757A74B59267BC30* __this, float ___0_width, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float AbstractProgressBar_CalculateOppositeProgressWidth_m9EDC80FA8DD29201F4670D85074460A42CCCA036 (AbstractProgressBar_t953B809E5B45C1CF994EDD60757A74B59267BC30* __this, float ___0_width, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VisualElement_get_style_mDCFF8D835BE0AFE412905E108F48B32A83734224 (VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019 (float ___0_v, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D VisualElement_get_layout_m71851CB694EE1348CDCA83353FFF3C1FB2F69C1A (VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Rect_get_width_m620D67551372073C9C32C4C4624C2A5713F7F9A9_inline (Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Single_IsNaN_mFE637F6ECA9F7697CE8EFF56427858F4C5EDF75D_inline (float ___0_f, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Mathf_Max_mF5379E63D2BBAC76D090748695D833934F8AD051_inline (float ___0_a, float ___1_b, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StyleLength__ctor_m55F6114FDAED5C76CFF8D95F0A25BD51EC42782D (StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8* __this, int32_t ___0_keyword, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StyleLength__ctor_m24A29CCF8BEDCBAADBDF348EC3E00AB9BF585E96 (StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8* __this, float ___0_v, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UxmlTraits_Init_mF7618ABBF84731C43491CE8BD8ADB637AF5CD44D (UxmlTraits_tDED0FF94BF82D1F4DCFD14DBC22DCA51D30D1172* __this, VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* ___0_ve, RuntimeObject* ___1_bag, CreationContext_t9C57B5BE551CCE200C0A2C72711BFF9DA298C257 ___2_cc, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AbstractProgressBar_set_lowValue_mAD81719AF745FBADE87FC773233FF6A24CBDF7E1 (AbstractProgressBar_t953B809E5B45C1CF994EDD60757A74B59267BC30* __this, float ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AbstractProgressBar_set_highValue_mD77530EAD3288536610F559592390674F4FD6287 (AbstractProgressBar_t953B809E5B45C1CF994EDD60757A74B59267BC30* __this, float ___0_value, const RuntimeMethod* method) ;
@@ -4991,7 +4992,7 @@ inline void BaseField_1_SetValueWithoutNotify_mB16D9A1FF9E29E44947FDAE0357912DB8
 {
 	((  void (*) (BaseField_1_tB351B262306464787F5A31B33CDC431E89796615*, int32_t, const RuntimeMethod*))BaseField_1_SetValueWithoutNotify_mB16D9A1FF9E29E44947FDAE0357912DB83F3175B_gshared)(__this, ___0_newValue, method);
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_UpdateRadioButtons_mC94DE7524BAB078ABA7159E4FD51C5C57B8C4361 (RadioButtonGroup_t92E82155D2102EA368B854C8F088737BED188DDE* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_UpdateRadioButtons_m2DFBBA211045FFC25764B4F518E5A7275455B6B8 (RadioButtonGroup_t92E82155D2102EA368B854C8F088737BED188DDE* __this, bool ___0_notify, const RuntimeMethod* method) ;
 inline void List_1_Clear_mF5F1521C576C3E2621390085B3A9BC166D07C396_inline (List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* __this, const RuntimeMethod* method)
 {
 	((  void (*) (List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4*, const RuntimeMethod*))List_1_Clear_m16C1F2C61FED5955F10EB36BC1CB2DF34B128994_gshared_inline)(__this, method);
@@ -5258,6 +5259,7 @@ inline void EventCallback_1__ctor_mE64B79996B25171AA5DCBD2AFBB71A1A8C38B6E5 (Eve
 	((  void (*) (EventCallback_1_tE2BCC4FFB156A2716749F7BDD0036A743B039913*, RuntimeObject*, intptr_t, const RuntimeMethod*))EventCallback_1__ctor_m8E83F917FC9541DE1168E498CDF99D58A6DC329B_gshared)(__this, ___0_object, ___1_method, method);
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_set_scrollOffset_m220AFAC09FA2E3784CBB76EB53D6AD71C056A1D5 (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___0_value, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VisualElement_set_receivesHierarchyGeometryChangedEvents_m17AE668F16FD80207DB38A29AE49AE93C9AC5DCA (VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* __this, bool ___0_value, const RuntimeMethod* method) ;
 inline RuntimeObject* PanelChangedEventBase_1_get_destinationPanel_m8AE1564C5D0CADA5428BFC43C5111C6227ED65C0_inline (PanelChangedEventBase_1_t08E54FB461E77FFD76488075D78EFDBED77D44E3* __this, const RuntimeMethod* method)
 {
 	return ((  RuntimeObject* (*) (PanelChangedEventBase_1_t08E54FB461E77FFD76488075D78EFDBED77D44E3*, const RuntimeMethod*))PanelChangedEventBase_1_get_destinationPanel_m7F1989B93B498769D6A6EB6A5CB991AB3B4D8FD2_gshared_inline)(__this, method);
@@ -5271,7 +5273,7 @@ inline void CallbackEventHandler_RegisterCallback_TisCustomStyleResolvedEvent_t5
 {
 	((  void (*) (CallbackEventHandler_t99E35735225B4ACEAD1BA981632FD2D46E9CB2B4*, EventCallback_1_tDE93D01AB4244ED03015ADF985CF61A9E3CA060F*, int32_t, const RuntimeMethod*))CallbackEventHandler_RegisterCallback_TisRuntimeObject_m221D8BDDC2D60A7D22B11CBCC628C7990BE1C8F9_gshared)(__this, ___0_callback, ___1_useTrickleDown, method);
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_ReadSingleLineHeight_m783A7990593C00F5BB92FA2AAAB8A8062D40DEFD (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_MarkSingleLineHeightDirty_mD0B9A1F1048B66A9ADCD3D58294FD07A575AA1D8 (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, const RuntimeMethod* method) ;
 inline void CallbackEventHandler_RegisterCallback_TisPointerMoveEvent_t2C1E2E20A07034638F48C3EB94B8520549D770C3_mA3E722BB63A92FD6550289D5155483E408E4795B (CallbackEventHandler_t99E35735225B4ACEAD1BA981632FD2D46E9CB2B4* __this, EventCallback_1_t7C6768AD962B0B50514570724A38E07DA18FB1FA* ___0_callback, int32_t ___1_useTrickleDown, const RuntimeMethod* method)
 {
 	((  void (*) (CallbackEventHandler_t99E35735225B4ACEAD1BA981632FD2D46E9CB2B4*, EventCallback_1_t7C6768AD962B0B50514570724A38E07DA18FB1FA*, int32_t, const RuntimeMethod*))CallbackEventHandler_RegisterCallback_TisRuntimeObject_m221D8BDDC2D60A7D22B11CBCC628C7990BE1C8F9_gshared)(__this, ___0_callback, ___1_useTrickleDown, method);
@@ -5436,6 +5438,7 @@ inline bool StyleEnum_1_op_Inequality_m8B286A760E68E135A245A3B5CA37F21154A7BBEF 
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scroller_set_lowValue_mC28C28BEB87DDE8BF935E65BFFADDA8730172752 (Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* __this, float ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scroller_set_highValue_mAD8DB848402EB675FAD1E33663F30D6518114FCA (Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* __this, float ___0_value, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 WheelEvent_get_delta_mDFB7F45FA5ED7D711EBB3F8FADC88C4F451088B2_inline (WheelEvent_tDD5DB3A6F5F6FDB59AD7FF27491502FF18B9775E* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_ReadSingleLineHeight_m783A7990593C00F5BB92FA2AAAB8A8062D40DEFD (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float ScrollView_get_mouseWheelScrollSize_m11FF4213777728025AADCA3D5C9E98F0C606B7A3 (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_UpdateElasticBehaviour_m5D1C43E1A85749D0D02DFA3718AB41D7F7651DE3 (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComputedStyle_t8B08CCCEE20525528B3FFDAC6D3F58F101AAF54C* VisualElement_get_computedStyle_m8124059EC4D72CCEDE7107FFF72A614131604C3A (VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* __this, const RuntimeMethod* method) ;
@@ -5444,6 +5447,7 @@ inline bool Dictionary_2_TryGetValue_m393F14ED6A4405F48CF585F5978CFFA589763A83 (
 	return ((  bool (*) (Dictionary_2_t645C7B1DAE2D839B52A5E387C165CE13D5465B00*, String_t*, StylePropertyValue_tED32F617FABE99611B213BFCF9D1D909E7F141C2*, const RuntimeMethod*))Dictionary_2_TryGetValue_m0877E96B773A1C6F78A2DD44A166DB82A4C20151_gshared)(__this, ___0_key, ___1_value, method);
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool StyleSheet_TryReadDimension_m958623B584936010E8AC24B01D8896C2FC2945F0 (StyleSheet_t6FAF43FCDB45BC6BED0522A222FD4C1A9BB10428* __this, StyleValueHandle_t5831643AAA7AD8C5C43A4498C5E0A2545F78227D ___0_handle, Dimension_t5B1EAB500AE32C3789A2BCC4D43F7A29996DF3F8* ___1_value, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* VisualElement_get_parent_m80978E6D0A928AB4885EE4CD0E2295C72AA73000 (VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* __this, const RuntimeMethod* method) ;
 inline void UxmlFactory_2__ctor_m0C38E78CC299D10C729D4B82B842095639005F5F (UxmlFactory_2_t2DAB48E1821254ED3AC93F8AF5BDEF74F329C5BE* __this, const RuntimeMethod* method)
 {
 	((  void (*) (UxmlFactory_2_t2DAB48E1821254ED3AC93F8AF5BDEF74F329C5BE*, const RuntimeMethod*))UxmlFactory_2__ctor_m88A0346DFE6F79DFE0C5986C5804D4FABA9DB95A_gshared)(__this, method);
@@ -8696,7 +8700,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* AbstractProgressBar_get_title_m11A8
 		Label_tC160668F9119CE0F5567021FB208E64A5B1C5B70* L_0 = __this->___m_Title;
 		NullCheck(L_0);
 		String_t* L_1;
-		L_1 = VirtualFuncInvoker0< String_t* >::Invoke(203, L_0);
+		L_1 = VirtualFuncInvoker0< String_t* >::Invoke(200, L_0);
 		return L_1;
 	}
 }
@@ -8717,7 +8721,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AbstractProgressBar_set_title_mF1E785303
 		Label_tC160668F9119CE0F5567021FB208E64A5B1C5B70* L_1 = __this->___m_Title;
 		String_t* L_2 = ___0_value;
 		NullCheck(L_1);
-		VirtualActionInvoker1< String_t* >::Invoke(204, L_1, L_2);
+		VirtualActionInvoker1< String_t* >::Invoke(201, L_1, L_2);
 		String_t* L_3 = V_0;
 		String_t* L_4;
 		L_4 = AbstractProgressBar_get_title_m11A8CE41C55301B4AA6C4AFB618966E80BFC9763(__this, NULL);
@@ -8930,7 +8934,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AbstractProgressBar_OnGeometryChanged_m9
 {
 	{
 		float L_0;
-		L_0 = VirtualFuncInvoker0< float >::Invoke(141, __this);
+		L_0 = VirtualFuncInvoker0< float >::Invoke(142, __this);
 		AbstractProgressBar_SetProgress_m20E0F4C0451B1AA67792D7B3BA16F5F98039DD9C(__this, L_0, NULL);
 		return;
 	}
@@ -9068,7 +9072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AbstractProgressBar_SetValueWithoutNotif
 		float L_0 = ___0_newValue;
 		__this->___m_Value = L_0;
 		float L_1;
-		L_1 = VirtualFuncInvoker0< float >::Invoke(141, __this);
+		L_1 = VirtualFuncInvoker0< float >::Invoke(142, __this);
 		AbstractProgressBar_SetProgress_m20E0F4C0451B1AA67792D7B3BA16F5F98039DD9C(__this, L_1, NULL);
 		return;
 	}
@@ -9132,7 +9136,7 @@ IL_0035:
 	{
 		float L_9 = V_0;
 		float L_10;
-		L_10 = AbstractProgressBar_CalculateProgressWidth_mC7B0FED238A36CC9F95DE72D7A034EAA247768C6(__this, L_9, NULL);
+		L_10 = AbstractProgressBar_CalculateOppositeProgressWidth_m9EDC80FA8DD29201F4670D85074460A42CCCA036(__this, L_9, NULL);
 		V_0 = L_10;
 		float L_11 = V_0;
 		V_3 = (bool)((((int32_t)((!(((float)L_11) >= ((float)(0.0f))))? 1 : 0)) == ((int32_t)0))? 1 : 0);
@@ -9159,15 +9163,28 @@ IL_0065:
 		return;
 	}
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float AbstractProgressBar_CalculateProgressWidth_mC7B0FED238A36CC9F95DE72D7A034EAA247768C6 (AbstractProgressBar_t953B809E5B45C1CF994EDD60757A74B59267BC30* __this, float ___0_width, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float AbstractProgressBar_CalculateOppositeProgressWidth_m9EDC80FA8DD29201F4670D85074460A42CCCA036 (AbstractProgressBar_t953B809E5B45C1CF994EDD60757A74B59267BC30* __this, float ___0_width, const RuntimeMethod* method) 
 {
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
 	float V_0 = 0.0f;
-	bool V_1 = false;
+	float V_1 = 0.0f;
 	float V_2 = 0.0f;
 	bool V_3 = false;
-	Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D V_4;
-	memset((&V_4), 0, sizeof(V_4));
+	float V_4 = 0.0f;
+	bool V_5 = false;
+	Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D V_6;
+	memset((&V_6), 0, sizeof(V_6));
 	int32_t G_B3_0 = 0;
+	RuntimeObject* G_B9_0 = NULL;
+	RuntimeObject* G_B8_0 = NULL;
+	StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 G_B10_0;
+	memset((&G_B10_0), 0, sizeof(G_B10_0));
+	RuntimeObject* G_B10_1 = NULL;
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_0 = __this->___m_Background;
 		if (!L_0)
@@ -9188,66 +9205,109 @@ IL_0014:
 
 IL_0015:
 	{
-		V_1 = (bool)G_B3_0;
-		bool L_2 = V_1;
+		V_3 = (bool)G_B3_0;
+		bool L_2 = V_3;
 		if (!L_2)
 		{
-			goto IL_0022;
+			goto IL_0026;
 		}
 	}
 	{
-		V_2 = (0.0f);
-		goto IL_007c;
+		V_4 = (0.0f);
+		goto IL_00bf;
 	}
 
-IL_0022:
+IL_0026:
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_3 = __this->___m_Background;
 		NullCheck(L_3);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_4;
 		L_4 = VisualElement_get_layout_m71851CB694EE1348CDCA83353FFF3C1FB2F69C1A(L_3, NULL);
-		V_4 = L_4;
+		V_6 = L_4;
 		float L_5;
-		L_5 = Rect_get_width_m620D67551372073C9C32C4C4624C2A5713F7F9A9_inline((&V_4), NULL);
+		L_5 = Rect_get_width_m620D67551372073C9C32C4C4624C2A5713F7F9A9_inline((&V_6), NULL);
 		bool L_6;
 		L_6 = Single_IsNaN_mFE637F6ECA9F7697CE8EFF56427858F4C5EDF75D_inline(L_5, NULL);
-		V_3 = L_6;
-		bool L_7 = V_3;
+		V_5 = L_6;
+		bool L_7 = V_5;
 		if (!L_7)
 		{
-			goto IL_0048;
+			goto IL_004f;
 		}
 	}
 	{
-		V_2 = (0.0f);
-		goto IL_007c;
+		V_4 = (0.0f);
+		goto IL_00bf;
 	}
 
-IL_0048:
+IL_004f:
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_8 = __this->___m_Background;
 		NullCheck(L_8);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_9;
 		L_9 = VisualElement_get_layout_m71851CB694EE1348CDCA83353FFF3C1FB2F69C1A(L_8, NULL);
-		V_4 = L_9;
+		V_6 = L_9;
 		float L_10;
-		L_10 = Rect_get_width_m620D67551372073C9C32C4C4624C2A5713F7F9A9_inline((&V_4), NULL);
-		V_0 = ((float)il2cpp_codegen_subtract(L_10, (2.0f)));
-		float L_11 = V_0;
+		L_10 = Rect_get_width_m620D67551372073C9C32C4C4624C2A5713F7F9A9_inline((&V_6), NULL);
+		float L_11;
+		L_11 = floorf(((float)il2cpp_codegen_subtract(L_10, (2.0f))));
+		V_0 = L_11;
 		float L_12 = V_0;
 		float L_13 = ___0_width;
 		float L_14;
 		L_14 = AbstractProgressBar_get_highValue_m7114228D44EB12271298C3671C7D5043C2ED2FE6_inline(__this, NULL);
 		float L_15;
-		L_15 = Mathf_Max_mF5379E63D2BBAC76D090748695D833934F8AD051_inline(((float)(((float)il2cpp_codegen_multiply(L_12, L_13))/L_14)), (1.0f), NULL);
-		V_2 = ((float)il2cpp_codegen_subtract(L_11, L_15));
-		goto IL_007c;
+		L_15 = Mathf_Max_mF5379E63D2BBAC76D090748695D833934F8AD051_inline(((float)(((float)il2cpp_codegen_multiply(L_12, L_13))/L_14)), (0.0f), NULL);
+		V_1 = L_15;
+		float L_16 = V_0;
+		float L_17 = V_1;
+		V_2 = ((float)il2cpp_codegen_subtract(L_16, L_17));
+		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_18 = __this->___m_Progress;
+		NullCheck(L_18);
+		RuntimeObject* L_19;
+		L_19 = VisualElement_get_style_mDCFF8D835BE0AFE412905E108F48B32A83734224(L_18, NULL);
+		float L_20 = V_0;
+		float L_21 = V_2;
+		float L_22;
+		L_22 = fabsf(((float)il2cpp_codegen_subtract(L_20, L_21)));
+		if ((((float)L_22) < ((float)(0.100000001f))))
+		{
+			G_B9_0 = L_19;
+			goto IL_00aa;
+		}
+		G_B8_0 = L_19;
+	}
+	{
+		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_23;
+		memset((&L_23), 0, sizeof(L_23));
+		StyleLength__ctor_m55F6114FDAED5C76CFF8D95F0A25BD51EC42782D((&L_23), 2, NULL);
+		G_B10_0 = L_23;
+		G_B10_1 = G_B8_0;
+		goto IL_00b4;
 	}
 
-IL_007c:
+IL_00aa:
 	{
-		float L_16 = V_2;
-		return L_16;
+		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_24;
+		memset((&L_24), 0, sizeof(L_24));
+		StyleLength__ctor_m24A29CCF8BEDCBAADBDF348EC3E00AB9BF585E96((&L_24), (0.0f), NULL);
+		G_B10_0 = L_24;
+		G_B10_1 = G_B9_0;
+	}
+
+IL_00b4:
+	{
+		NullCheck(G_B10_1);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, G_B10_1, G_B10_0);
+		float L_25 = V_2;
+		V_4 = L_25;
+		goto IL_00bf;
+	}
+
+IL_00bf:
+	{
+		float L_26 = V_4;
+		return L_26;
 	}
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AbstractProgressBar__cctor_mB41CA550BEC2497F4CEFD8436C689EC673DC20B8 (const RuntimeMethod* method) 
@@ -9475,7 +9535,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UxmlTraits_Init_mE5AE36159A4D0595C93A06B
 		float L_18;
 		L_18 = VirtualFuncInvoker2< float, RuntimeObject*, CreationContext_t9C57B5BE551CCE200C0A2C72711BFF9DA298C257 >::Invoke(4, L_15, L_16, L_17);
 		NullCheck(L_14);
-		VirtualActionInvoker1< float >::Invoke(142, L_14, L_18);
+		VirtualActionInvoker1< float >::Invoke(143, L_14, L_18);
 		AbstractProgressBar_t953B809E5B45C1CF994EDD60757A74B59267BC30* L_19 = V_0;
 		UxmlStringAttributeDescription_t60C9BE81B6A3251AD7A38A90E46F240E016293EF* L_20 = __this->___m_Title;
 		RuntimeObject* L_21 = ___1_bag;
@@ -9796,7 +9856,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButton_ToggleValue_m756F4F9495BE8EF
 	bool V_0 = false;
 	{
 		bool L_0;
-		L_0 = VirtualFuncInvoker0< bool >::Invoke(143, __this);
+		L_0 = VirtualFuncInvoker0< bool >::Invoke(144, __this);
 		V_0 = (bool)((((int32_t)L_0) == ((int32_t)0))? 1 : 0);
 		bool L_1 = V_0;
 		if (!L_1)
@@ -9805,7 +9865,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButton_ToggleValue_m756F4F9495BE8EF
 		}
 	}
 	{
-		VirtualActionInvoker1< bool >::Invoke(144, __this, (bool)1);
+		VirtualActionInvoker1< bool >::Invoke(145, __this, (bool)1);
 	}
 
 IL_0018:
@@ -9817,7 +9877,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButton_UnityEngine_UIElements_IGrou
 {
 	{
 		bool L_0 = ___0_selected;
-		VirtualActionInvoker1< bool >::Invoke(144, __this, L_0);
+		VirtualActionInvoker1< bool >::Invoke(145, __this, L_0);
 		return;
 	}
 }
@@ -9849,7 +9909,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButton_UpdateCheckmark_m6EEE91D7254
 		RuntimeObject* L_1;
 		L_1 = VisualElement_get_style_mDCFF8D835BE0AFE412905E108F48B32A83734224(L_0, NULL);
 		bool L_2;
-		L_2 = VirtualFuncInvoker0< bool >::Invoke(143, __this);
+		L_2 = VirtualFuncInvoker0< bool >::Invoke(144, __this);
 		if (L_2)
 		{
 			G_B2_0 = L_1;
@@ -10504,7 +10564,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup__ctor_m0F5732D9CA123648
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_RadioButtonValueChangedCallback), (void*)L_21);
 		List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD* L_22 = ___1_radioButtonChoices;
 		RadioButtonGroup_set_choices_m67A6FABD7E22F1C7997C52F5E68FEE69C6DED64C(__this, L_22, NULL);
-		VirtualActionInvoker1< int32_t >::Invoke(144, __this, (-1));
+		VirtualActionInvoker1< int32_t >::Invoke(145, __this, (-1));
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_23;
 		L_23 = BaseField_1_get_visualInput_m62476B58AAA085A7BC0CC8BB4CE125A196C280CF(__this, BaseField_1_get_visualInput_m62476B58AAA085A7BC0CC8BB4CE125A196C280CF_RuntimeMethod_var);
 		NullCheck(L_23);
@@ -10527,72 +10587,57 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_RadioButtonValueChanged
 		s_Il2CppMethodInitialized = true;
 	}
 	bool V_0 = false;
-	bool V_1 = false;
-	RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* V_2 = NULL;
-	PooledObject_1_t042AD2081A4E4D75897FD68BF90E48050B06F7C7 V_3;
-	memset((&V_3), 0, sizeof(V_3));
-	List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* V_4 = NULL;
+	RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* V_1 = NULL;
+	PooledObject_1_t042AD2081A4E4D75897FD68BF90E48050B06F7C7 V_2;
+	memset((&V_2), 0, sizeof(V_2));
+	List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* V_3 = NULL;
 	{
-		bool L_0 = __this->___m_UpdatingButtons;
-		V_0 = L_0;
-		bool L_1 = V_0;
-		if (!L_1)
+		ChangeEvent_1_t2AA4161DCA648D276CFE726DD08B0D55FA799D4B* L_0 = ___0_evt;
+		NullCheck(L_0);
+		bool L_1;
+		L_1 = ChangeEvent_1_get_newValue_m0D62ED9449CF3368792D1D5BBC7839722E995776_inline(L_0, ChangeEvent_1_get_newValue_m0D62ED9449CF3368792D1D5BBC7839722E995776_RuntimeMethod_var);
+		V_0 = L_1;
+		bool L_2 = V_0;
+		if (!L_2)
 		{
-			goto IL_000d;
+			goto IL_004f;
 		}
 	}
 	{
-		goto IL_005d;
-	}
-
-IL_000d:
-	{
-		ChangeEvent_1_t2AA4161DCA648D276CFE726DD08B0D55FA799D4B* L_2 = ___0_evt;
-		NullCheck(L_2);
-		bool L_3;
-		L_3 = ChangeEvent_1_get_newValue_m0D62ED9449CF3368792D1D5BBC7839722E995776_inline(L_2, ChangeEvent_1_get_newValue_m0D62ED9449CF3368792D1D5BBC7839722E995776_RuntimeMethod_var);
-		V_1 = L_3;
-		bool L_4 = V_1;
-		if (!L_4)
-		{
-			goto IL_005d;
-		}
-	}
-	{
-		ChangeEvent_1_t2AA4161DCA648D276CFE726DD08B0D55FA799D4B* L_5 = ___0_evt;
-		NullCheck(L_5);
-		RuntimeObject* L_6;
-		L_6 = EventBase_get_target_m9E5CB6AC9A51E9F61D9540D279BFA53C04AD010E(L_5, NULL);
-		V_2 = ((RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8*)IsInstClass((RuntimeObject*)L_6, RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8_il2cpp_TypeInfo_var));
+		ChangeEvent_1_t2AA4161DCA648D276CFE726DD08B0D55FA799D4B* L_3 = ___0_evt;
+		NullCheck(L_3);
+		RuntimeObject* L_4;
+		L_4 = EventBase_get_target_m9E5CB6AC9A51E9F61D9540D279BFA53C04AD010E(L_3, NULL);
+		V_1 = ((RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8*)IsInstClass((RuntimeObject*)L_4, RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8_il2cpp_TypeInfo_var));
 		il2cpp_codegen_runtime_class_init_inline(CollectionPool_2_tCEEFEC94528481AC38EFB91F9E486C227F986801_il2cpp_TypeInfo_var);
-		PooledObject_1_t042AD2081A4E4D75897FD68BF90E48050B06F7C7 L_7;
-		L_7 = CollectionPool_2_Get_mBBB23B082FF58FDFCAE753C289EE9DFFAE53957E((&V_4), CollectionPool_2_Get_mBBB23B082FF58FDFCAE753C289EE9DFFAE53957E_RuntimeMethod_var);
-		V_3 = L_7;
+		PooledObject_1_t042AD2081A4E4D75897FD68BF90E48050B06F7C7 L_5;
+		L_5 = CollectionPool_2_Get_mBBB23B082FF58FDFCAE753C289EE9DFFAE53957E((&V_3), CollectionPool_2_Get_mBBB23B082FF58FDFCAE753C289EE9DFFAE53957E_RuntimeMethod_var);
+		V_2 = L_5;
 	}
 	{
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_004d:
+FINALLY_003f:
 			{
-				PooledObject_1_System_IDisposable_Dispose_mF63DD4D92CFBD58DC6415A1781018299297FA126((&V_3), PooledObject_1_System_IDisposable_Dispose_mF63DD4D92CFBD58DC6415A1781018299297FA126_RuntimeMethod_var);
+				PooledObject_1_System_IDisposable_Dispose_mF63DD4D92CFBD58DC6415A1781018299297FA126((&V_2), PooledObject_1_System_IDisposable_Dispose_mF63DD4D92CFBD58DC6415A1781018299297FA126_RuntimeMethod_var);
 				return;
 			}
 		});
 		try
 		{
-			List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_8 = V_4;
-			RadioButtonGroup_GetAllRadioButtons_mD149237AE4CD3EF86EF4D810B5A1E48924707A21(__this, L_8, NULL);
-			List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_9 = V_4;
-			RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_10 = V_2;
-			NullCheck(L_9);
-			int32_t L_11;
-			L_11 = List_1_IndexOf_m85F10268134973632DB030AFC207CFCC8101131D(L_9, L_10, List_1_IndexOf_m85F10268134973632DB030AFC207CFCC8101131D_RuntimeMethod_var);
-			VirtualActionInvoker1< int32_t >::Invoke(144, __this, L_11);
-			ChangeEvent_1_t2AA4161DCA648D276CFE726DD08B0D55FA799D4B* L_12 = ___0_evt;
-			NullCheck(L_12);
-			EventBase_StopPropagation_mEFC7E5AB7164157065FF19064A6ADCBB0D8AF6FB(L_12, NULL);
-			goto IL_005c;
+			List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_6 = V_3;
+			RadioButtonGroup_GetAllRadioButtons_mD149237AE4CD3EF86EF4D810B5A1E48924707A21(__this, L_6, NULL);
+			List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_7 = V_3;
+			RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_8 = V_1;
+			NullCheck(L_7);
+			int32_t L_9;
+			L_9 = List_1_IndexOf_m85F10268134973632DB030AFC207CFCC8101131D(L_7, L_8, List_1_IndexOf_m85F10268134973632DB030AFC207CFCC8101131D_RuntimeMethod_var);
+			VirtualActionInvoker1< int32_t >::Invoke(145, __this, L_9);
+			ChangeEvent_1_t2AA4161DCA648D276CFE726DD08B0D55FA799D4B* L_10 = ___0_evt;
+			NullCheck(L_10);
+			EventBase_StopPropagation_mEFC7E5AB7164157065FF19064A6ADCBB0D8AF6FB(L_10, NULL);
+			goto IL_004e;
 		}
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -10600,11 +10645,11 @@ FINALLY_004d:
 		}
 	}
 
-IL_005c:
+IL_004e:
 	{
 	}
 
-IL_005d:
+IL_004f:
 	{
 		return;
 	}
@@ -10620,7 +10665,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_SetValueWithoutNotify_m
 	{
 		int32_t L_0 = ___0_newValue;
 		BaseField_1_SetValueWithoutNotify_mB16D9A1FF9E29E44947FDAE0357912DB83F3175B(__this, L_0, BaseField_1_SetValueWithoutNotify_mB16D9A1FF9E29E44947FDAE0357912DB83F3175B_RuntimeMethod_var);
-		RadioButtonGroup_UpdateRadioButtons_mC94DE7524BAB078ABA7159E4FD51C5C57B8C4361(__this, NULL);
+		RadioButtonGroup_UpdateRadioButtons_m2DFBBA211045FFC25764B4F518E5A7275455B6B8(__this, (bool)1, NULL);
 		return;
 	}
 }
@@ -10647,7 +10692,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_GetAllRadioButtons_mD14
 		return;
 	}
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_UpdateRadioButtons_mC94DE7524BAB078ABA7159E4FD51C5C57B8C4361 (RadioButtonGroup_t92E82155D2102EA368B854C8F088737BED188DDE* __this, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_UpdateRadioButtons_m2DFBBA211045FFC25764B4F518E5A7275455B6B8 (RadioButtonGroup_t92E82155D2102EA368B854C8F088737BED188DDE* __this, bool ___0_notify, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -10668,9 +10713,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_UpdateRadioButtons_mC94
 	List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* V_1 = NULL;
 	bool V_2 = false;
 	bool V_3 = false;
-	Enumerator_tF921693E6FCB66C86DC10AA4FFC276E4D86C0596 V_4;
-	memset((&V_4), 0, sizeof(V_4));
-	RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* V_5 = NULL;
+	bool V_4 = false;
+	Enumerator_tF921693E6FCB66C86DC10AA4FFC276E4D86C0596 V_5;
+	memset((&V_5), 0, sizeof(V_5));
+	RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* V_6 = NULL;
+	bool V_7 = false;
+	bool V_8 = false;
+	Enumerator_tF921693E6FCB66C86DC10AA4FFC276E4D86C0596 V_9;
+	memset((&V_9), 0, sizeof(V_9));
+	RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* V_10 = NULL;
+	bool V_11 = false;
 	int32_t G_B6_0 = 0;
 	{
 		RuntimeObject* L_0;
@@ -10683,7 +10735,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_UpdateRadioButtons_mC94
 		}
 	}
 	{
-		goto IL_00be;
+		goto IL_0147;
 	}
 
 IL_0013:
@@ -10697,7 +10749,7 @@ IL_0013:
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_00af:
+FINALLY_0138:
 			{
 				PooledObject_1_System_IDisposable_Dispose_mF63DD4D92CFBD58DC6415A1781018299297FA126((&V_0), PooledObject_1_System_IDisposable_Dispose_mF63DD4D92CFBD58DC6415A1781018299297FA126_RuntimeMethod_var);
 				return;
@@ -10711,7 +10763,7 @@ FINALLY_00af:
 				__this->___m_SelectedRadioButton = (RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8*)NULL;
 				Il2CppCodeGenWriteBarrier((void**)(&__this->___m_SelectedRadioButton), (void*)(RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8*)NULL);
 				int32_t L_4;
-				L_4 = VirtualFuncInvoker0< int32_t >::Invoke(143, __this);
+				L_4 = VirtualFuncInvoker0< int32_t >::Invoke(144, __this);
 				if ((((int32_t)L_4) < ((int32_t)0)))
 				{
 					goto IL_0043_1;
@@ -10719,7 +10771,7 @@ FINALLY_00af:
 			}
 			{
 				int32_t L_5;
-				L_5 = VirtualFuncInvoker0< int32_t >::Invoke(143, __this);
+				L_5 = VirtualFuncInvoker0< int32_t >::Invoke(144, __this);
 				List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_6 = V_1;
 				NullCheck(L_6);
 				int32_t L_7;
@@ -10739,69 +10791,116 @@ IL_0044_1:
 				bool L_8 = V_3;
 				if (!L_8)
 				{
-					goto IL_006b_1;
+					goto IL_00e2_1;
 				}
 			}
 			{
 				List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_9 = V_1;
 				int32_t L_10;
-				L_10 = VirtualFuncInvoker0< int32_t >::Invoke(143, __this);
+				L_10 = VirtualFuncInvoker0< int32_t >::Invoke(144, __this);
 				NullCheck(L_9);
 				RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_11;
 				L_11 = List_1_get_Item_m559A44DBF84FAEBDA4A2C271D1A798CC5CF4D877(L_9, L_10, List_1_get_Item_m559A44DBF84FAEBDA4A2C271D1A798CC5CF4D877_RuntimeMethod_var);
 				__this->___m_SelectedRadioButton = L_11;
 				Il2CppCodeGenWriteBarrier((void**)(&__this->___m_SelectedRadioButton), (void*)L_11);
-				RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_12 = __this->___m_SelectedRadioButton;
-				NullCheck(L_12);
-				VirtualActionInvoker1< bool >::Invoke(144, L_12, (bool)1);
-				goto IL_00a6_1;
+				bool L_12 = ___0_notify;
+				V_4 = L_12;
+				bool L_13 = V_4;
+				if (!L_13)
+				{
+					goto IL_0074_1;
+				}
+			}
+			{
+				RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_14 = __this->___m_SelectedRadioButton;
+				NullCheck(L_14);
+				VirtualActionInvoker1< bool >::Invoke(145, L_14, (bool)1);
+				goto IL_0081_1;
 			}
 
-IL_006b_1:
+IL_0074_1:
 			{
-				List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_13 = V_1;
-				NullCheck(L_13);
-				Enumerator_tF921693E6FCB66C86DC10AA4FFC276E4D86C0596 L_14;
-				L_14 = List_1_GetEnumerator_mF7BF9F458D0BDBEF7EE0F77B75317266312DA6FC(L_13, List_1_GetEnumerator_mF7BF9F458D0BDBEF7EE0F77B75317266312DA6FC_RuntimeMethod_var);
-				V_4 = L_14;
+				RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_15 = __this->___m_SelectedRadioButton;
+				NullCheck(L_15);
+				VirtualActionInvoker1< bool >::Invoke(155, L_15, (bool)1);
+			}
+
+IL_0081_1:
+			{
+				List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_16 = V_1;
+				NullCheck(L_16);
+				Enumerator_tF921693E6FCB66C86DC10AA4FFC276E4D86C0596 L_17;
+				L_17 = List_1_GetEnumerator_mF7BF9F458D0BDBEF7EE0F77B75317266312DA6FC(L_16, List_1_GetEnumerator_mF7BF9F458D0BDBEF7EE0F77B75317266312DA6FC_RuntimeMethod_var);
+				V_5 = L_17;
 			}
 			{
 				auto __finallyBlock = il2cpp::utils::Finally([&]
 				{
 
-FINALLY_0096_1:
+FINALLY_00d0_1:
 					{
-						Enumerator_Dispose_m6D2DF9CE303E1BB267DAFFDC2247121FB491AE10((&V_4), Enumerator_Dispose_m6D2DF9CE303E1BB267DAFFDC2247121FB491AE10_RuntimeMethod_var);
+						Enumerator_Dispose_m6D2DF9CE303E1BB267DAFFDC2247121FB491AE10((&V_5), Enumerator_Dispose_m6D2DF9CE303E1BB267DAFFDC2247121FB491AE10_RuntimeMethod_var);
 						return;
 					}
 				});
 				try
 				{
 					{
-						goto IL_008b_2;
+						goto IL_00c5_2;
 					}
 
-IL_0077_2:
+IL_008c_2:
 					{
-						RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_15;
-						L_15 = Enumerator_get_Current_m12601EA6B5D2E9008374DBE5FC0F2BE727889F7F_inline((&V_4), Enumerator_get_Current_m12601EA6B5D2E9008374DBE5FC0F2BE727889F7F_RuntimeMethod_var);
-						V_5 = L_15;
-						RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_16 = V_5;
-						NullCheck(L_16);
-						VirtualActionInvoker1< bool >::Invoke(144, L_16, (bool)0);
-					}
-
-IL_008b_2:
-					{
-						bool L_17;
-						L_17 = Enumerator_MoveNext_mF9E11CE363C163AA3E0AC10DE336B225426584CE((&V_4), Enumerator_MoveNext_mF9E11CE363C163AA3E0AC10DE336B225426584CE_RuntimeMethod_var);
-						if (L_17)
+						RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_18;
+						L_18 = Enumerator_get_Current_m12601EA6B5D2E9008374DBE5FC0F2BE727889F7F_inline((&V_5), Enumerator_get_Current_m12601EA6B5D2E9008374DBE5FC0F2BE727889F7F_RuntimeMethod_var);
+						V_6 = L_18;
+						RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_19 = V_6;
+						RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_20 = __this->___m_SelectedRadioButton;
+						V_7 = (bool)((((int32_t)((((RuntimeObject*)(RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8*)L_19) == ((RuntimeObject*)(RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8*)L_20))? 1 : 0)) == ((int32_t)0))? 1 : 0);
+						bool L_21 = V_7;
+						if (!L_21)
 						{
-							goto IL_0077_2;
+							goto IL_00c4_2;
 						}
 					}
 					{
-						goto IL_00a5_1;
+						bool L_22 = ___0_notify;
+						V_8 = L_22;
+						bool L_23 = V_8;
+						if (!L_23)
+						{
+							goto IL_00bb_2;
+						}
+					}
+					{
+						RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_24 = V_6;
+						NullCheck(L_24);
+						VirtualActionInvoker1< bool >::Invoke(145, L_24, (bool)0);
+						goto IL_00c4_2;
+					}
+
+IL_00bb_2:
+					{
+						RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_25 = V_6;
+						NullCheck(L_25);
+						VirtualActionInvoker1< bool >::Invoke(155, L_25, (bool)0);
+					}
+
+IL_00c4_2:
+					{
+					}
+
+IL_00c5_2:
+					{
+						bool L_26;
+						L_26 = Enumerator_MoveNext_mF9E11CE363C163AA3E0AC10DE336B225426584CE((&V_5), Enumerator_MoveNext_mF9E11CE363C163AA3E0AC10DE336B225426584CE_RuntimeMethod_var);
+						if (L_26)
+						{
+							goto IL_008c_2;
+						}
+					}
+					{
+						goto IL_00df_1;
 					}
 				}
 				catch(Il2CppExceptionWrapper& e)
@@ -10810,14 +10909,93 @@ IL_008b_2:
 				}
 			}
 
-IL_00a5_1:
+IL_00df_1:
+			{
+				goto IL_012f_1;
+			}
+
+IL_00e2_1:
+			{
+				List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_27 = V_1;
+				NullCheck(L_27);
+				Enumerator_tF921693E6FCB66C86DC10AA4FFC276E4D86C0596 L_28;
+				L_28 = List_1_GetEnumerator_mF7BF9F458D0BDBEF7EE0F77B75317266312DA6FC(L_27, List_1_GetEnumerator_mF7BF9F458D0BDBEF7EE0F77B75317266312DA6FC_RuntimeMethod_var);
+				V_9 = L_28;
+			}
+			{
+				auto __finallyBlock = il2cpp::utils::Finally([&]
+				{
+
+FINALLY_011f_1:
+					{
+						Enumerator_Dispose_m6D2DF9CE303E1BB267DAFFDC2247121FB491AE10((&V_9), Enumerator_Dispose_m6D2DF9CE303E1BB267DAFFDC2247121FB491AE10_RuntimeMethod_var);
+						return;
+					}
+				});
+				try
+				{
+					{
+						goto IL_0114_2;
+					}
+
+IL_00ee_2:
+					{
+						RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_29;
+						L_29 = Enumerator_get_Current_m12601EA6B5D2E9008374DBE5FC0F2BE727889F7F_inline((&V_9), Enumerator_get_Current_m12601EA6B5D2E9008374DBE5FC0F2BE727889F7F_RuntimeMethod_var);
+						V_10 = L_29;
+						bool L_30 = ___0_notify;
+						V_11 = L_30;
+						bool L_31 = V_11;
+						if (!L_31)
+						{
+							goto IL_010a_2;
+						}
+					}
+					{
+						RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_32 = V_10;
+						NullCheck(L_32);
+						VirtualActionInvoker1< bool >::Invoke(145, L_32, (bool)0);
+						goto IL_0113_2;
+					}
+
+IL_010a_2:
+					{
+						RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_33 = V_10;
+						NullCheck(L_33);
+						VirtualActionInvoker1< bool >::Invoke(155, L_33, (bool)0);
+					}
+
+IL_0113_2:
+					{
+					}
+
+IL_0114_2:
+					{
+						bool L_34;
+						L_34 = Enumerator_MoveNext_mF9E11CE363C163AA3E0AC10DE336B225426584CE((&V_9), Enumerator_MoveNext_mF9E11CE363C163AA3E0AC10DE336B225426584CE_RuntimeMethod_var);
+						if (L_34)
+						{
+							goto IL_00ee_2;
+						}
+					}
+					{
+						goto IL_012e_1;
+					}
+				}
+				catch(Il2CppExceptionWrapper& e)
+				{
+					__finallyBlock.StoreException(e.ex);
+				}
+			}
+
+IL_012e_1:
 			{
 			}
 
-IL_00a6_1:
+IL_012f_1:
 			{
 				__this->___m_UpdatingButtons = (bool)0;
-				goto IL_00be;
+				goto IL_0147;
 			}
 		}
 		catch(Il2CppExceptionWrapper& e)
@@ -10826,7 +11004,7 @@ IL_00a6_1:
 		}
 	}
 
-IL_00be:
+IL_0147:
 	{
 		return;
 	}
@@ -10838,7 +11016,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_ScheduleRadioButtons_m8
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IVisualElementScheduler_tA68650FA9218398E77265748741B091638336FD8_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&RadioButtonGroup_UpdateRadioButtons_mC94DE7524BAB078ABA7159E4FD51C5C57B8C4361_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&RadioButtonGroup_U3CScheduleRadioButtonsU3Eb__31_0_m199D997256F95AE1B1AD7D5423CA1E000D5CFBA8_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	bool V_0 = false;
@@ -10860,7 +11038,7 @@ IL_000d:
 		RuntimeObject* L_2;
 		L_2 = VisualElement_get_schedule_m2BFE6967ED82371ACE1CD1FC32B8D8B93646ED76(__this, NULL);
 		Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* L_3 = (Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07*)il2cpp_codegen_object_new(Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07_il2cpp_TypeInfo_var);
-		Action__ctor_mBDC7B0B4A3F583B64C2896F01BDED360772F67DC(L_3, __this, (intptr_t)((void*)RadioButtonGroup_UpdateRadioButtons_mC94DE7524BAB078ABA7159E4FD51C5C57B8C4361_RuntimeMethod_var), NULL);
+		Action__ctor_mBDC7B0B4A3F583B64C2896F01BDED360772F67DC(L_3, __this, (intptr_t)((void*)RadioButtonGroup_U3CScheduleRadioButtonsU3Eb__31_0_m199D997256F95AE1B1AD7D5423CA1E000D5CFBA8_RuntimeMethod_var), NULL);
 		NullCheck(L_2);
 		RuntimeObject* L_4;
 		L_4 = InterfaceFuncInvoker1< RuntimeObject*, Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* >::Invoke(1, IVisualElementScheduler_tA68650FA9218398E77265748741B091638336FD8_il2cpp_TypeInfo_var, L_2, L_3);
@@ -10877,12 +11055,21 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_RegisterRadioButton_m6C
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&CollectionPool_2_Get_mBBB23B082FF58FDFCAE753C289EE9DFFAE53957E_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&CollectionPool_2_tCEEFEC94528481AC38EFB91F9E486C227F986801_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&INotifyValueChangedExtensions_RegisterValueChangedCallback_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m21346157EFCB13A3F77EDC25116E4898A4C1FB90_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_Add_mF81F70B762D95E3B813C39ACE3E12BB9CD7DFB3E_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_Contains_m96D143DB1B459C86DB8FC077919C3F47E2A3F893_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_IndexOf_m85F10268134973632DB030AFC207CFCC8101131D_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&PooledObject_1_System_IDisposable_Dispose_mF63DD4D92CFBD58DC6415A1781018299297FA126_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	bool V_0 = false;
+	bool V_1 = false;
+	PooledObject_1_t042AD2081A4E4D75897FD68BF90E48050B06F7C7 V_2;
+	memset((&V_2), 0, sizeof(V_2));
+	List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* V_3 = NULL;
+	int32_t G_B5_0 = 0;
 	{
 		List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_0 = __this->___m_RegisteredRadioButtons;
 		RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_1 = ___0_radioButton;
@@ -10897,7 +11084,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_RegisterRadioButton_m6C
 		}
 	}
 	{
-		goto IL_0034;
+		goto IL_007b;
 	}
 
 IL_0013:
@@ -10910,10 +11097,80 @@ IL_0013:
 		EventCallback_1_t0FE3F70E94CC4C4904A9F1C171A3DE56EE41F103* L_7 = __this->___m_RadioButtonValueChangedCallback;
 		bool L_8;
 		L_8 = INotifyValueChangedExtensions_RegisterValueChangedCallback_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m21346157EFCB13A3F77EDC25116E4898A4C1FB90(L_6, L_7, INotifyValueChangedExtensions_RegisterValueChangedCallback_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m21346157EFCB13A3F77EDC25116E4898A4C1FB90_RuntimeMethod_var);
+		int32_t L_9;
+		L_9 = VirtualFuncInvoker0< int32_t >::Invoke(144, __this);
+		if ((!(((uint32_t)L_9) == ((uint32_t)(-1)))))
+		{
+			goto IL_003e;
+		}
+	}
+	{
+		RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_10 = ___0_radioButton;
+		NullCheck(L_10);
+		bool L_11;
+		L_11 = VirtualFuncInvoker0< bool >::Invoke(144, L_10);
+		G_B5_0 = ((int32_t)(L_11));
+		goto IL_003f;
+	}
+
+IL_003e:
+	{
+		G_B5_0 = 0;
+	}
+
+IL_003f:
+	{
+		V_1 = (bool)G_B5_0;
+		bool L_12 = V_1;
+		if (!L_12)
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		il2cpp_codegen_runtime_class_init_inline(CollectionPool_2_tCEEFEC94528481AC38EFB91F9E486C227F986801_il2cpp_TypeInfo_var);
+		PooledObject_1_t042AD2081A4E4D75897FD68BF90E48050B06F7C7 L_13;
+		L_13 = CollectionPool_2_Get_mBBB23B082FF58FDFCAE753C289EE9DFFAE53957E((&V_3), CollectionPool_2_Get_mBBB23B082FF58FDFCAE753C289EE9DFFAE53957E_RuntimeMethod_var);
+		V_2 = L_13;
+	}
+	{
+		auto __finallyBlock = il2cpp::utils::Finally([&]
+		{
+
+FINALLY_0064:
+			{
+				PooledObject_1_System_IDisposable_Dispose_mF63DD4D92CFBD58DC6415A1781018299297FA126((&V_2), PooledObject_1_System_IDisposable_Dispose_mF63DD4D92CFBD58DC6415A1781018299297FA126_RuntimeMethod_var);
+				return;
+			}
+		});
+		try
+		{
+			List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_14 = V_3;
+			RadioButtonGroup_GetAllRadioButtons_mD149237AE4CD3EF86EF4D810B5A1E48924707A21(__this, L_14, NULL);
+			List_1_t83677DD3658C07F0F0DD73BD808F8F9EE45CDDE4* L_15 = V_3;
+			RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8* L_16 = ___0_radioButton;
+			NullCheck(L_15);
+			int32_t L_17;
+			L_17 = List_1_IndexOf_m85F10268134973632DB030AFC207CFCC8101131D(L_15, L_16, List_1_IndexOf_m85F10268134973632DB030AFC207CFCC8101131D_RuntimeMethod_var);
+			VirtualActionInvoker1< int32_t >::Invoke(155, __this, L_17);
+			goto IL_0073;
+		}
+		catch(Il2CppExceptionWrapper& e)
+		{
+			__finallyBlock.StoreException(e.ex);
+		}
+	}
+
+IL_0073:
+	{
+	}
+
+IL_0074:
+	{
 		RadioButtonGroup_ScheduleRadioButtons_m865B0A8A429A16A44B14742A90913B28FF1CB17E(__this, NULL);
 	}
 
-IL_0034:
+IL_007b:
 	{
 		return;
 	}
@@ -11043,7 +11300,7 @@ IL_001e:
 	{
 		__this->___m_SelectedRadioButton = (RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_SelectedRadioButton), (void*)(RadioButton_t47B7368AB0B24A865401F69F0AC0BFB54F3CE8C8*)NULL);
-		VirtualActionInvoker1< int32_t >::Invoke(144, __this, (-1));
+		VirtualActionInvoker1< int32_t >::Invoke(145, __this, (-1));
 	}
 
 IL_0044:
@@ -11325,6 +11582,13 @@ IL_0098:
 	{
 		bool L_27 = V_5;
 		return L_27;
+	}
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RadioButtonGroup_U3CScheduleRadioButtonsU3Eb__31_0_m199D997256F95AE1B1AD7D5423CA1E000D5CFBA8 (RadioButtonGroup_t92E82155D2102EA368B854C8F088737BED188DDE* __this, const RuntimeMethod* method) 
+{
+	{
+		RadioButtonGroup_UpdateRadioButtons_m2DFBBA211045FFC25764B4F518E5A7275455B6B8(__this, (bool)0, NULL);
+		return;
 	}
 }
 #ifdef __clang__
@@ -12151,7 +12415,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Scroller_get_value_mAFF18513ACF92E73BAE
 		L_0 = Scroller_get_slider_mE18FB3CD0B7E2817E27C245324A129C70E1FE27C_inline(__this, NULL);
 		NullCheck(L_0);
 		float L_1;
-		L_1 = VirtualFuncInvoker0< float >::Invoke(143, L_0);
+		L_1 = VirtualFuncInvoker0< float >::Invoke(144, L_0);
 		V_0 = L_1;
 		goto IL_000f;
 	}
@@ -12177,19 +12441,19 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scroller_set_value_mAC1D4CA0CA26776DE53A
 		L_0 = Scroller_get_slider_mE18FB3CD0B7E2817E27C245324A129C70E1FE27C_inline(__this, NULL);
 		NullCheck(L_0);
 		float L_1;
-		L_1 = VirtualFuncInvoker0< float >::Invoke(143, L_0);
+		L_1 = VirtualFuncInvoker0< float >::Invoke(144, L_0);
 		V_0 = L_1;
 		Slider_t5891706383A14955E3FAD68A79829F3234681652* L_2;
 		L_2 = Scroller_get_slider_mE18FB3CD0B7E2817E27C245324A129C70E1FE27C_inline(__this, NULL);
 		float L_3 = ___0_value;
 		NullCheck(L_2);
-		VirtualActionInvoker1< float >::Invoke(144, L_2, L_3);
+		VirtualActionInvoker1< float >::Invoke(145, L_2, L_3);
 		float L_4 = V_0;
 		Slider_t5891706383A14955E3FAD68A79829F3234681652* L_5;
 		L_5 = Scroller_get_slider_mE18FB3CD0B7E2817E27C245324A129C70E1FE27C_inline(__this, NULL);
 		NullCheck(L_5);
 		float L_6;
-		L_6 = VirtualFuncInvoker0< float >::Invoke(143, L_5);
+		L_6 = VirtualFuncInvoker0< float >::Invoke(144, L_5);
 		bool L_7;
 		L_7 = Mathf_Approximately_m1DADD012A8FC82E11FB282501AE2EBBF9A77150B_inline(L_4, L_6, NULL);
 		V_1 = (bool)((((int32_t)L_7) == ((int32_t)0))? 1 : 0);
@@ -12653,7 +12917,7 @@ IL_001a:
 		L_4 = Scroller_get_slider_mE18FB3CD0B7E2817E27C245324A129C70E1FE27C_inline(__this, NULL);
 		NullCheck(L_4);
 		float L_5;
-		L_5 = VirtualFuncInvoker0< float >::Invoke(143, L_4);
+		L_5 = VirtualFuncInvoker0< float >::Invoke(144, L_4);
 		NullCheck(G_B2_0);
 		Action_1_Invoke_mA8F89FB04FEA0F48A4F22EC84B5F9ADB2914341F_inline(G_B2_0, L_5, NULL);
 	}
@@ -12708,7 +12972,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scroller_ScrollPageUp_mD38491AC414E229B3
 		L_2 = Scroller_get_slider_mE18FB3CD0B7E2817E27C245324A129C70E1FE27C_inline(__this, NULL);
 		NullCheck(L_2);
 		float L_3;
-		L_3 = VirtualFuncInvoker0< float >::Invoke(160, L_2);
+		L_3 = VirtualFuncInvoker0< float >::Invoke(161, L_2);
 		Slider_t5891706383A14955E3FAD68A79829F3234681652* L_4;
 		L_4 = Scroller_get_slider_mE18FB3CD0B7E2817E27C245324A129C70E1FE27C_inline(__this, NULL);
 		NullCheck(L_4);
@@ -12787,7 +13051,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Scroller_ScrollPageDown_m6D921AAD9DDF0B3
 		L_2 = Scroller_get_slider_mE18FB3CD0B7E2817E27C245324A129C70E1FE27C_inline(__this, NULL);
 		NullCheck(L_2);
 		float L_3;
-		L_3 = VirtualFuncInvoker0< float >::Invoke(160, L_2);
+		L_3 = VirtualFuncInvoker0< float >::Invoke(161, L_2);
 		Slider_t5891706383A14955E3FAD68A79829F3234681652* L_4;
 		L_4 = Scroller_get_slider_mE18FB3CD0B7E2817E27C245324A129C70E1FE27C_inline(__this, NULL);
 		NullCheck(L_4);
@@ -13927,7 +14191,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float ScrollView_get_scrollableWidth_m8D692F2
 	float V_1 = 0.0f;
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_0;
-		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_0);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_1;
 		L_1 = VisualElement_get_boundingBox_m8A360BC1AC353402AB177AF24D19A2F95641EE5C(L_0, NULL);
@@ -13959,7 +14223,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float ScrollView_get_scrollableHeight_m5D0F5A
 	float V_1 = 0.0f;
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_0;
-		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_0);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_1;
 		L_1 = VisualElement_get_boundingBox_m8A360BC1AC353402AB177AF24D19A2F95641EE5C(L_0, NULL);
@@ -14345,7 +14609,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_UpdateHorizontalSliderPageSiz
 		L_1 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_0, NULL);
 		NullCheck(L_1);
 		float L_2;
-		L_2 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_1);
+		L_2 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_1);
 		V_0 = L_2;
 		float L_3 = __this->___m_HorizontalPageSize;
 		V_1 = L_3;
@@ -14382,7 +14646,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_UpdateHorizontalSliderPageSiz
 		L_12 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_11, NULL);
 		NullCheck(L_12);
 		float L_13;
-		L_13 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_12);
+		L_13 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_12);
 		V_4 = L_13;
 		float L_14 = V_4;
 		V_1 = ((float)il2cpp_codegen_multiply(L_14, (0.899999976f)));
@@ -14410,7 +14674,7 @@ IL_0062:
 		L_18 = Scroller_get_slider_mE18FB3CD0B7E2817E27C245324A129C70E1FE27C_inline(L_17, NULL);
 		float L_19 = V_1;
 		NullCheck(L_18);
-		VirtualActionInvoker1< float >::Invoke(161, L_18, L_19);
+		VirtualActionInvoker1< float >::Invoke(162, L_18, L_19);
 	}
 
 IL_0087:
@@ -14506,7 +14770,7 @@ IL_0062:
 		L_18 = Scroller_get_slider_mE18FB3CD0B7E2817E27C245324A129C70E1FE27C_inline(L_17, NULL);
 		float L_19 = V_1;
 		NullCheck(L_18);
-		VirtualActionInvoker1< float >::Invoke(161, L_18, L_19);
+		VirtualActionInvoker1< float >::Invoke(162, L_18, L_19);
 	}
 
 IL_0087:
@@ -14531,7 +14795,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_UpdateContentViewTransform_mA
 	bool V_2 = false;
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_0;
-		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_0);
 		RuntimeObject* L_1;
 		L_1 = VisualElement_get_transform_m3BAB67CC182B8B60920924AEE52826BD736A051D(L_0, NULL);
@@ -14556,7 +14820,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_UpdateContentViewTransform_mA
 		float* L_7 = L_6;
 		float L_8 = *((float*)L_7);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_9;
-		L_9 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_9 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_9);
 		RuntimeObject* L_10;
 		L_10 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_9, NULL);
@@ -14580,7 +14844,7 @@ IL_003e:
 		L_17 = GUIUtility_RoundToPixelGrid_m0E594150154A6CCAD942F6B23179FB6886361105(((-L_16)), NULL);
 		(&V_0)->___y = L_17;
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_18;
-		L_18 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_18 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_18);
 		RuntimeObject* L_19;
 		L_19 = VisualElement_get_transform_m3BAB67CC182B8B60920924AEE52826BD736A051D(L_18, NULL);
@@ -14619,7 +14883,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_ScrollTo_mE37EABDBF025F65F4C5
 IL_0014:
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_3;
-		L_3 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_3 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_4 = ___0_child;
 		NullCheck(L_3);
 		bool L_5;
@@ -14759,7 +15023,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float ScrollView_GetXDeltaOffset_m6178BBADB77
 	int32_t G_B5_0 = 0;
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_0;
-		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_0);
 		RuntimeObject* L_1;
 		L_1 = VisualElement_get_transform_m3BAB67CC182B8B60920924AEE52826BD736A051D(L_0, NULL);
@@ -14898,7 +15162,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float ScrollView_GetYDeltaOffset_m9CD61FB0F52
 	int32_t G_B5_0 = 0;
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_0;
-		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_0);
 		RuntimeObject* L_1;
 		L_1 = VisualElement_get_transform_m3BAB67CC182B8B60920924AEE52826BD736A051D(L_0, NULL);
@@ -15209,8 +15473,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView__ctor_m12ECF70E5923CDACF39F84
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ScrollView_OnScrollWheel_mE7FD49102D1BDB3EF2F56F3DE361D7EDD49E5861_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ScrollView_OnScrollersGeometryChanged_mBDFFFA9280470A57E4A3C294F6C7C5AD52CABBC5_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ScrollView_OnVerticalScrollDragElementChanged_m666A41D3FAD03B79440E8FE337827D8ED303D7F5_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ScrollView_U3C_ctorU3Eb__138_0_m3EFB0583BB4E9045981DD63EB3F17182165E5FA9_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ScrollView_U3C_ctorU3Eb__138_1_mC29D7F6E3FE198F892DFB82133CC17BB63AFA030_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ScrollView_U3C_ctorU3Eb__139_0_m544C8F9F860CB4D583F857AC267226D74FD094FF_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ScrollView_U3C_ctorU3Eb__139_1_m1CF7E834FE0BFAA64DA3BA5FE0F7C00AC2E79AF2_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ScrollView_UpdateElasticBehaviour_m5D1C43E1A85749D0D02DFA3718AB41D7F7651DE3_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8_il2cpp_TypeInfo_var);
@@ -15331,7 +15595,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView__ctor_m12ECF70E5923CDACF39F84
 		int32_t L_33 = ___0_scrollViewMode;
 		ScrollView_SetScrollViewMode_m5BC275E1D403BA55A5BE8CCF75B99B3908D3EB2F(__this, L_33, NULL);
 		Action_1_t310F18CB4338A2740CA701F160C62E2C3198E66A* L_34 = (Action_1_t310F18CB4338A2740CA701F160C62E2C3198E66A*)il2cpp_codegen_object_new(Action_1_t310F18CB4338A2740CA701F160C62E2C3198E66A_il2cpp_TypeInfo_var);
-		Action_1__ctor_m770CD2F8BB65F2EDA5128CA2F96D71C35B23E859(L_34, __this, (intptr_t)((void*)ScrollView_U3C_ctorU3Eb__138_0_m3EFB0583BB4E9045981DD63EB3F17182165E5FA9_RuntimeMethod_var), NULL);
+		Action_1__ctor_m770CD2F8BB65F2EDA5128CA2F96D71C35B23E859(L_34, __this, (intptr_t)((void*)ScrollView_U3C_ctorU3Eb__139_0_m544C8F9F860CB4D583F857AC267226D74FD094FF_RuntimeMethod_var), NULL);
 		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_35 = (Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8*)il2cpp_codegen_object_new(Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8_il2cpp_TypeInfo_var);
 		Scroller__ctor_mEB206478D6D9767E66699F8E673F71562889B841(L_35, (0.0f), (2.14748365E+09f), L_34, 0, NULL);
 		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_36 = L_35;
@@ -15360,7 +15624,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView__ctor_m12ECF70E5923CDACF39F84
 		L_43 = ScrollView_get_horizontalScroller_mF0791CC587E399B708C24885E89301F2633712E8_inline(__this, NULL);
 		Hierarchy_Add_mDDEF4932C9E9FC302755C45A9F7966AEEBC26648((&V_0), L_43, NULL);
 		Action_1_t310F18CB4338A2740CA701F160C62E2C3198E66A* L_44 = (Action_1_t310F18CB4338A2740CA701F160C62E2C3198E66A*)il2cpp_codegen_object_new(Action_1_t310F18CB4338A2740CA701F160C62E2C3198E66A_il2cpp_TypeInfo_var);
-		Action_1__ctor_m770CD2F8BB65F2EDA5128CA2F96D71C35B23E859(L_44, __this, (intptr_t)((void*)ScrollView_U3C_ctorU3Eb__138_1_mC29D7F6E3FE198F892DFB82133CC17BB63AFA030_RuntimeMethod_var), NULL);
+		Action_1__ctor_m770CD2F8BB65F2EDA5128CA2F96D71C35B23E859(L_44, __this, (intptr_t)((void*)ScrollView_U3C_ctorU3Eb__139_1_m1CF7E834FE0BFAA64DA3BA5FE0F7C00AC2E79AF2_RuntimeMethod_var), NULL);
 		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_45 = (Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8*)il2cpp_codegen_object_new(Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8_il2cpp_TypeInfo_var);
 		Scroller__ctor_mEB206478D6D9767E66699F8E673F71562889B841(L_45, (0.0f), (2.14748365E+09f), L_44, 1, NULL);
 		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_46 = L_45;
@@ -15548,6 +15812,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView__ctor_m12ECF70E5923CDACF39F84
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_103;
 		L_103 = Vector2_get_zero_m32506C40EC2EE7D5D4410BF40D3EE683A3D5F32C_inline(NULL);
 		ScrollView_set_scrollOffset_m220AFAC09FA2E3784CBB76EB53D6AD71C056A1D5(__this, L_103, NULL);
+		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_104 = __this->___m_ContentContainer;
+		NullCheck(L_104);
+		VisualElement_set_receivesHierarchyGeometryChangedEvents_m17AE668F16FD80207DB38A29AE49AE93C9AC5DCA(L_104, (bool)1, NULL);
 		return;
 	}
 }
@@ -15615,17 +15882,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_SetScrollViewMode_m5BC275E1D4
 		String_t* L_4 = ((ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_StaticFields*)il2cpp_codegen_static_fields_for(ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_il2cpp_TypeInfo_var))->___scrollVariantUssClassName;
 		VisualElement_RemoveFromClassList_mA7A2EC202004DFCBF38C12B70C6218BF40D21220(__this, L_4, NULL);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_5;
-		L_5 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_5 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		String_t* L_6 = ((ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_StaticFields*)il2cpp_codegen_static_fields_for(ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_il2cpp_TypeInfo_var))->___verticalVariantContentUssClassName;
 		NullCheck(L_5);
 		VisualElement_RemoveFromClassList_mA7A2EC202004DFCBF38C12B70C6218BF40D21220(L_5, L_6, NULL);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_7;
-		L_7 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_7 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		String_t* L_8 = ((ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_StaticFields*)il2cpp_codegen_static_fields_for(ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_il2cpp_TypeInfo_var))->___horizontalVariantContentUssClassName;
 		NullCheck(L_7);
 		VisualElement_RemoveFromClassList_mA7A2EC202004DFCBF38C12B70C6218BF40D21220(L_7, L_8, NULL);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_9;
-		L_9 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_9 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		String_t* L_10 = ((ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_StaticFields*)il2cpp_codegen_static_fields_for(ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_il2cpp_TypeInfo_var))->___verticalHorizontalVariantContentUssClassName;
 		NullCheck(L_9);
 		VisualElement_RemoveFromClassList_mA7A2EC202004DFCBF38C12B70C6218BF40D21220(L_9, L_10, NULL);
@@ -15682,7 +15949,7 @@ IL_00b9:
 		NullCheck(L_22);
 		VisualElement_AddToClassList_mAF0DD8D8CFD5130229A0471DD260E01ED82117F1(L_22, L_23, NULL);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_24;
-		L_24 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_24 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		String_t* L_25 = ((ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_StaticFields*)il2cpp_codegen_static_fields_for(ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_il2cpp_TypeInfo_var))->___verticalVariantContentUssClassName;
 		NullCheck(L_24);
 		VisualElement_AddToClassList_mAF0DD8D8CFD5130229A0471DD260E01ED82117F1(L_24, L_25, NULL);
@@ -15702,7 +15969,7 @@ IL_00f5:
 		NullCheck(L_28);
 		VisualElement_AddToClassList_mAF0DD8D8CFD5130229A0471DD260E01ED82117F1(L_28, L_29, NULL);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_30;
-		L_30 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_30 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		String_t* L_31 = ((ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_StaticFields*)il2cpp_codegen_static_fields_for(ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_il2cpp_TypeInfo_var))->___horizontalVariantContentUssClassName;
 		NullCheck(L_30);
 		VisualElement_AddToClassList_mAF0DD8D8CFD5130229A0471DD260E01ED82117F1(L_30, L_31, NULL);
@@ -15722,7 +15989,7 @@ IL_0131:
 		NullCheck(L_34);
 		VisualElement_AddToClassList_mAF0DD8D8CFD5130229A0471DD260E01ED82117F1(L_34, L_35, NULL);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_36;
-		L_36 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_36 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		String_t* L_37 = ((ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_StaticFields*)il2cpp_codegen_static_fields_for(ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_il2cpp_TypeInfo_var))->___verticalHorizontalVariantContentUssClassName;
 		NullCheck(L_36);
 		VisualElement_AddToClassList_mAF0DD8D8CFD5130229A0471DD260E01ED82117F1(L_36, L_37, NULL);
@@ -15814,7 +16081,7 @@ IL_002c:
 
 IL_003f:
 	{
-		ScrollView_ReadSingleLineHeight_m783A7990593C00F5BB92FA2AAAB8A8062D40DEFD(__this, NULL);
+		ScrollView_MarkSingleLineHeightDirty_mD0B9A1F1048B66A9ADCD3D58294FD07A575AA1D8(__this, NULL);
 		AttachToPanelEvent_t95C0BC3DD37F324A7816CB2574B56D976C932B28* L_7 = ___0_evt;
 		NullCheck(L_7);
 		RuntimeObject* L_8;
@@ -15836,31 +16103,31 @@ IL_003f:
 		NullCheck(L_11);
 		CallbackEventHandler_RegisterCallback_TisPointerMoveEvent_t2C1E2E20A07034638F48C3EB94B8520549D770C3_mA3E722BB63A92FD6550289D5155483E408E4795B(L_11, L_12, 0, CallbackEventHandler_RegisterCallback_TisPointerMoveEvent_t2C1E2E20A07034638F48C3EB94B8520549D770C3_mA3E722BB63A92FD6550289D5155483E408E4795B_RuntimeMethod_var);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_13;
-		L_13 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_13 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		EventCallback_1_tBC1DA4FF1E26FC091E77AD11B6F780C5D237AF2C* L_14 = (EventCallback_1_tBC1DA4FF1E26FC091E77AD11B6F780C5D237AF2C*)il2cpp_codegen_object_new(EventCallback_1_tBC1DA4FF1E26FC091E77AD11B6F780C5D237AF2C_il2cpp_TypeInfo_var);
 		EventCallback_1__ctor_mCDF2316FE391D783EF33C433EB59E5DF474C5398(L_14, __this, (intptr_t)((void*)ScrollView_OnPointerDown_mA97349AEF0B229F45E61F38B10DBF4AA430E0ED0_RuntimeMethod_var), NULL);
 		NullCheck(L_13);
 		CallbackEventHandler_RegisterCallback_TisPointerDownEvent_tABAAD1BACBB98156D6BCCED51E11883EAFE03A51_mB50EABDE414D7C266411468DE2497738C902B820(L_13, L_14, 1, CallbackEventHandler_RegisterCallback_TisPointerDownEvent_tABAAD1BACBB98156D6BCCED51E11883EAFE03A51_mB50EABDE414D7C266411468DE2497738C902B820_RuntimeMethod_var);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_15;
-		L_15 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_15 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		EventCallback_1_tCF242F8E93BCF576DC25DFA8544DC8816F42CFE7* L_16 = (EventCallback_1_tCF242F8E93BCF576DC25DFA8544DC8816F42CFE7*)il2cpp_codegen_object_new(EventCallback_1_tCF242F8E93BCF576DC25DFA8544DC8816F42CFE7_il2cpp_TypeInfo_var);
 		EventCallback_1__ctor_m24CD07E9D8DA8BCAE0446636AB9C0622C36DF10C(L_16, __this, (intptr_t)((void*)ScrollView_OnPointerCancel_m29BCF554FD57E626225B0B4D3DE393E7C558A073_RuntimeMethod_var), NULL);
 		NullCheck(L_15);
 		CallbackEventHandler_RegisterCallback_TisPointerCancelEvent_t566D42065C3B376AD49A44A406AFE929A6CFEE51_mE83DFDC25FA4E7E3A266F03E681EA0012BF8F2B4(L_15, L_16, 0, CallbackEventHandler_RegisterCallback_TisPointerCancelEvent_t566D42065C3B376AD49A44A406AFE929A6CFEE51_mE83DFDC25FA4E7E3A266F03E681EA0012BF8F2B4_RuntimeMethod_var);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_17;
-		L_17 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_17 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		EventCallback_1_tE2BCC4FFB156A2716749F7BDD0036A743B039913* L_18 = (EventCallback_1_tE2BCC4FFB156A2716749F7BDD0036A743B039913*)il2cpp_codegen_object_new(EventCallback_1_tE2BCC4FFB156A2716749F7BDD0036A743B039913_il2cpp_TypeInfo_var);
 		EventCallback_1__ctor_mE64B79996B25171AA5DCBD2AFBB71A1A8C38B6E5(L_18, __this, (intptr_t)((void*)ScrollView_OnPointerUp_mDF05E48E63E261A0A2ABC852038529F1DB9BEE71_RuntimeMethod_var), NULL);
 		NullCheck(L_17);
 		CallbackEventHandler_RegisterCallback_TisPointerUpEvent_tCE779E8B94675B6A2758B82F6A84771CB26913D9_m3CB1C8964D34063EC97466FD36BAF24692213866(L_17, L_18, 1, CallbackEventHandler_RegisterCallback_TisPointerUpEvent_tCE779E8B94675B6A2758B82F6A84771CB26913D9_m3CB1C8964D34063EC97466FD36BAF24692213866_RuntimeMethod_var);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_19;
-		L_19 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_19 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		EventCallback_1_tA1CF2EA66A79B2195FDF3B4E85133003F37B9339* L_20 = (EventCallback_1_tA1CF2EA66A79B2195FDF3B4E85133003F37B9339*)il2cpp_codegen_object_new(EventCallback_1_tA1CF2EA66A79B2195FDF3B4E85133003F37B9339_il2cpp_TypeInfo_var);
 		EventCallback_1__ctor_m3B5B31E1258785C9B402D675D1F803256411F121(L_20, __this, (intptr_t)((void*)ScrollView_OnPointerCapture_m9057901D8B8A7A913E549F69DE203F225C3D936E_RuntimeMethod_var), NULL);
 		NullCheck(L_19);
 		CallbackEventHandler_RegisterCallback_TisPointerCaptureEvent_tB9E534FCED96BD293031FCEF549A28F5161701BB_m38303CF4099DFD1D51FD345B2AADCFA99325772E(L_19, L_20, 0, CallbackEventHandler_RegisterCallback_TisPointerCaptureEvent_tB9E534FCED96BD293031FCEF549A28F5161701BB_m38303CF4099DFD1D51FD345B2AADCFA99325772E_RuntimeMethod_var);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_21;
-		L_21 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_21 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		EventCallback_1_t3A7B85AD96E3BB6F407AAFF594E222FBD5B713EF* L_22 = (EventCallback_1_t3A7B85AD96E3BB6F407AAFF594E222FBD5B713EF*)il2cpp_codegen_object_new(EventCallback_1_t3A7B85AD96E3BB6F407AAFF594E222FBD5B713EF_il2cpp_TypeInfo_var);
 		EventCallback_1__ctor_m03D5D6D2A51BFDF58AF3F2307AD44B24B60A7B1B(L_22, __this, (intptr_t)((void*)ScrollView_OnPointerCaptureOut_m3AD2D88835729E682342563EDF4323FF0725481F_RuntimeMethod_var), NULL);
 		NullCheck(L_21);
@@ -16007,31 +16274,31 @@ IL_004c:
 		NullCheck(L_12);
 		CallbackEventHandler_UnregisterCallback_TisPointerMoveEvent_t2C1E2E20A07034638F48C3EB94B8520549D770C3_m6F47F7C447568B774EE45E245D99CBD6CDEC3CC1(L_12, L_13, 0, CallbackEventHandler_UnregisterCallback_TisPointerMoveEvent_t2C1E2E20A07034638F48C3EB94B8520549D770C3_m6F47F7C447568B774EE45E245D99CBD6CDEC3CC1_RuntimeMethod_var);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_14;
-		L_14 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_14 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		EventCallback_1_tBC1DA4FF1E26FC091E77AD11B6F780C5D237AF2C* L_15 = (EventCallback_1_tBC1DA4FF1E26FC091E77AD11B6F780C5D237AF2C*)il2cpp_codegen_object_new(EventCallback_1_tBC1DA4FF1E26FC091E77AD11B6F780C5D237AF2C_il2cpp_TypeInfo_var);
 		EventCallback_1__ctor_mCDF2316FE391D783EF33C433EB59E5DF474C5398(L_15, __this, (intptr_t)((void*)ScrollView_OnPointerDown_mA97349AEF0B229F45E61F38B10DBF4AA430E0ED0_RuntimeMethod_var), NULL);
 		NullCheck(L_14);
 		CallbackEventHandler_UnregisterCallback_TisPointerDownEvent_tABAAD1BACBB98156D6BCCED51E11883EAFE03A51_m3289E47B906D6F66490543857408759250B0F509(L_14, L_15, 1, CallbackEventHandler_UnregisterCallback_TisPointerDownEvent_tABAAD1BACBB98156D6BCCED51E11883EAFE03A51_m3289E47B906D6F66490543857408759250B0F509_RuntimeMethod_var);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_16;
-		L_16 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_16 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		EventCallback_1_tCF242F8E93BCF576DC25DFA8544DC8816F42CFE7* L_17 = (EventCallback_1_tCF242F8E93BCF576DC25DFA8544DC8816F42CFE7*)il2cpp_codegen_object_new(EventCallback_1_tCF242F8E93BCF576DC25DFA8544DC8816F42CFE7_il2cpp_TypeInfo_var);
 		EventCallback_1__ctor_m24CD07E9D8DA8BCAE0446636AB9C0622C36DF10C(L_17, __this, (intptr_t)((void*)ScrollView_OnPointerCancel_m29BCF554FD57E626225B0B4D3DE393E7C558A073_RuntimeMethod_var), NULL);
 		NullCheck(L_16);
 		CallbackEventHandler_UnregisterCallback_TisPointerCancelEvent_t566D42065C3B376AD49A44A406AFE929A6CFEE51_m5F10C8DEFC75B4A190E365536DEE17FE5E5A3A18(L_16, L_17, 0, CallbackEventHandler_UnregisterCallback_TisPointerCancelEvent_t566D42065C3B376AD49A44A406AFE929A6CFEE51_m5F10C8DEFC75B4A190E365536DEE17FE5E5A3A18_RuntimeMethod_var);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_18;
-		L_18 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_18 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		EventCallback_1_tE2BCC4FFB156A2716749F7BDD0036A743B039913* L_19 = (EventCallback_1_tE2BCC4FFB156A2716749F7BDD0036A743B039913*)il2cpp_codegen_object_new(EventCallback_1_tE2BCC4FFB156A2716749F7BDD0036A743B039913_il2cpp_TypeInfo_var);
 		EventCallback_1__ctor_mE64B79996B25171AA5DCBD2AFBB71A1A8C38B6E5(L_19, __this, (intptr_t)((void*)ScrollView_OnPointerUp_mDF05E48E63E261A0A2ABC852038529F1DB9BEE71_RuntimeMethod_var), NULL);
 		NullCheck(L_18);
 		CallbackEventHandler_UnregisterCallback_TisPointerUpEvent_tCE779E8B94675B6A2758B82F6A84771CB26913D9_m6260930D0C12A5DFCA80D6D299023CA1A157680A(L_18, L_19, 1, CallbackEventHandler_UnregisterCallback_TisPointerUpEvent_tCE779E8B94675B6A2758B82F6A84771CB26913D9_m6260930D0C12A5DFCA80D6D299023CA1A157680A_RuntimeMethod_var);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_20;
-		L_20 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_20 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		EventCallback_1_tA1CF2EA66A79B2195FDF3B4E85133003F37B9339* L_21 = (EventCallback_1_tA1CF2EA66A79B2195FDF3B4E85133003F37B9339*)il2cpp_codegen_object_new(EventCallback_1_tA1CF2EA66A79B2195FDF3B4E85133003F37B9339_il2cpp_TypeInfo_var);
 		EventCallback_1__ctor_m3B5B31E1258785C9B402D675D1F803256411F121(L_21, __this, (intptr_t)((void*)ScrollView_OnPointerCapture_m9057901D8B8A7A913E549F69DE203F225C3D936E_RuntimeMethod_var), NULL);
 		NullCheck(L_20);
 		CallbackEventHandler_UnregisterCallback_TisPointerCaptureEvent_tB9E534FCED96BD293031FCEF549A28F5161701BB_m88DC2C7EE623829A2B0D5D332BD4C5969909A55B(L_20, L_21, 0, CallbackEventHandler_UnregisterCallback_TisPointerCaptureEvent_tB9E534FCED96BD293031FCEF549A28F5161701BB_m88DC2C7EE623829A2B0D5D332BD4C5969909A55B_RuntimeMethod_var);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_22;
-		L_22 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_22 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		EventCallback_1_t3A7B85AD96E3BB6F407AAFF594E222FBD5B713EF* L_23 = (EventCallback_1_t3A7B85AD96E3BB6F407AAFF594E222FBD5B713EF*)il2cpp_codegen_object_new(EventCallback_1_t3A7B85AD96E3BB6F407AAFF594E222FBD5B713EF_il2cpp_TypeInfo_var);
 		EventCallback_1__ctor_m03D5D6D2A51BFDF58AF3F2307AD44B24B60A7B1B(L_23, __this, (intptr_t)((void*)ScrollView_OnPointerCaptureOut_m3AD2D88835729E682342563EDF4323FF0725481F_RuntimeMethod_var), NULL);
 		NullCheck(L_22);
@@ -17549,14 +17816,14 @@ IL_0094:
 	}
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_29;
-		L_29 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_29 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		PointerDownEvent_tABAAD1BACBB98156D6BCCED51E11883EAFE03A51* L_30 = ___0_evt;
 		NullCheck(L_30);
 		int32_t L_31;
 		L_31 = PointerEventBase_1_get_pointerId_m2666488A68716BD85D3277905899BDE7CF3826C8_inline(L_30, PointerEventBase_1_get_pointerId_m2666488A68716BD85D3277905899BDE7CF3826C8_RuntimeMethod_var);
 		PointerCaptureHelper_CapturePointer_m7A647567160ADA0E052A7277C5B531D7A01E5F7F(L_29, L_31, NULL);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_32;
-		L_32 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_32 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_32);
 		RuntimeObject* L_33;
 		L_33 = VisualElement_get_panel_m44AEFA3041785E57641AA3F895D11215C841BED1(L_32, NULL);
@@ -17787,7 +18054,7 @@ IL_00d9:
 		NullCheck(L_36);
 		EventBase_StopPropagation_mEFC7E5AB7164157065FF19064A6ADCBB0D8AF6FB(L_36, NULL);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_37;
-		L_37 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_37 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		PointerMoveEvent_t2C1E2E20A07034638F48C3EB94B8520549D770C3* L_38 = ___0_evt;
 		NullCheck(L_38);
 		int32_t L_39;
@@ -17803,7 +18070,7 @@ IL_00d9:
 	}
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_42;
-		L_42 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_42 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		PointerMoveEvent_t2C1E2E20A07034638F48C3EB94B8520549D770C3* L_43 = ___0_evt;
 		NullCheck(L_43);
 		int32_t L_44;
@@ -17879,7 +18146,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_OnPointerUp_mDF05E48E63E261A0
 	}
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_6;
-		L_6 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_6 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_6);
 		RuntimeObject* L_7;
 		L_7 = VisualElement_get_panel_m44AEFA3041785E57641AA3F895D11215C841BED1(L_6, NULL);
@@ -18059,7 +18326,7 @@ IL_0047:
 		L_27 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_26, NULL);
 		NullCheck(L_27);
 		float L_28;
-		L_28 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_27);
+		L_28 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_27);
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* L_29 = (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*)(&__this->___m_HighBounds);
 		float L_30 = L_29->___x;
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* L_31 = (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*)(&__this->___m_HighBounds);
@@ -18071,7 +18338,7 @@ IL_0047:
 		L_34 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_33, NULL);
 		NullCheck(L_34);
 		float L_35;
-		L_35 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_34);
+		L_35 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_34);
 		il2cpp_codegen_runtime_class_init_inline(ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9_il2cpp_TypeInfo_var);
 		float L_36;
 		L_36 = ScrollView_ComputeElasticOffset_mBC5B42E964CB9B9253B0A7631C037E53C769D3DE(L_19, L_21, L_23, ((float)il2cpp_codegen_subtract(L_25, L_28)), L_30, ((float)il2cpp_codegen_add(L_32, L_35)), NULL);
@@ -18403,7 +18670,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ScrollView_ReleaseScrolling_m61E863B1BCE
 		__this->___m_TouchPointerMoveAllowed = (bool)0;
 		RuntimeObject* L_0 = ___1_target;
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_1;
-		L_1 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_1 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		if ((!(((RuntimeObject*)(RuntimeObject*)L_0) == ((RuntimeObject*)(VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115*)L_1))))
 		{
 			goto IL_0030;
@@ -18411,7 +18678,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ScrollView_ReleaseScrolling_m61E863B1BCE
 	}
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_2;
-		L_2 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_2 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		int32_t L_3 = ___0_pointerId;
 		bool L_4;
 		L_4 = PointerCaptureHelper_HasPointerCapture_m8BEDFC90CB6DD9DE7931AB704454A43559A03C36(L_2, L_3, NULL);
@@ -18481,7 +18748,7 @@ IL_0061:
 IL_006e:
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_11;
-		L_11 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_11 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		int32_t L_12 = ___0_pointerId;
 		PointerCaptureHelper_ReleasePointer_m0FF47D46D610A94601B72E011344700B0EA7E1B9(L_11, L_12, NULL);
 		V_1 = (bool)1;
@@ -18555,7 +18822,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_AdjustScrollers_m25B4ADFD8DE7
 	float G_B6_0 = 0.0f;
 	{
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_0;
-		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_0 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_0);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_1;
 		L_1 = VisualElement_get_boundingBox_m8A360BC1AC353402AB177AF24D19A2F95641EE5C(L_0, NULL);
@@ -18583,7 +18850,7 @@ IL_0022:
 		float L_5;
 		L_5 = Rect_get_width_m620D67551372073C9C32C4C4624C2A5713F7F9A9_inline((&V_2), NULL);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_6;
-		L_6 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_6 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_6);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_7;
 		L_7 = VisualElement_get_boundingBox_m8A360BC1AC353402AB177AF24D19A2F95641EE5C(L_6, NULL);
@@ -18597,7 +18864,7 @@ IL_0049:
 	{
 		V_0 = G_B3_0;
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_9;
-		L_9 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_9 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_9);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_10;
 		L_10 = VisualElement_get_boundingBox_m8A360BC1AC353402AB177AF24D19A2F95641EE5C(L_9, NULL);
@@ -18625,7 +18892,7 @@ IL_006b:
 		float L_14;
 		L_14 = Rect_get_height_mE1AA6C6C725CCD2D317BD2157396D3CF7D47C9D8_inline((&V_2), NULL);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_15;
-		L_15 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, __this);
+		L_15 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, __this);
 		NullCheck(L_15);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_16;
 		L_16 = VisualElement_get_boundingBox_m8A360BC1AC353402AB177AF24D19A2F95641EE5C(L_15, NULL);
@@ -18967,38 +19234,40 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_OnScrollWheel_mE7FD49102D1BDB
 	float V_3 = 0.0f;
 	float V_4 = 0.0f;
 	bool V_5 = false;
-	float V_6 = 0.0f;
-	bool V_7 = false;
+	bool V_6 = false;
+	float V_7 = 0.0f;
 	bool V_8 = false;
-	float V_9 = 0.0f;
-	bool V_10 = false;
+	bool V_9 = false;
+	float V_10 = 0.0f;
 	bool V_11 = false;
+	bool V_12 = false;
 	int32_t G_B3_0 = 0;
 	int32_t G_B6_0 = 0;
 	float G_B10_0 = 0.0f;
-	float G_B13_0 = 0.0f;
-	float G_B16_0 = 0.0f;
-	float G_B16_1 = 0.0f;
-	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B16_2 = NULL;
-	float G_B15_0 = 0.0f;
-	float G_B15_1 = 0.0f;
-	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B15_2 = NULL;
-	float G_B17_0 = 0.0f;
-	float G_B17_1 = 0.0f;
-	float G_B17_2 = 0.0f;
-	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B17_3 = NULL;
-	int32_t G_B20_0 = 0;
-	float G_B26_0 = 0.0f;
-	float G_B26_1 = 0.0f;
-	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B26_2 = NULL;
-	float G_B25_0 = 0.0f;
-	float G_B25_1 = 0.0f;
-	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B25_2 = NULL;
-	float G_B27_0 = 0.0f;
-	float G_B27_1 = 0.0f;
-	float G_B27_2 = 0.0f;
-	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B27_3 = NULL;
-	int32_t G_B30_0 = 0;
+	int32_t G_B14_0 = 0;
+	float G_B19_0 = 0.0f;
+	float G_B22_0 = 0.0f;
+	float G_B22_1 = 0.0f;
+	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B22_2 = NULL;
+	float G_B21_0 = 0.0f;
+	float G_B21_1 = 0.0f;
+	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B21_2 = NULL;
+	float G_B23_0 = 0.0f;
+	float G_B23_1 = 0.0f;
+	float G_B23_2 = 0.0f;
+	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B23_3 = NULL;
+	int32_t G_B26_0 = 0;
+	float G_B32_0 = 0.0f;
+	float G_B32_1 = 0.0f;
+	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B32_2 = NULL;
+	float G_B31_0 = 0.0f;
+	float G_B31_1 = 0.0f;
+	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B31_2 = NULL;
+	float G_B33_0 = 0.0f;
+	float G_B33_1 = 0.0f;
+	float G_B33_2 = 0.0f;
+	Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* G_B33_3 = NULL;
+	int32_t G_B36_0 = 0;
 	{
 		V_0 = (bool)0;
 		int32_t L_0;
@@ -19083,260 +19352,300 @@ IL_0049:
 IL_0054:
 	{
 		V_3 = G_B10_0;
-		bool L_12 = __this->___m_MouseWheelScrollSizeIsInline;
-		if (L_12)
+		bool L_12 = V_2;
+		bool L_13 = V_1;
+		if (!((int32_t)((int32_t)L_12|(int32_t)L_13)))
 		{
-			goto IL_0065;
+			goto IL_006a;
 		}
 	}
 	{
-		float L_13 = __this->___m_SingleLineHeight;
-		G_B13_0 = L_13;
+		bool L_14 = __this->___m_MouseWheelScrollSizeIsInline;
+		if (L_14)
+		{
+			goto IL_006a;
+		}
+	}
+	{
+		bool L_15 = __this->___m_SingleLineHeightDirtyFlag;
+		G_B14_0 = ((int32_t)(L_15));
 		goto IL_006b;
 	}
 
-IL_0065:
+IL_006a:
 	{
-		float L_14;
-		L_14 = ScrollView_get_mouseWheelScrollSize_m11FF4213777728025AADCA3D5C9E98F0C606B7A3(__this, NULL);
-		G_B13_0 = L_14;
+		G_B14_0 = 0;
 	}
 
 IL_006b:
 	{
-		V_4 = G_B13_0;
-		bool L_15 = V_1;
-		V_5 = L_15;
+		V_5 = (bool)G_B14_0;
 		bool L_16 = V_5;
 		if (!L_16)
 		{
-			goto IL_00fe;
+			goto IL_007a;
 		}
 	}
 	{
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_17;
-		L_17 = ScrollView_get_verticalScroller_mDCBC1E09B2754C31BF917818CB07E5F36EC0D13A_inline(__this, NULL);
-		NullCheck(L_17);
-		float L_18;
-		L_18 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_17, NULL);
-		V_6 = L_18;
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_19;
-		L_19 = ScrollView_get_verticalScroller_mDCBC1E09B2754C31BF917818CB07E5F36EC0D13A_inline(__this, NULL);
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_20 = L_19;
-		NullCheck(L_20);
-		float L_21;
-		L_21 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_20, NULL);
-		WheelEvent_tDD5DB3A6F5F6FDB59AD7FF27491502FF18B9775E* L_22 = ___0_evt;
+		ScrollView_ReadSingleLineHeight_m783A7990593C00F5BB92FA2AAAB8A8062D40DEFD(__this, NULL);
+	}
+
+IL_007a:
+	{
+		bool L_17 = __this->___m_MouseWheelScrollSizeIsInline;
+		if (L_17)
+		{
+			goto IL_008a;
+		}
+	}
+	{
+		float L_18 = __this->___m_SingleLineHeight;
+		G_B19_0 = L_18;
+		goto IL_0090;
+	}
+
+IL_008a:
+	{
+		float L_19;
+		L_19 = ScrollView_get_mouseWheelScrollSize_m11FF4213777728025AADCA3D5C9E98F0C606B7A3(__this, NULL);
+		G_B19_0 = L_19;
+	}
+
+IL_0090:
+	{
+		V_4 = G_B19_0;
+		bool L_20 = V_1;
+		V_6 = L_20;
+		bool L_21 = V_6;
+		if (!L_21)
+		{
+			goto IL_0123;
+		}
+	}
+	{
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_22;
+		L_22 = ScrollView_get_verticalScroller_mDCBC1E09B2754C31BF917818CB07E5F36EC0D13A_inline(__this, NULL);
 		NullCheck(L_22);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_23;
-		L_23 = WheelEvent_get_delta_mDFB7F45FA5ED7D711EBB3F8FADC88C4F451088B2_inline(L_22, NULL);
-		float L_24 = L_23.___y;
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_25;
-		L_25 = ScrollView_get_verticalScroller_mDCBC1E09B2754C31BF917818CB07E5F36EC0D13A_inline(__this, NULL);
+		float L_23;
+		L_23 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_22, NULL);
+		V_7 = L_23;
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_24;
+		L_24 = ScrollView_get_verticalScroller_mDCBC1E09B2754C31BF917818CB07E5F36EC0D13A_inline(__this, NULL);
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_25 = L_24;
 		NullCheck(L_25);
 		float L_26;
-		L_26 = Scroller_get_lowValue_mBD4A8D06316BF0124C58CA4534B9031725CD946F(L_25, NULL);
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_27;
-		L_27 = ScrollView_get_verticalScroller_mDCBC1E09B2754C31BF917818CB07E5F36EC0D13A_inline(__this, NULL);
+		L_26 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_25, NULL);
+		WheelEvent_tDD5DB3A6F5F6FDB59AD7FF27491502FF18B9775E* L_27 = ___0_evt;
 		NullCheck(L_27);
-		float L_28;
-		L_28 = Scroller_get_highValue_m160229EAE9969337A4C92F543E53DEC6A944DE33(L_27, NULL);
-		if ((((float)L_26) < ((float)L_28)))
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_28;
+		L_28 = WheelEvent_get_delta_mDFB7F45FA5ED7D711EBB3F8FADC88C4F451088B2_inline(L_27, NULL);
+		float L_29 = L_28.___y;
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_30;
+		L_30 = ScrollView_get_verticalScroller_mDCBC1E09B2754C31BF917818CB07E5F36EC0D13A_inline(__this, NULL);
+		NullCheck(L_30);
+		float L_31;
+		L_31 = Scroller_get_lowValue_mBD4A8D06316BF0124C58CA4534B9031725CD946F(L_30, NULL);
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_32;
+		L_32 = ScrollView_get_verticalScroller_mDCBC1E09B2754C31BF917818CB07E5F36EC0D13A_inline(__this, NULL);
+		NullCheck(L_32);
+		float L_33;
+		L_33 = Scroller_get_highValue_m160229EAE9969337A4C92F543E53DEC6A944DE33(L_32, NULL);
+		if ((((float)L_31) < ((float)L_33)))
 		{
-			G_B16_0 = L_24;
-			G_B16_1 = L_21;
-			G_B16_2 = L_20;
-			goto IL_00bb;
+			G_B22_0 = L_29;
+			G_B22_1 = L_26;
+			G_B22_2 = L_25;
+			goto IL_00e0;
 		}
-		G_B15_0 = L_24;
-		G_B15_1 = L_21;
-		G_B15_2 = L_20;
+		G_B21_0 = L_29;
+		G_B21_1 = L_26;
+		G_B21_2 = L_25;
 	}
 	{
-		G_B17_0 = (-1.0f);
-		G_B17_1 = G_B15_0;
-		G_B17_2 = G_B15_1;
-		G_B17_3 = G_B15_2;
-		goto IL_00c0;
-	}
-
-IL_00bb:
-	{
-		G_B17_0 = (1.0f);
-		G_B17_1 = G_B16_0;
-		G_B17_2 = G_B16_1;
-		G_B17_3 = G_B16_2;
+		G_B23_0 = (-1.0f);
+		G_B23_1 = G_B21_0;
+		G_B23_2 = G_B21_1;
+		G_B23_3 = G_B21_2;
+		goto IL_00e5;
 	}
 
-IL_00c0:
+IL_00e0:
 	{
-		float L_29 = V_4;
-		NullCheck(G_B17_3);
-		Scroller_set_value_mAC1D4CA0CA26776DE53ABC5FD8C745309750E713(G_B17_3, ((float)il2cpp_codegen_add(G_B17_2, ((float)il2cpp_codegen_multiply(((float)il2cpp_codegen_multiply(G_B17_1, G_B17_0)), L_29)))), NULL);
-		int32_t L_30;
-		L_30 = ScrollView_get_nestedInteractionKind_mD6F5A19E8A7D15A56F41AF034869AF295C3D79D6_inline(__this, NULL);
-		if ((((int32_t)L_30) == ((int32_t)1)))
+		G_B23_0 = (1.0f);
+		G_B23_1 = G_B22_0;
+		G_B23_2 = G_B22_1;
+		G_B23_3 = G_B22_2;
+	}
+
+IL_00e5:
+	{
+		float L_34 = V_4;
+		NullCheck(G_B23_3);
+		Scroller_set_value_mAC1D4CA0CA26776DE53ABC5FD8C745309750E713(G_B23_3, ((float)il2cpp_codegen_add(G_B23_2, ((float)il2cpp_codegen_multiply(((float)il2cpp_codegen_multiply(G_B23_1, G_B23_0)), L_34)))), NULL);
+		int32_t L_35;
+		L_35 = ScrollView_get_nestedInteractionKind_mD6F5A19E8A7D15A56F41AF034869AF295C3D79D6_inline(__this, NULL);
+		if ((((int32_t)L_35) == ((int32_t)1)))
 		{
-			goto IL_00eb;
-		}
-	}
-	{
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_31;
-		L_31 = ScrollView_get_verticalScroller_mDCBC1E09B2754C31BF917818CB07E5F36EC0D13A_inline(__this, NULL);
-		NullCheck(L_31);
-		float L_32;
-		L_32 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_31, NULL);
-		float L_33 = V_6;
-		bool L_34;
-		L_34 = Mathf_Approximately_m1DADD012A8FC82E11FB282501AE2EBBF9A77150B_inline(L_32, L_33, NULL);
-		G_B20_0 = ((((int32_t)L_34) == ((int32_t)0))? 1 : 0);
-		goto IL_00ec;
-	}
-
-IL_00eb:
-	{
-		G_B20_0 = 1;
-	}
-
-IL_00ec:
-	{
-		V_7 = (bool)G_B20_0;
-		bool L_35 = V_7;
-		if (!L_35)
-		{
-			goto IL_00fd;
+			goto IL_0110;
 		}
 	}
 	{
-		WheelEvent_tDD5DB3A6F5F6FDB59AD7FF27491502FF18B9775E* L_36 = ___0_evt;
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_36;
+		L_36 = ScrollView_get_verticalScroller_mDCBC1E09B2754C31BF917818CB07E5F36EC0D13A_inline(__this, NULL);
 		NullCheck(L_36);
-		EventBase_StopPropagation_mEFC7E5AB7164157065FF19064A6ADCBB0D8AF6FB(L_36, NULL);
+		float L_37;
+		L_37 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_36, NULL);
+		float L_38 = V_7;
+		bool L_39;
+		L_39 = Mathf_Approximately_m1DADD012A8FC82E11FB282501AE2EBBF9A77150B_inline(L_37, L_38, NULL);
+		G_B26_0 = ((((int32_t)L_39) == ((int32_t)0))? 1 : 0);
+		goto IL_0111;
+	}
+
+IL_0110:
+	{
+		G_B26_0 = 1;
+	}
+
+IL_0111:
+	{
+		V_8 = (bool)G_B26_0;
+		bool L_40 = V_8;
+		if (!L_40)
+		{
+			goto IL_0122;
+		}
+	}
+	{
+		WheelEvent_tDD5DB3A6F5F6FDB59AD7FF27491502FF18B9775E* L_41 = ___0_evt;
+		NullCheck(L_41);
+		EventBase_StopPropagation_mEFC7E5AB7164157065FF19064A6ADCBB0D8AF6FB(L_41, NULL);
 		V_0 = (bool)1;
 	}
 
-IL_00fd:
+IL_0122:
 	{
 	}
 
-IL_00fe:
+IL_0123:
 	{
-		bool L_37 = V_2;
-		V_8 = L_37;
-		bool L_38 = V_8;
-		if (!L_38)
+		bool L_42 = V_2;
+		V_9 = L_42;
+		bool L_43 = V_9;
+		if (!L_43)
 		{
-			goto IL_0182;
+			goto IL_01a7;
 		}
 	}
 	{
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_39;
-		L_39 = ScrollView_get_horizontalScroller_mF0791CC587E399B708C24885E89301F2633712E8_inline(__this, NULL);
-		NullCheck(L_39);
-		float L_40;
-		L_40 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_39, NULL);
-		V_9 = L_40;
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_41;
-		L_41 = ScrollView_get_horizontalScroller_mF0791CC587E399B708C24885E89301F2633712E8_inline(__this, NULL);
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_42 = L_41;
-		NullCheck(L_42);
-		float L_43;
-		L_43 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_42, NULL);
-		float L_44 = V_3;
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_45;
-		L_45 = ScrollView_get_horizontalScroller_mF0791CC587E399B708C24885E89301F2633712E8_inline(__this, NULL);
-		NullCheck(L_45);
-		float L_46;
-		L_46 = Scroller_get_lowValue_mBD4A8D06316BF0124C58CA4534B9031725CD946F(L_45, NULL);
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_47;
-		L_47 = ScrollView_get_horizontalScroller_mF0791CC587E399B708C24885E89301F2633712E8_inline(__this, NULL);
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_44;
+		L_44 = ScrollView_get_horizontalScroller_mF0791CC587E399B708C24885E89301F2633712E8_inline(__this, NULL);
+		NullCheck(L_44);
+		float L_45;
+		L_45 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_44, NULL);
+		V_10 = L_45;
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_46;
+		L_46 = ScrollView_get_horizontalScroller_mF0791CC587E399B708C24885E89301F2633712E8_inline(__this, NULL);
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_47 = L_46;
 		NullCheck(L_47);
 		float L_48;
-		L_48 = Scroller_get_highValue_m160229EAE9969337A4C92F543E53DEC6A944DE33(L_47, NULL);
-		if ((((float)L_46) < ((float)L_48)))
+		L_48 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_47, NULL);
+		float L_49 = V_3;
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_50;
+		L_50 = ScrollView_get_horizontalScroller_mF0791CC587E399B708C24885E89301F2633712E8_inline(__this, NULL);
+		NullCheck(L_50);
+		float L_51;
+		L_51 = Scroller_get_lowValue_mBD4A8D06316BF0124C58CA4534B9031725CD946F(L_50, NULL);
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_52;
+		L_52 = ScrollView_get_horizontalScroller_mF0791CC587E399B708C24885E89301F2633712E8_inline(__this, NULL);
+		NullCheck(L_52);
+		float L_53;
+		L_53 = Scroller_get_highValue_m160229EAE9969337A4C92F543E53DEC6A944DE33(L_52, NULL);
+		if ((((float)L_51) < ((float)L_53)))
 		{
-			G_B26_0 = L_44;
-			G_B26_1 = L_43;
-			G_B26_2 = L_42;
-			goto IL_013f;
+			G_B32_0 = L_49;
+			G_B32_1 = L_48;
+			G_B32_2 = L_47;
+			goto IL_0164;
 		}
-		G_B25_0 = L_44;
-		G_B25_1 = L_43;
-		G_B25_2 = L_42;
+		G_B31_0 = L_49;
+		G_B31_1 = L_48;
+		G_B31_2 = L_47;
 	}
 	{
-		G_B27_0 = (-1.0f);
-		G_B27_1 = G_B25_0;
-		G_B27_2 = G_B25_1;
-		G_B27_3 = G_B25_2;
-		goto IL_0144;
-	}
-
-IL_013f:
-	{
-		G_B27_0 = (1.0f);
-		G_B27_1 = G_B26_0;
-		G_B27_2 = G_B26_1;
-		G_B27_3 = G_B26_2;
+		G_B33_0 = (-1.0f);
+		G_B33_1 = G_B31_0;
+		G_B33_2 = G_B31_1;
+		G_B33_3 = G_B31_2;
+		goto IL_0169;
 	}
 
-IL_0144:
+IL_0164:
 	{
-		float L_49 = V_4;
-		NullCheck(G_B27_3);
-		Scroller_set_value_mAC1D4CA0CA26776DE53ABC5FD8C745309750E713(G_B27_3, ((float)il2cpp_codegen_add(G_B27_2, ((float)il2cpp_codegen_multiply(((float)il2cpp_codegen_multiply(G_B27_1, G_B27_0)), L_49)))), NULL);
-		int32_t L_50;
-		L_50 = ScrollView_get_nestedInteractionKind_mD6F5A19E8A7D15A56F41AF034869AF295C3D79D6_inline(__this, NULL);
-		if ((((int32_t)L_50) == ((int32_t)1)))
+		G_B33_0 = (1.0f);
+		G_B33_1 = G_B32_0;
+		G_B33_2 = G_B32_1;
+		G_B33_3 = G_B32_2;
+	}
+
+IL_0169:
+	{
+		float L_54 = V_4;
+		NullCheck(G_B33_3);
+		Scroller_set_value_mAC1D4CA0CA26776DE53ABC5FD8C745309750E713(G_B33_3, ((float)il2cpp_codegen_add(G_B33_2, ((float)il2cpp_codegen_multiply(((float)il2cpp_codegen_multiply(G_B33_1, G_B33_0)), L_54)))), NULL);
+		int32_t L_55;
+		L_55 = ScrollView_get_nestedInteractionKind_mD6F5A19E8A7D15A56F41AF034869AF295C3D79D6_inline(__this, NULL);
+		if ((((int32_t)L_55) == ((int32_t)1)))
 		{
-			goto IL_016f;
-		}
-	}
-	{
-		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_51;
-		L_51 = ScrollView_get_horizontalScroller_mF0791CC587E399B708C24885E89301F2633712E8_inline(__this, NULL);
-		NullCheck(L_51);
-		float L_52;
-		L_52 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_51, NULL);
-		float L_53 = V_9;
-		bool L_54;
-		L_54 = Mathf_Approximately_m1DADD012A8FC82E11FB282501AE2EBBF9A77150B_inline(L_52, L_53, NULL);
-		G_B30_0 = ((((int32_t)L_54) == ((int32_t)0))? 1 : 0);
-		goto IL_0170;
-	}
-
-IL_016f:
-	{
-		G_B30_0 = 1;
-	}
-
-IL_0170:
-	{
-		V_10 = (bool)G_B30_0;
-		bool L_55 = V_10;
-		if (!L_55)
-		{
-			goto IL_0181;
+			goto IL_0194;
 		}
 	}
 	{
-		WheelEvent_tDD5DB3A6F5F6FDB59AD7FF27491502FF18B9775E* L_56 = ___0_evt;
+		Scroller_tFE2BC2FCB5D2BD623828C332E0BBF95D472D99A8* L_56;
+		L_56 = ScrollView_get_horizontalScroller_mF0791CC587E399B708C24885E89301F2633712E8_inline(__this, NULL);
 		NullCheck(L_56);
-		EventBase_StopPropagation_mEFC7E5AB7164157065FF19064A6ADCBB0D8AF6FB(L_56, NULL);
+		float L_57;
+		L_57 = Scroller_get_value_mAFF18513ACF92E73BAEF5D6254A295D0D33A3E8D(L_56, NULL);
+		float L_58 = V_10;
+		bool L_59;
+		L_59 = Mathf_Approximately_m1DADD012A8FC82E11FB282501AE2EBBF9A77150B_inline(L_57, L_58, NULL);
+		G_B36_0 = ((((int32_t)L_59) == ((int32_t)0))? 1 : 0);
+		goto IL_0195;
+	}
+
+IL_0194:
+	{
+		G_B36_0 = 1;
+	}
+
+IL_0195:
+	{
+		V_11 = (bool)G_B36_0;
+		bool L_60 = V_11;
+		if (!L_60)
+		{
+			goto IL_01a6;
+		}
+	}
+	{
+		WheelEvent_tDD5DB3A6F5F6FDB59AD7FF27491502FF18B9775E* L_61 = ___0_evt;
+		NullCheck(L_61);
+		EventBase_StopPropagation_mEFC7E5AB7164157065FF19064A6ADCBB0D8AF6FB(L_61, NULL);
 		V_0 = (bool)1;
 	}
 
-IL_0181:
+IL_01a6:
 	{
 	}
 
-IL_0182:
+IL_01a7:
 	{
-		bool L_57 = V_0;
-		V_11 = L_57;
-		bool L_58 = V_11;
-		if (!L_58)
+		bool L_62 = V_0;
+		V_12 = L_62;
+		bool L_63 = V_12;
+		if (!L_63)
 		{
-			goto IL_0199;
+			goto IL_01be;
 		}
 	}
 	{
@@ -19344,7 +19653,7 @@ IL_0182:
 		ScrollView_UpdateContentViewTransform_mA0BD7263D725191B2DFFBE0C03A19B8DF9781A29(__this, NULL);
 	}
 
-IL_0199:
+IL_01be:
 	{
 		return;
 	}
@@ -19352,7 +19661,14 @@ IL_0199:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_OnRootCustomStyleResolved_m642D11FAF224044B78F02D19FDEC62DD34AAF601 (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, CustomStyleResolvedEvent_t54D095D62773F628A6A05A4531DEE990166062E6* ___0_evt, const RuntimeMethod* method) 
 {
 	{
-		ScrollView_ReadSingleLineHeight_m783A7990593C00F5BB92FA2AAAB8A8062D40DEFD(__this, NULL);
+		ScrollView_MarkSingleLineHeightDirty_mD0B9A1F1048B66A9ADCD3D58294FD07A575AA1D8(__this, NULL);
+		return;
+	}
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_MarkSingleLineHeightDirty_mD0B9A1F1048B66A9ADCD3D58294FD07A575AA1D8 (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, const RuntimeMethod* method) 
+{
+	{
+		__this->___m_SingleLineHeightDirtyFlag = (bool)1;
 		return;
 	}
 }
@@ -19373,108 +19689,132 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_ReadSingleLineHeight_m783A799
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6532E60671B8D722CA4C973B3C677A2DAFC9946F);
 		s_Il2CppMethodInitialized = true;
 	}
-	StylePropertyValue_tED32F617FABE99611B213BFCF9D1D909E7F141C2 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	bool V_1 = false;
-	Dimension_t5B1EAB500AE32C3789A2BCC4D43F7A29996DF3F8 V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	bool V_3 = false;
-	VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* G_B2_0 = NULL;
-	VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* G_B1_0 = NULL;
-	Dictionary_2_t645C7B1DAE2D839B52A5E387C165CE13D5465B00* G_B3_0 = NULL;
-	int32_t G_B6_0 = 0;
+	VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* V_0 = NULL;
+	StylePropertyValue_tED32F617FABE99611B213BFCF9D1D909E7F141C2 V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	bool V_2 = false;
+	Dimension_t5B1EAB500AE32C3789A2BCC4D43F7A29996DF3F8 V_3;
+	memset((&V_3), 0, sizeof(V_3));
+	bool V_4 = false;
+	bool V_5 = false;
+	bool V_6 = false;
+	int32_t G_B4_0 = 0;
 	{
-		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_0 = __this->___m_AttachedRootVisualContainer;
-		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_1 = L_0;
-		if (L_1)
-		{
-			G_B2_0 = L_1;
-			goto IL_000e;
-		}
-		G_B1_0 = L_1;
-	}
-	{
-		G_B3_0 = ((Dictionary_2_t645C7B1DAE2D839B52A5E387C165CE13D5465B00*)(NULL));
-		goto IL_0018;
+		V_0 = __this;
+		goto IL_007e;
 	}
 
-IL_000e:
+IL_0005:
 	{
-		NullCheck(G_B2_0);
-		ComputedStyle_t8B08CCCEE20525528B3FFDAC6D3F58F101AAF54C* L_2;
-		L_2 = VisualElement_get_computedStyle_m8124059EC4D72CCEDE7107FFF72A614131604C3A(G_B2_0, NULL);
-		Dictionary_2_t645C7B1DAE2D839B52A5E387C165CE13D5465B00* L_3 = L_2->___customProperties;
-		G_B3_0 = L_3;
-	}
-
-IL_0018:
-	{
-		if (!G_B3_0)
+		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_0 = V_0;
+		NullCheck(L_0);
+		ComputedStyle_t8B08CCCEE20525528B3FFDAC6D3F58F101AAF54C* L_1;
+		L_1 = VisualElement_get_computedStyle_m8124059EC4D72CCEDE7107FFF72A614131604C3A(L_0, NULL);
+		Dictionary_2_t645C7B1DAE2D839B52A5E387C165CE13D5465B00* L_2 = L_1->___customProperties;
+		if (!L_2)
 		{
-			goto IL_0038;
+			goto IL_002c;
 		}
 	}
 	{
-		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_4 = __this->___m_AttachedRootVisualContainer;
-		NullCheck(L_4);
-		ComputedStyle_t8B08CCCEE20525528B3FFDAC6D3F58F101AAF54C* L_5;
-		L_5 = VisualElement_get_computedStyle_m8124059EC4D72CCEDE7107FFF72A614131604C3A(L_4, NULL);
-		Dictionary_2_t645C7B1DAE2D839B52A5E387C165CE13D5465B00* L_6 = L_5->___customProperties;
-		NullCheck(L_6);
-		bool L_7;
-		L_7 = Dictionary_2_TryGetValue_m393F14ED6A4405F48CF585F5978CFFA589763A83(L_6, _stringLiteral6532E60671B8D722CA4C973B3C677A2DAFC9946F, (&V_0), Dictionary_2_TryGetValue_m393F14ED6A4405F48CF585F5978CFFA589763A83_RuntimeMethod_var);
-		G_B6_0 = ((int32_t)(L_7));
-		goto IL_0039;
+		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_3 = V_0;
+		NullCheck(L_3);
+		ComputedStyle_t8B08CCCEE20525528B3FFDAC6D3F58F101AAF54C* L_4;
+		L_4 = VisualElement_get_computedStyle_m8124059EC4D72CCEDE7107FFF72A614131604C3A(L_3, NULL);
+		Dictionary_2_t645C7B1DAE2D839B52A5E387C165CE13D5465B00* L_5 = L_4->___customProperties;
+		NullCheck(L_5);
+		bool L_6;
+		L_6 = Dictionary_2_TryGetValue_m393F14ED6A4405F48CF585F5978CFFA589763A83(L_5, _stringLiteral6532E60671B8D722CA4C973B3C677A2DAFC9946F, (&V_1), Dictionary_2_TryGetValue_m393F14ED6A4405F48CF585F5978CFFA589763A83_RuntimeMethod_var);
+		G_B4_0 = ((int32_t)(L_6));
+		goto IL_002d;
 	}
 
-IL_0038:
+IL_002c:
 	{
-		G_B6_0 = 0;
+		G_B4_0 = 0;
 	}
 
-IL_0039:
+IL_002d:
 	{
-		V_1 = (bool)G_B6_0;
-		bool L_8 = V_1;
-		if (!L_8)
+		V_2 = (bool)G_B4_0;
+		bool L_7 = V_2;
+		if (!L_7)
 		{
-			goto IL_0066;
+			goto IL_0064;
 		}
 	}
 	{
-		StylePropertyValue_tED32F617FABE99611B213BFCF9D1D909E7F141C2 L_9 = V_0;
-		StyleSheet_t6FAF43FCDB45BC6BED0522A222FD4C1A9BB10428* L_10 = L_9.___sheet;
-		StylePropertyValue_tED32F617FABE99611B213BFCF9D1D909E7F141C2 L_11 = V_0;
-		StyleValueHandle_t5831643AAA7AD8C5C43A4498C5E0A2545F78227D L_12 = L_11.___handle;
-		NullCheck(L_10);
-		bool L_13;
-		L_13 = StyleSheet_TryReadDimension_m958623B584936010E8AC24B01D8896C2FC2945F0(L_10, L_12, (&V_2), NULL);
-		V_3 = L_13;
-		bool L_14 = V_3;
-		if (!L_14)
+		__this->___m_SingleLineHeightDirtyFlag = (bool)0;
+		StylePropertyValue_tED32F617FABE99611B213BFCF9D1D909E7F141C2 L_8 = V_1;
+		StyleSheet_t6FAF43FCDB45BC6BED0522A222FD4C1A9BB10428* L_9 = L_8.___sheet;
+		StylePropertyValue_tED32F617FABE99611B213BFCF9D1D909E7F141C2 L_10 = V_1;
+		StyleValueHandle_t5831643AAA7AD8C5C43A4498C5E0A2545F78227D L_11 = L_10.___handle;
+		NullCheck(L_9);
+		bool L_12;
+		L_12 = StyleSheet_TryReadDimension_m958623B584936010E8AC24B01D8896C2FC2945F0(L_9, L_11, (&V_3), NULL);
+		V_4 = L_12;
+		bool L_13 = V_4;
+		if (!L_13)
 		{
-			goto IL_0063;
+			goto IL_0061;
 		}
 	}
 	{
-		Dimension_t5B1EAB500AE32C3789A2BCC4D43F7A29996DF3F8 L_15 = V_2;
-		float L_16 = L_15.___value;
-		__this->___m_SingleLineHeight = L_16;
+		Dimension_t5B1EAB500AE32C3789A2BCC4D43F7A29996DF3F8 L_14 = V_3;
+		float L_15 = L_14.___value;
+		__this->___m_SingleLineHeight = L_15;
+		goto IL_009d;
 	}
 
-IL_0063:
+IL_0061:
 	{
-		goto IL_0073;
+		goto IL_0076;
 	}
 
-IL_0066:
+IL_0064:
+	{
+		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_16 = V_0;
+		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_17 = __this->___m_AttachedRootVisualContainer;
+		V_5 = (bool)((((RuntimeObject*)(VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115*)L_16) == ((RuntimeObject*)(VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115*)L_17))? 1 : 0);
+		bool L_18 = V_5;
+		if (!L_18)
+		{
+			goto IL_0076;
+		}
+	}
+	{
+		goto IL_008b;
+	}
+
+IL_0076:
+	{
+		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_19 = V_0;
+		NullCheck(L_19);
+		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_20;
+		L_20 = VisualElement_get_parent_m80978E6D0A928AB4885EE4CD0E2295C72AA73000(L_19, NULL);
+		V_0 = L_20;
+	}
+
+IL_007e:
+	{
+		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_21 = V_0;
+		V_6 = (bool)((!(((RuntimeObject*)(VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115*)L_21) <= ((RuntimeObject*)(RuntimeObject*)NULL)))? 1 : 0);
+		bool L_22 = V_6;
+		if (L_22)
+		{
+			goto IL_0005;
+		}
+	}
+
+IL_008b:
 	{
 		il2cpp_codegen_runtime_class_init_inline(UIElementsUtility_t03323144D50362C6BF96652D3355728749769293_il2cpp_TypeInfo_var);
-		float L_17 = ((UIElementsUtility_t03323144D50362C6BF96652D3355728749769293_StaticFields*)il2cpp_codegen_static_fields_for(UIElementsUtility_t03323144D50362C6BF96652D3355728749769293_il2cpp_TypeInfo_var))->___singleLineHeight;
-		__this->___m_SingleLineHeight = L_17;
+		float L_23 = ((UIElementsUtility_t03323144D50362C6BF96652D3355728749769293_StaticFields*)il2cpp_codegen_static_fields_for(UIElementsUtility_t03323144D50362C6BF96652D3355728749769293_il2cpp_TypeInfo_var))->___singleLineHeight;
+		__this->___m_SingleLineHeight = L_23;
+		__this->___m_SingleLineHeightDirtyFlag = (bool)0;
 	}
 
-IL_0073:
+IL_009d:
 	{
 		return;
 	}
@@ -20044,7 +20384,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView__cctor_mAAD7FBCF5769C5C6D0C92
 		return;
 	}
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_U3C_ctorU3Eb__138_0_m3EFB0583BB4E9045981DD63EB3F17182165E5FA9 (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, float ___0_value, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_U3C_ctorU3Eb__139_0_m544C8F9F860CB4D583F857AC267226D74FD094FF (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, float ___0_value, const RuntimeMethod* method) 
 {
 	{
 		float L_0 = ___0_value;
@@ -20059,7 +20399,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_U3C_ctorU3Eb__138_0_m3EFB0583
 		return;
 	}
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_U3C_ctorU3Eb__138_1_mC29D7F6E3FE198F892DFB82133CC17BB63AFA030 (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, float ___0_value, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScrollView_U3C_ctorU3Eb__139_1_m1CF7E834FE0BFAA64DA3BA5FE0F7C00AC2E79AF2 (ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9* __this, float ___0_value, const RuntimeMethod* method) 
 {
 	{
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_0;
@@ -20536,7 +20876,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Slider_ApplyInputDeviceDelta_mCD51EDF527
 		L_6 = NumericFieldDraggerUtility_Acceleration_m68C7F9D2F37BF3F5658F30022507A438C4CD7BE1((bool)((((int32_t)L_4) == ((int32_t)0))? 1 : 0), (bool)((((int32_t)L_5) == ((int32_t)2))? 1 : 0), NULL);
 		V_1 = L_6;
 		float L_7;
-		L_7 = VirtualFuncInvoker0< float >::Invoke(143, __this);
+		L_7 = VirtualFuncInvoker0< float >::Invoke(144, __this);
 		V_2 = ((double)L_7);
 		double L_8 = V_2;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_9 = ___0_delta;
@@ -20548,7 +20888,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Slider_ApplyInputDeviceDelta_mCD51EDF527
 		double L_13 = V_0;
 		V_2 = ((double)il2cpp_codegen_add(L_8, ((double)il2cpp_codegen_multiply(((double)L_12), L_13))));
 		double L_14 = V_2;
-		VirtualActionInvoker1< float >::Invoke(144, __this, ((float)L_14));
+		VirtualActionInvoker1< float >::Invoke(145, __this, ((float)L_14));
 		return;
 	}
 }
@@ -20589,7 +20929,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Slider_SliderLerpUnclamped_m07EACF87A01
 		L_7 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_6, NULL);
 		NullCheck(L_7);
 		float L_8;
-		L_8 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_7);
+		L_8 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_7);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_9;
 		L_9 = BaseSlider_1_get_dragElement_m032210456947E23683D74C074CC01AFE210169EB_inline(__this, BaseSlider_1_get_dragElement_m032210456947E23683D74C074CC01AFE210169EB_RuntimeMethod_var);
 		NullCheck(L_9);
@@ -20597,7 +20937,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Slider_SliderLerpUnclamped_m07EACF87A01
 		L_10 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_9, NULL);
 		NullCheck(L_10);
 		float L_11;
-		L_11 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_10);
+		L_11 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_10);
 		float L_12;
 		L_12 = fabsf(((float)(((float)il2cpp_codegen_subtract(L_4, L_5))/((float)il2cpp_codegen_subtract(L_8, L_11)))));
 		V_1 = L_12;
@@ -20863,7 +21203,7 @@ IL_001b:
 	{
 		float L_5;
 		L_5 = BaseSlider_1_get_lowValue_m9974DEE468CE7E09B6312EBD74661004DB1E8BFC(__this, BaseSlider_1_get_lowValue_m9974DEE468CE7E09B6312EBD74661004DB1E8BFC_RuntimeMethod_var);
-		VirtualActionInvoker1< float >::Invoke(144, __this, L_5);
+		VirtualActionInvoker1< float >::Invoke(145, __this, L_5);
 		goto IL_00bb;
 	}
 
@@ -20871,7 +21211,7 @@ IL_002d:
 	{
 		float L_6;
 		L_6 = BaseSlider_1_get_highValue_mA43FD4DA4AFDF3EBCB5455B312942219B635DA05(__this, BaseSlider_1_get_highValue_mA43FD4DA4AFDF3EBCB5455B312942219B635DA05_RuntimeMethod_var);
-		VirtualActionInvoker1< float >::Invoke(144, __this, L_6);
+		VirtualActionInvoker1< float >::Invoke(145, __this, L_6);
 		goto IL_00bb;
 	}
 
@@ -20918,7 +21258,7 @@ IL_0047:
 	{
 		float L_15 = V_1;
 		float L_16;
-		L_16 = VirtualFuncInvoker0< float >::Invoke(160, __this);
+		L_16 = VirtualFuncInvoker0< float >::Invoke(161, __this);
 		V_1 = ((float)il2cpp_codegen_multiply(L_15, L_16));
 		goto IL_0087;
 	}
@@ -20974,7 +21314,7 @@ IL_0092:
 IL_009b:
 	{
 		float L_24;
-		L_24 = VirtualFuncInvoker0< float >::Invoke(143, __this);
+		L_24 = VirtualFuncInvoker0< float >::Invoke(144, __this);
 		float L_25 = V_1;
 		float L_26 = V_1;
 		float L_27;
@@ -20982,7 +21322,7 @@ IL_009b:
 		il2cpp_codegen_runtime_class_init_inline(BaseSlider_1_t72796443D058B00401238104911BE7078A9FD0BA_il2cpp_TypeInfo_var);
 		float L_28;
 		L_28 = BaseSlider_1_RoundToMultipleOf_mDBAF80B64A8029F5A4365C512E2BAF2BE914E1DE(((float)il2cpp_codegen_add(L_24, ((float)il2cpp_codegen_multiply(L_25, (0.500100017f))))), L_27, BaseSlider_1_RoundToMultipleOf_mDBAF80B64A8029F5A4365C512E2BAF2BE914E1DE_RuntimeMethod_var);
-		VirtualActionInvoker1< float >::Invoke(144, __this, L_28);
+		VirtualActionInvoker1< float >::Invoke(145, __this, L_28);
 	}
 
 IL_00bb:
@@ -21098,7 +21438,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UxmlTraits_Init_m5B66E9E940C8BBE9974DD66
 		float L_20;
 		L_20 = VirtualFuncInvoker2< float, RuntimeObject*, CreationContext_t9C57B5BE551CCE200C0A2C72711BFF9DA298C257 >::Invoke(4, L_17, L_18, L_19);
 		NullCheck(L_16);
-		VirtualActionInvoker1< float >::Invoke(161, L_16, L_20);
+		VirtualActionInvoker1< float >::Invoke(162, L_16, L_20);
 		Slider_t5891706383A14955E3FAD68A79829F3234681652* L_21 = V_0;
 		UxmlBoolAttributeDescription_t86EA1242C539B39911E63699A4AE0C47918701CE* L_22 = __this->___m_ShowInputField;
 		RuntimeObject* L_23 = ___1_bag;
@@ -21107,7 +21447,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UxmlTraits_Init_m5B66E9E940C8BBE9974DD66
 		bool L_25;
 		L_25 = VirtualFuncInvoker2< bool, RuntimeObject*, CreationContext_t9C57B5BE551CCE200C0A2C72711BFF9DA298C257 >::Invoke(4, L_22, L_23, L_24);
 		NullCheck(L_21);
-		VirtualActionInvoker1< bool >::Invoke(163, L_21, L_25);
+		VirtualActionInvoker1< bool >::Invoke(164, L_21, L_25);
 		Slider_t5891706383A14955E3FAD68A79829F3234681652* L_26 = V_0;
 		UxmlBoolAttributeDescription_t86EA1242C539B39911E63699A4AE0C47918701CE* L_27 = __this->___m_Inverted;
 		RuntimeObject* L_28 = ___1_bag;
@@ -21324,7 +21664,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SliderInt_ApplyInputDeviceDelta_mD0E8713
 		L_6 = NumericFieldDraggerUtility_Acceleration_m68C7F9D2F37BF3F5658F30022507A438C4CD7BE1((bool)((((int32_t)L_4) == ((int32_t)0))? 1 : 0), (bool)((((int32_t)L_5) == ((int32_t)2))? 1 : 0), NULL);
 		V_1 = L_6;
 		int32_t L_7;
-		L_7 = VirtualFuncInvoker0< int32_t >::Invoke(143, __this);
+		L_7 = VirtualFuncInvoker0< int32_t >::Invoke(144, __this);
 		V_2 = ((int64_t)L_7);
 		int64_t L_8 = V_2;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_9 = ___0_delta;
@@ -21339,7 +21679,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SliderInt_ApplyInputDeviceDelta_mD0E8713
 		L_14 = bankers_round(((double)il2cpp_codegen_multiply(((double)L_12), L_13)));
 		V_2 = ((int64_t)il2cpp_codegen_add(L_8, il2cpp_codegen_cast_double_to_int<int64_t>(L_14)));
 		int64_t L_15 = V_2;
-		VirtualActionInvoker1< int32_t >::Invoke(144, __this, ((int32_t)L_15));
+		VirtualActionInvoker1< int32_t >::Invoke(145, __this, ((int32_t)L_15));
 		return;
 	}
 }
@@ -21535,7 +21875,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SliderInt_ComputeValueAndDirectionFromCl
 	int32_t G_B29_0 = 0;
 	{
 		float L_0;
-		L_0 = VirtualFuncInvoker0< float >::Invoke(160, __this);
+		L_0 = VirtualFuncInvoker0< float >::Invoke(161, __this);
 		bool L_1;
 		L_1 = Mathf_Approximately_m1DADD012A8FC82E11FB282501AE2EBBF9A77150B_inline(L_0, (0.0f), NULL);
 		V_0 = L_1;
@@ -21576,7 +21916,7 @@ IL_0028:
 IL_0045:
 	{
 		float L_12;
-		L_12 = VirtualFuncInvoker0< float >::Invoke(160, __this);
+		L_12 = VirtualFuncInvoker0< float >::Invoke(161, __this);
 		V_2 = il2cpp_codegen_cast_double_to_int<int32_t>(L_12);
 		int32_t L_13;
 		L_13 = BaseSlider_1_get_lowValue_m2A1808D9A721CCCB906144FC62E53097FB175C5B(__this, BaseSlider_1_get_lowValue_m2A1808D9A721CCCB906144FC62E53097FB175C5B_RuntimeMethod_var);
@@ -21751,9 +22091,9 @@ IL_00e1:
 		NullCheck(L_38);
 		ClampedDragger_1_set_dragDirection_m7C94243EE648C44295A4A73F98E03C53A4CEF3D9_inline(L_38, 2, ClampedDragger_1_set_dragDirection_m7C94243EE648C44295A4A73F98E03C53A4CEF3D9_RuntimeMethod_var);
 		int32_t L_39;
-		L_39 = VirtualFuncInvoker0< int32_t >::Invoke(143, __this);
+		L_39 = VirtualFuncInvoker0< int32_t >::Invoke(144, __this);
 		int32_t L_40 = V_2;
-		VirtualActionInvoker1< int32_t >::Invoke(144, __this, ((int32_t)il2cpp_codegen_subtract(L_39, L_40)));
+		VirtualActionInvoker1< int32_t >::Invoke(145, __this, ((int32_t)il2cpp_codegen_subtract(L_39, L_40)));
 		goto IL_0143;
 	}
 
@@ -21795,9 +22135,9 @@ IL_011f:
 		NullCheck(L_45);
 		ClampedDragger_1_set_dragDirection_m7C94243EE648C44295A4A73F98E03C53A4CEF3D9_inline(L_45, 1, ClampedDragger_1_set_dragDirection_m7C94243EE648C44295A4A73F98E03C53A4CEF3D9_RuntimeMethod_var);
 		int32_t L_46;
-		L_46 = VirtualFuncInvoker0< int32_t >::Invoke(143, __this);
+		L_46 = VirtualFuncInvoker0< int32_t >::Invoke(144, __this);
 		int32_t L_47 = V_2;
-		VirtualActionInvoker1< int32_t >::Invoke(144, __this, ((int32_t)il2cpp_codegen_add(L_46, L_47)));
+		VirtualActionInvoker1< int32_t >::Invoke(145, __this, ((int32_t)il2cpp_codegen_add(L_46, L_47)));
 	}
 
 IL_0143:
@@ -21879,7 +22219,7 @@ IL_001b:
 	{
 		int32_t L_5;
 		L_5 = BaseSlider_1_get_lowValue_m2A1808D9A721CCCB906144FC62E53097FB175C5B(__this, BaseSlider_1_get_lowValue_m2A1808D9A721CCCB906144FC62E53097FB175C5B_RuntimeMethod_var);
-		VirtualActionInvoker1< int32_t >::Invoke(144, __this, L_5);
+		VirtualActionInvoker1< int32_t >::Invoke(145, __this, L_5);
 		goto IL_00d9;
 	}
 
@@ -21887,7 +22227,7 @@ IL_002d:
 	{
 		int32_t L_6;
 		L_6 = BaseSlider_1_get_highValue_m8495FAE7CD3C549A3305320362618AE5C32CC1FC(__this, BaseSlider_1_get_highValue_m8495FAE7CD3C549A3305320362618AE5C32CC1FC_RuntimeMethod_var);
-		VirtualActionInvoker1< int32_t >::Invoke(144, __this, L_6);
+		VirtualActionInvoker1< int32_t >::Invoke(145, __this, L_6);
 		goto IL_00d9;
 	}
 
@@ -21948,7 +22288,7 @@ IL_007e:
 	{
 		float L_17 = V_1;
 		float L_18;
-		L_18 = VirtualFuncInvoker0< float >::Invoke(160, __this);
+		L_18 = VirtualFuncInvoker0< float >::Invoke(161, __this);
 		V_1 = ((float)il2cpp_codegen_multiply(L_17, L_18));
 		goto IL_009f;
 	}
@@ -22004,7 +22344,7 @@ IL_00aa:
 IL_00b3:
 	{
 		int32_t L_26;
-		L_26 = VirtualFuncInvoker0< int32_t >::Invoke(143, __this);
+		L_26 = VirtualFuncInvoker0< int32_t >::Invoke(144, __this);
 		float L_27 = V_1;
 		float L_28 = V_1;
 		float L_29;
@@ -22014,7 +22354,7 @@ IL_00b3:
 		L_30 = BaseSlider_1_RoundToMultipleOf_mBD6D52844AF0CE61D1745C1D1E28D4632D668431(((float)il2cpp_codegen_add(((float)L_26), ((float)il2cpp_codegen_multiply(L_27, (0.500100017f))))), L_29, BaseSlider_1_RoundToMultipleOf_mBD6D52844AF0CE61D1745C1D1E28D4632D668431_RuntimeMethod_var);
 		int32_t L_31;
 		L_31 = Mathf_RoundToInt_m60F8B66CF27F1FA75AA219342BD184B75771EB4B_inline(L_30, NULL);
-		VirtualActionInvoker1< int32_t >::Invoke(144, __this, L_31);
+		VirtualActionInvoker1< int32_t >::Invoke(145, __this, L_31);
 	}
 
 IL_00d9:
@@ -22130,7 +22470,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UxmlTraits_Init_m1EADA511AB256084F45F0B2
 		int32_t L_20;
 		L_20 = VirtualFuncInvoker2< int32_t, RuntimeObject*, CreationContext_t9C57B5BE551CCE200C0A2C72711BFF9DA298C257 >::Invoke(4, L_17, L_18, L_19);
 		NullCheck(L_16);
-		VirtualActionInvoker1< float >::Invoke(161, L_16, ((float)L_20));
+		VirtualActionInvoker1< float >::Invoke(162, L_16, ((float)L_20));
 		SliderInt_t0D262A6FB485F98842373C83ACB08D9596D8DDA1* L_21 = V_0;
 		UxmlBoolAttributeDescription_t86EA1242C539B39911E63699A4AE0C47918701CE* L_22 = __this->___m_ShowInputField;
 		RuntimeObject* L_23 = ___1_bag;
@@ -22139,7 +22479,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UxmlTraits_Init_m1EADA511AB256084F45F0B2
 		bool L_25;
 		L_25 = VirtualFuncInvoker2< bool, RuntimeObject*, CreationContext_t9C57B5BE551CCE200C0A2C72711BFF9DA298C257 >::Invoke(4, L_22, L_23, L_24);
 		NullCheck(L_21);
-		VirtualActionInvoker1< bool >::Invoke(163, L_21, L_25);
+		VirtualActionInvoker1< bool >::Invoke(164, L_21, L_25);
 		SliderInt_t0D262A6FB485F98842373C83ACB08D9596D8DDA1* L_26 = V_0;
 		UxmlBoolAttributeDescription_t86EA1242C539B39911E63699A4AE0C47918701CE* L_27 = __this->___m_Inverted;
 		RuntimeObject* L_28 = ___1_bag;
@@ -22474,7 +22814,7 @@ IL_0016:
 		Label_tC160668F9119CE0F5567021FB208E64A5B1C5B70* L_4 = __this->___m_TabHeaderLabel;
 		String_t* L_5 = ___0_value;
 		NullCheck(L_4);
-		VirtualActionInvoker1< String_t* >::Invoke(204, L_4, L_5);
+		VirtualActionInvoker1< String_t* >::Invoke(201, L_4, L_5);
 		Label_tC160668F9119CE0F5567021FB208E64A5B1C5B70* L_6 = __this->___m_TabHeaderLabel;
 		il2cpp_codegen_runtime_class_init_inline(Tab_t36D29E05C586BDF0FDBAE2C3DE1875A85F80720F_il2cpp_TypeInfo_var);
 		String_t* L_7 = ((Tab_t36D29E05C586BDF0FDBAE2C3DE1875A85F80720F_StaticFields*)il2cpp_codegen_static_fields_for(Tab_t36D29E05C586BDF0FDBAE2C3DE1875A85F80720F_il2cpp_TypeInfo_var))->___tabHeaderEmptyLabeUssClassName;
@@ -23088,7 +23428,7 @@ IL_0021:
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_7 = V_0;
 		NullCheck(L_7);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_8;
-		L_8 = VirtualFuncInvoker0< Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D >::Invoke(131, L_7);
+		L_8 = VirtualFuncInvoker0< Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D >::Invoke(132, L_7);
 		NullCheck(L_6);
 		TooltipEvent_set_rect_mCD96D19C063247F8DE3B8553843C27611286A5FD_inline(L_6, L_8, NULL);
 		TooltipEvent_t48F59E9AFAADF9D1B8A7A3A5CB8A49DA6D3E7187* L_9 = ___0_evt;
@@ -25496,7 +25836,7 @@ IL_0065:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_29;
 		L_29 = StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019(L_28, NULL);
 		NullCheck(L_27);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_27, L_29);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_27, L_29);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_30 = __this->___m_DestinationTab;
 		V_6 = (bool)((!(((RuntimeObject*)(VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115*)L_30) <= ((RuntimeObject*)(RuntimeObject*)NULL)))? 1 : 0);
 		bool L_31 = V_6;
@@ -25517,7 +25857,7 @@ IL_0065:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_36;
 		L_36 = StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019(L_35, NULL);
 		NullCheck(L_34);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_34, L_36);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_34, L_36);
 		TabDragLocationPreview_tAB80E5C0B12B67B5CE830D5283D3DCB4DC058BDE* L_37 = __this->___m_LocationPreviewElement;
 		NullCheck(L_37);
 		RuntimeObject* L_38;
@@ -25554,7 +25894,7 @@ IL_0110:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_49;
 		L_49 = StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019(L_48, NULL);
 		NullCheck(L_47);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_47, L_49);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_47, L_49);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_50 = __this->___m_DestinationTab;
 		V_7 = (bool)((!(((RuntimeObject*)(VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115*)L_50) <= ((RuntimeObject*)(RuntimeObject*)NULL)))? 1 : 0);
 		bool L_51 = V_7;

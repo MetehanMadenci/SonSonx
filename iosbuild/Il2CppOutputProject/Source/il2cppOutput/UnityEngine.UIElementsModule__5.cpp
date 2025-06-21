@@ -4497,6 +4497,7 @@ struct ScrollView_t7CE209084E084FAA0E8DF3CD8E3B8BB9EB27E8D9  : public VisualElem
 	int64_t ___m_ElasticAnimationIntervalMs;
 	VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* ___m_AttachedRootVisualContainer;
 	float ___m_SingleLineHeight;
+	bool ___m_SingleLineHeightDirtyFlag;
 	bool ___m_MouseWheelScrollSizeIsInline;
 	float ___m_HorizontalPageSize;
 	float ___m_VerticalPageSize;
@@ -5443,8 +5444,6 @@ struct TextElement_tD56C5044CCC5552285DC8A9950CC60448C80FEE0_StaticFields
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___doubleClickSelectsWordProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___tripleClickSelectsLineProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___cursorPositionProperty;
-	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectionColorProperty;
-	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___cursorColorProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectAllOnFocusProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectAllOnMouseUpProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectionProperty;
@@ -5460,8 +5459,6 @@ struct TextInputBaseField_1_t67DE1449A6CE94BE8C8AD0CB157926D8C4307019_StaticFiel
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___textSelectionProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___textEditionProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___placeholderTextProperty;
-	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectionColorProperty;
-	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___cursorColorProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___cursorIndexProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___cursorPositionProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectIndexProperty;
@@ -5497,8 +5494,6 @@ struct TextInputBaseField_1_tF45683452C591CDF5627704F1F66766242B67044_StaticFiel
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___textSelectionProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___textEditionProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___placeholderTextProperty;
-	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectionColorProperty;
-	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___cursorColorProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___cursorIndexProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___cursorPositionProperty;
 	BindingId_t8BBB6188CD126EACCA07816C78760E92DC16620E ___selectIndexProperty;
@@ -9307,7 +9302,7 @@ IL_0045:
 		NullCheck(L_8);
 		VisualElement_RemoveFromClassList_mA7A2EC202004DFCBF38C12B70C6218BF40D21220(L_8, L_9, NULL);
 		bool L_10;
-		L_10 = VirtualFuncInvoker0< bool >::Invoke(143, __this);
+		L_10 = VirtualFuncInvoker0< bool >::Invoke(144, __this);
 		V_1 = L_10;
 		bool L_11 = V_1;
 		if (!L_11)
@@ -9536,7 +9531,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ToggleButtonGroup_set_isMultipleSelectio
 IL_0010:
 	{
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_3;
-		L_3 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
+		L_3 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
 		V_0 = L_3;
 		int32_t L_4;
 		L_4 = ToggleButtonGroupState_get_length_m14275A320AE4AC8B34C14C3F76846D73010AE7E3_inline((&V_0), NULL);
@@ -9593,7 +9588,7 @@ IL_0052:
 		int32_t L_17 = *((int32_t*)L_16);
 		ToggleButtonGroupState_set_Item_m5ECD66288210C5B4A613E950C2633F9F2505F4DD((&V_0), L_17, (bool)1, NULL);
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_18 = V_0;
-		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(154, __this, L_18);
+		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(155, __this, L_18);
 	}
 
 IL_007c:
@@ -9665,7 +9660,7 @@ IL_0010:
 	}
 	{
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_5;
-		L_5 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
+		L_5 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
 		V_2 = L_5;
 		int32_t L_6;
 		L_6 = ToggleButtonGroupState_get_length_m14275A320AE4AC8B34C14C3F76846D73010AE7E3_inline((&V_2), NULL);
@@ -9718,7 +9713,7 @@ IL_005d:
 	{
 		ToggleButtonGroupState_set_Item_m5ECD66288210C5B4A613E950C2633F9F2505F4DD((&V_2), 0, (bool)1, NULL);
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_18 = V_2;
-		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(154, __this, L_18);
+		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(155, __this, L_18);
 	}
 
 IL_0077:
@@ -9819,7 +9814,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ToggleButtonGroup__ctor_mE6D9D0B8A4C43AC
 		NullCheck(L_13);
 		VisualElement_add_elementRemoved_m68B7401361B27A9C1F84D7AF8369B37F4828CC28(L_13, L_14, NULL);
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_15 = ___1_toggleButtonGroupState;
-		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(154, __this, L_15);
+		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(155, __this, L_15);
 		return;
 	}
 }
@@ -9857,7 +9852,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ToggleButtonGroup_OnViewDataReady_m504EE
 	{
 		BaseField_1_OnViewDataReady_mCD3E429A50FDA645FBC610C180EE4110C80C98B6(__this, BaseField_1_OnViewDataReady_mCD3E429A50FDA645FBC610C180EE4110C80C98B6_RuntimeMethod_var);
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_0;
-		L_0 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
+		L_0 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
 		ToggleButtonGroup_UpdateButtonStates_mCDE1D80834D369EA5F795C32D2DCBCF7F1548C8A(__this, L_0, NULL);
 		return;
 	}
@@ -9955,8 +9950,8 @@ IL_0058:
 IL_005b:
 	{
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_10;
-		L_10 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
-		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(154, __this, L_10);
+		L_10 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
+		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(155, __this, L_10);
 	}
 
 IL_006a:
@@ -10178,14 +10173,14 @@ IL_0066:
 		ToggleButtonGroup_UpdateButtonsStyling_mF02A21F9204E3DD19EEBD4E434D1E31573A99E9A(__this, NULL);
 		V_1 = (bool)0;
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_20;
-		L_20 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
+		L_20 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
 		V_2 = L_20;
 		List_1_tC00102DBD817DEFEFB8F502995809E47ED0DEC6D* L_21 = __this->___m_Buttons;
 		NullCheck(L_21);
 		int32_t L_22;
 		L_22 = List_1_get_Count_m92A383BAE9C93433DF994AA80501D937ECA0D153_inline(L_21, List_1_get_Count_m92A383BAE9C93433DF994AA80501D937ECA0D153_RuntimeMethod_var);
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_23;
-		L_23 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
+		L_23 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
 		V_9 = L_23;
 		int32_t L_24;
 		L_24 = ToggleButtonGroupState_get_length_m14275A320AE4AC8B34C14C3F76846D73010AE7E3_inline((&V_9), NULL);
@@ -10229,7 +10224,7 @@ IL_00e7:
 IL_0104:
 	{
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_30;
-		L_30 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
+		L_30 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
 		V_9 = L_30;
 		uint64_t L_31;
 		L_31 = ToggleButtonGroupState_get_data_m14FBE520BD1CCCFF69AE013B12CFEE8BE0835A99_inline((&V_9), NULL);
@@ -10276,7 +10271,7 @@ IL_0135:
 	}
 	{
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_36 = V_2;
-		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this, L_36);
+		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(145, __this, L_36);
 	}
 
 IL_0146:
@@ -10336,7 +10331,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ToggleButtonGroup_OnButtonGroupContainer
 IL_001a:
 	{
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_3;
-		L_3 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
+		L_3 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
 		V_1 = L_3;
 		List_1_tC00102DBD817DEFEFB8F502995809E47ED0DEC6D* L_4 = __this->___m_Buttons;
 		Button_t8EC3B431665F84C0B637C11B0EA29236828646C2* L_5 = V_0;
@@ -10424,7 +10419,7 @@ IL_009b:
 	{
 		ToggleButtonGroupState_ResetAllOptions_mAD9A3CEF828056FBB9C513A791024DBE5D85F3A3((&V_1), NULL);
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_36 = V_1;
-		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(154, __this, L_36);
+		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(155, __this, L_36);
 		goto IL_012b;
 	}
 
@@ -10476,7 +10471,7 @@ IL_0112:
 IL_0122:
 	{
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_43 = V_1;
-		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this, L_43);
+		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(145, __this, L_43);
 	}
 
 IL_012b:
@@ -10508,7 +10503,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ToggleButtonGroup_UpdateButtonStates_mCD
 	bool V_6 = false;
 	{
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_0;
-		L_0 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
+		L_0 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
 		V_3 = L_0;
 		int32_t L_1;
 		L_1 = ToggleButtonGroupState_get_length_m14275A320AE4AC8B34C14C3F76846D73010AE7E3_inline((&V_3), NULL);
@@ -10659,7 +10654,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ToggleButtonGroup_OnOptionChange_m57F129
 		L_4 = List_1_IndexOf_mB16456B848F23C6BFBCE1A21BD34EE580F125F45(L_2, L_3, List_1_IndexOf_mB16456B848F23C6BFBCE1A21BD34EE580F125F45_RuntimeMethod_var);
 		V_1 = L_4;
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_5;
-		L_5 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
+		L_5 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
 		V_2 = L_5;
 		int32_t L_6;
 		L_6 = ToggleButtonGroupState_get_length_m14275A320AE4AC8B34C14C3F76846D73010AE7E3_inline((&V_2), NULL);
@@ -10690,11 +10685,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ToggleButtonGroup_OnOptionChange_m57F129
 	}
 	{
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_16;
-		L_16 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
+		L_16 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
 		V_7 = L_16;
 		ToggleButtonGroupState_ResetAllOptions_mAD9A3CEF828056FBB9C513A791024DBE5D85F3A3((&V_7), NULL);
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_17;
-		L_17 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(143, __this);
+		L_17 = VirtualFuncInvoker0< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this);
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_18 = V_7;
 		bool L_19;
 		L_19 = ToggleButtonGroupState_op_Inequality_m9C32C901AC28F59A993CE52FE4D6386FC2D1FA04(L_17, L_18, NULL);
@@ -10707,7 +10702,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ToggleButtonGroup_OnOptionChange_m57F129
 	}
 	{
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_21 = V_7;
-		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(154, __this, L_21);
+		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(155, __this, L_21);
 	}
 
 IL_007f:
@@ -10877,7 +10872,7 @@ IL_0151:
 IL_0152:
 	{
 		ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 L_48 = V_2;
-		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(144, __this, L_48);
+		VirtualActionInvoker1< ToggleButtonGroupState_tB95F0A0DB8DAC1DC57EE02C7610744AB9FC268C2 >::Invoke(145, __this, L_48);
 	}
 
 IL_015a:
@@ -12683,7 +12678,7 @@ IL_0010:
 		int32_t L_3 = ___0_value;
 		float L_4 = __this->___m_FixedPaneInitialDimension;
 		int32_t L_5 = __this->___m_Orientation;
-		VirtualActionInvoker3< int32_t, float, int32_t >::Invoke(136, __this, L_3, L_4, L_5);
+		VirtualActionInvoker3< int32_t, float, int32_t >::Invoke(137, __this, L_3, L_4, L_5);
 		il2cpp_codegen_runtime_class_init_inline(TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_il2cpp_TypeInfo_var);
 		CallbackEventHandler_NotifyPropertyChanged_m9CA05CC71AABC3EB3A77B089D89EBCF999A24891(__this, (&((TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_StaticFields*)il2cpp_codegen_static_fields_for(TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_il2cpp_TypeInfo_var))->___fixedPaneIndexProperty), NULL);
 	}
@@ -12728,7 +12723,7 @@ IL_0010:
 		int32_t L_3 = __this->___m_FixedPaneIndex;
 		float L_4 = ___0_value;
 		int32_t L_5 = __this->___m_Orientation;
-		VirtualActionInvoker3< int32_t, float, int32_t >::Invoke(136, __this, L_3, L_4, L_5);
+		VirtualActionInvoker3< int32_t, float, int32_t >::Invoke(137, __this, L_3, L_4, L_5);
 		il2cpp_codegen_runtime_class_init_inline(TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_il2cpp_TypeInfo_var);
 		CallbackEventHandler_NotifyPropertyChanged_m9CA05CC71AABC3EB3A77B089D89EBCF999A24891(__this, (&((TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_StaticFields*)il2cpp_codegen_static_fields_for(TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_il2cpp_TypeInfo_var))->___fixedPaneInitialDimensionProperty), NULL);
 	}
@@ -12773,7 +12768,7 @@ IL_0010:
 		int32_t L_3 = __this->___m_FixedPaneIndex;
 		float L_4 = __this->___m_FixedPaneInitialDimension;
 		int32_t L_5 = ___0_value;
-		VirtualActionInvoker3< int32_t, float, int32_t >::Invoke(136, __this, L_3, L_4, L_5);
+		VirtualActionInvoker3< int32_t, float, int32_t >::Invoke(137, __this, L_3, L_4, L_5);
 		il2cpp_codegen_runtime_class_init_inline(TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_il2cpp_TypeInfo_var);
 		CallbackEventHandler_NotifyPropertyChanged_m9CA05CC71AABC3EB3A77B089D89EBCF999A24891(__this, (&((TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_StaticFields*)il2cpp_codegen_static_fields_for(TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_il2cpp_TypeInfo_var))->___orientationProperty), NULL);
 	}
@@ -12860,7 +12855,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TwoPaneSplitView__ctor_mB89BA100928E508A
 		int32_t L_0 = __this->___m_FixedPaneIndex;
 		float L_1 = __this->___m_FixedPaneInitialDimension;
 		int32_t L_2 = __this->___m_Orientation;
-		VirtualActionInvoker3< int32_t, float, int32_t >::Invoke(136, __this, L_0, L_1, L_2);
+		VirtualActionInvoker3< int32_t, float, int32_t >::Invoke(137, __this, L_0, L_1, L_2);
 		return;
 	}
 }
@@ -13031,7 +13026,7 @@ IL_0044:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_16;
 		L_16 = StyleLength_op_Implicit_m895C788B08202125BDDAEE31F2F9D0EE6519D990(4, NULL);
 		NullCheck(L_15);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_15, L_16);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_15, L_16);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_17 = __this->___m_RightPane;
 		NullCheck(L_17);
 		RuntimeObject* L_18;
@@ -13068,7 +13063,7 @@ IL_00de:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_28;
 		L_28 = StyleLength_op_Implicit_m895C788B08202125BDDAEE31F2F9D0EE6519D990(4, NULL);
 		NullCheck(L_27);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_27, L_28);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_27, L_28);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_29 = __this->___m_LeftPane;
 		NullCheck(L_29);
 		RuntimeObject* L_30;
@@ -13622,7 +13617,7 @@ IL_0045:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_27;
 		L_27 = StyleLength_op_Implicit_m895C788B08202125BDDAEE31F2F9D0EE6519D990(1, NULL);
 		NullCheck(L_26);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_26, L_27);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_26, L_27);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_28 = __this->___m_FixedPane;
 		NullCheck(L_28);
 		RuntimeObject* L_29;
@@ -13638,7 +13633,7 @@ IL_0045:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_33;
 		L_33 = StyleLength_op_Implicit_m895C788B08202125BDDAEE31F2F9D0EE6519D990(1, NULL);
 		NullCheck(L_32);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_32, L_33);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_32, L_33);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_34 = __this->___m_FlexedPane;
 		NullCheck(L_34);
 		RuntimeObject* L_35;
@@ -13664,7 +13659,7 @@ IL_0045:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_42;
 		L_42 = StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019(L_41, NULL);
 		NullCheck(L_40);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_40, L_42);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_40, L_42);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_43 = __this->___m_FixedPane;
 		NullCheck(L_43);
 		RuntimeObject* L_44;
@@ -13685,7 +13680,7 @@ IL_017a:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_48;
 		L_48 = StyleLength_op_Implicit_m895C788B08202125BDDAEE31F2F9D0EE6519D990(1, NULL);
 		NullCheck(L_47);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_47, L_48);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_47, L_48);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_49 = __this->___m_FixedPane;
 		NullCheck(L_49);
 		RuntimeObject* L_50;
@@ -13811,7 +13806,7 @@ IL_02c8:
 		L_91 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(__this, NULL);
 		NullCheck(L_91);
 		float L_92;
-		L_92 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_91);
+		L_92 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_91);
 		float L_93 = V_6;
 		float L_94 = V_0;
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_95 = __this->___m_DragLineAnchor;
@@ -13820,7 +13815,7 @@ IL_02c8:
 		L_96 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_95, NULL);
 		NullCheck(L_96);
 		float L_97;
-		L_97 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_96);
+		L_97 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_96);
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_98;
 		L_98 = StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019(((float)il2cpp_codegen_subtract(((float)il2cpp_codegen_subtract(((float)il2cpp_codegen_subtract(L_92, L_93)), L_94)), L_97)), NULL);
 		NullCheck(L_90);
@@ -14049,7 +14044,7 @@ IL_0012:
 		L_4 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(__this, NULL);
 		NullCheck(L_4);
 		int32_t L_5;
-		L_5 = InterfaceFuncInvoker0< int32_t >::Invoke(75, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_4);
+		L_5 = InterfaceFuncInvoker0< int32_t >::Invoke(76, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_4);
 		G_B5_0 = ((((int32_t)L_5) == ((int32_t)1))? 1 : 0);
 		goto IL_0031;
 	}
@@ -14078,7 +14073,7 @@ IL_003c:
 		L_7 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(__this, NULL);
 		NullCheck(L_7);
 		float L_8;
-		L_8 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_7);
+		L_8 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_7);
 		V_0 = L_8;
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_9 = __this->___m_FixedPane;
 		NullCheck(L_9);
@@ -14086,7 +14081,7 @@ IL_003c:
 		L_10 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_9, NULL);
 		NullCheck(L_10);
 		float L_11;
-		L_11 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_10);
+		L_11 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_10);
 		V_1 = L_11;
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_12 = __this->___m_FixedPane;
 		NullCheck(L_12);
@@ -14350,7 +14345,7 @@ IL_022f:
 		L_99 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_98, NULL);
 		NullCheck(L_99);
 		float L_100;
-		L_100 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_99);
+		L_100 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_99);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_101 = __this->___m_DragLine;
 		NullCheck(L_101);
 		RuntimeObject* L_102;
@@ -14690,7 +14685,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TwoPaneSplitView_SetFixedPaneDimension_m
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_5;
 		L_5 = StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019(L_4, NULL);
 		NullCheck(L_3);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_3, L_5);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_3, L_5);
 		goto IL_003e;
 	}
 
@@ -14933,7 +14928,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UxmlTraits_Init_m6CC1C58CC1BD975C94249F0
 		int32_t L_17 = V_1;
 		int32_t L_18 = V_2;
 		NullCheck(((TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67*)CastclassClass((RuntimeObject*)L_15, TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_il2cpp_TypeInfo_var)));
-		VirtualActionInvoker3< int32_t, float, int32_t >::Invoke(136, ((TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67*)CastclassClass((RuntimeObject*)L_15, TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_il2cpp_TypeInfo_var)), L_16, ((float)L_17), L_18);
+		VirtualActionInvoker3< int32_t, float, int32_t >::Invoke(137, ((TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67*)CastclassClass((RuntimeObject*)L_15, TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67_il2cpp_TypeInfo_var)), L_16, ((float)L_17), L_18);
 		return;
 	}
 }
@@ -15470,7 +15465,7 @@ IL_001b:
 		L_5 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_4, NULL);
 		NullCheck(L_5);
 		float L_6;
-		L_6 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_5);
+		L_6 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_5);
 		G_B3_0 = L_6;
 	}
 
@@ -15628,7 +15623,7 @@ IL_00e3:
 		L_42 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_41, NULL);
 		NullCheck(L_42);
 		float L_43;
-		L_43 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_42);
+		L_43 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_42);
 		G_B16_0 = L_43;
 	}
 
@@ -15723,7 +15718,7 @@ IL_0177:
 		L_71 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_70, NULL);
 		NullCheck(L_71);
 		float L_72;
-		L_72 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_71);
+		L_72 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_71);
 		TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67* L_73 = __this->___m_SplitView;
 		NullCheck(L_73);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_74;
@@ -15804,7 +15799,7 @@ IL_01d6:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_90;
 		L_90 = StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019(L_89, NULL);
 		NullCheck(L_88);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_88, L_90);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_88, L_90);
 		TwoPaneSplitView_tB474821CB57A1FF40CA9ADB5360072A151744A67* L_91 = __this->___m_SplitView;
 		NullCheck(L_91);
 		int32_t L_92;
@@ -15857,7 +15852,7 @@ IL_024d:
 		L_104 = VisualElement_get_resolvedStyle_m3885B7534A94E0BCE024A9621465A0F273DA0AEB(L_103, NULL);
 		NullCheck(L_104);
 		float L_105;
-		L_105 = InterfaceFuncInvoker0< float >::Invoke(77, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_104);
+		L_105 = InterfaceFuncInvoker0< float >::Invoke(78, IResolvedStyle_t6A3530BA6147B091C278593F21F86B09CD42BE89_il2cpp_TypeInfo_var, L_104);
 		float L_106 = V_1;
 		float L_107;
 		L_107 = TwoPaneSplitViewResizer_get_fixedPaneMargins_m31D88074B12CA93A42C3BBAD081FD55455C9F2FD(__this, NULL);
@@ -16699,7 +16694,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnsignedIntegerField_ApplyInputDeviceDel
 		int32_t L_2 = ___1_speed;
 		uint32_t L_3 = ___2_startValue;
 		NullCheck(L_0);
-		VirtualActionInvoker3< Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2, int32_t, uint32_t >::Invoke(139, L_0, L_1, L_2, L_3);
+		VirtualActionInvoker3< Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2, int32_t, uint32_t >::Invoke(140, L_0, L_1, L_2, L_3);
 		return;
 	}
 }
@@ -16854,7 +16849,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnsignedIntegerInput_ApplyInputDeviceDel
 		String_t* L_5;
 		L_5 = TextInputBase_get_text_mEB745A659F220ABD5E900BFEADC94DD875A9C37E(__this, TextInputBase_get_text_mEB745A659F220ABD5E900BFEADC94DD875A9C37E_RuntimeMethod_var);
 		uint32_t L_6;
-		L_6 = VirtualFuncInvoker1< uint32_t, String_t* >::Invoke(136, __this, L_5);
+		L_6 = VirtualFuncInvoker1< uint32_t, String_t* >::Invoke(137, __this, L_5);
 		V_2 = ((int64_t)(uint64_t)((uint32_t)L_6));
 		int64_t L_7 = V_2;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8 = ___0_delta;
@@ -16885,7 +16880,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnsignedIntegerInput_ApplyInputDeviceDel
 		uint32_t L_18;
 		L_18 = Mathf_ClampToUInt_mC2D0AB113A813EA9B5C121399F18EB732DE7945C(L_17, NULL);
 		String_t* L_19;
-		L_19 = VirtualFuncInvoker1< String_t*, uint32_t >::Invoke(140, __this, L_18);
+		L_19 = VirtualFuncInvoker1< String_t*, uint32_t >::Invoke(141, __this, L_18);
 		TextInputBase_set_text_mCD479BE71ADF799E0448DEE16E03BCF72880AFB5(__this, L_19, TextInputBase_set_text_mCD479BE71ADF799E0448DEE16E03BCF72880AFB5_RuntimeMethod_var);
 		goto IL_0078;
 	}
@@ -16898,7 +16893,7 @@ IL_0064:
 		uint32_t L_22;
 		L_22 = Mathf_ClampToUInt_mC2D0AB113A813EA9B5C121399F18EB732DE7945C(L_21, NULL);
 		NullCheck(L_20);
-		VirtualActionInvoker1< uint32_t >::Invoke(144, L_20, L_22);
+		VirtualActionInvoker1< uint32_t >::Invoke(145, L_20, L_22);
 	}
 
 IL_0078:
@@ -16939,7 +16934,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint32_t UnsignedIntegerInput_StringToValue_m
 		String_t* L_1 = ___0_str;
 		NullCheck(L_0);
 		uint32_t L_2;
-		L_2 = VirtualFuncInvoker1< uint32_t, String_t* >::Invoke(157, L_0, L_1);
+		L_2 = VirtualFuncInvoker1< uint32_t, String_t* >::Invoke(158, L_0, L_1);
 		V_0 = L_2;
 		goto IL_0010;
 	}
@@ -17150,7 +17145,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnsignedLongField_ApplyInputDeviceDelta_
 		int32_t L_2 = ___1_speed;
 		uint64_t L_3 = ___2_startValue;
 		NullCheck(L_0);
-		VirtualActionInvoker3< Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2, int32_t, uint64_t >::Invoke(139, L_0, L_1, L_2, L_3);
+		VirtualActionInvoker3< Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2, int32_t, uint64_t >::Invoke(140, L_0, L_1, L_2, L_3);
 		return;
 	}
 }
@@ -17306,7 +17301,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnsignedLongInput_ApplyInputDeviceDelta_
 		String_t* L_5;
 		L_5 = TextInputBase_get_text_m5F4A42930CFEE687139DA4ECAE49E893D6FA9B6C(__this, TextInputBase_get_text_m5F4A42930CFEE687139DA4ECAE49E893D6FA9B6C_RuntimeMethod_var);
 		uint64_t L_6;
-		L_6 = VirtualFuncInvoker1< uint64_t, String_t* >::Invoke(136, __this, L_5);
+		L_6 = VirtualFuncInvoker1< uint64_t, String_t* >::Invoke(137, __this, L_5);
 		V_2 = L_6;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7 = ___0_delta;
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_8;
@@ -17339,7 +17334,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnsignedLongInput_ApplyInputDeviceDelta_
 	{
 		uint64_t L_19 = V_2;
 		String_t* L_20;
-		L_20 = VirtualFuncInvoker1< String_t*, uint64_t >::Invoke(140, __this, L_19);
+		L_20 = VirtualFuncInvoker1< String_t*, uint64_t >::Invoke(141, __this, L_19);
 		TextInputBase_set_text_m4FE909C490554CA196C8CF61D38E4D14D591A806(__this, L_20, TextInputBase_set_text_m4FE909C490554CA196C8CF61D38E4D14D591A806_RuntimeMethod_var);
 		goto IL_0076;
 	}
@@ -17350,7 +17345,7 @@ IL_0067:
 		L_21 = UnsignedLongInput_get_parentUnsignedLongField_m29A7DCFF80D2270680193289B93288069A6AFF89(__this, NULL);
 		uint64_t L_22 = V_2;
 		NullCheck(L_21);
-		VirtualActionInvoker1< uint64_t >::Invoke(144, L_21, L_22);
+		VirtualActionInvoker1< uint64_t >::Invoke(145, L_21, L_22);
 	}
 
 IL_0076:
@@ -17471,7 +17466,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint64_t UnsignedLongInput_StringToValue_mDAF
 		String_t* L_1 = ___0_str;
 		NullCheck(L_0);
 		uint64_t L_2;
-		L_2 = VirtualFuncInvoker1< uint64_t, String_t* >::Invoke(157, L_0, L_1);
+		L_2 = VirtualFuncInvoker1< uint64_t, String_t* >::Invoke(158, L_0, L_1);
 		V_0 = L_2;
 		goto IL_0010;
 	}
@@ -19687,7 +19682,7 @@ IL_00a6:
 		String_t* L_25;
 		L_25 = String_Concat_mF8AEE19D557B130F3EA38EFD154ECF5821AA00DC(L_24, NULL);
 		NullCheck(L_23);
-		VirtualActionInvoker1< String_t* >::Invoke(204, L_23, L_25);
+		VirtualActionInvoker1< String_t* >::Invoke(201, L_23, L_25);
 		return;
 	}
 }
@@ -25546,7 +25541,7 @@ IL_008b_1:
 				Label_tC160668F9119CE0F5567021FB208E64A5B1C5B70* L_28 = V_6;
 				NullCheck(L_28);
 				String_t* L_29;
-				L_29 = VirtualFuncInvoker0< String_t* >::Invoke(203, L_28);
+				L_29 = VirtualFuncInvoker0< String_t* >::Invoke(200, L_28);
 				G_B12_0 = L_29;
 			}
 
@@ -26060,7 +26055,7 @@ IL_010a:
 		String_t* L_35;
 		L_35 = StartDragArgs_get_title_mB252BB46053EACA4B3D3321AF902D26DEFD11D41_inline((&___0_args), NULL);
 		NullCheck(L_34);
-		VirtualActionInvoker1< String_t* >::Invoke(204, L_34, L_35);
+		VirtualActionInvoker1< String_t* >::Invoke(201, L_34, L_35);
 		Label_tC160668F9119CE0F5567021FB208E64A5B1C5B70* L_36 = __this->___m_DraggedInfoLabel;
 		NullCheck(L_36);
 		RuntimeObject* L_37;
@@ -28242,7 +28237,7 @@ IL_0015:
 		L_2 = ListViewDragger_get_targetScrollView_m02748BB3D880B454FD1E0EB4137BC5B270F8C7A4(__this, NULL);
 		NullCheck(L_2);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_3;
-		L_3 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, L_2);
+		L_3 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, L_2);
 		NullCheck(L_3);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_4;
 		L_4 = VisualElement_get_worldBound_m2E4AF689F0B4AB06E1316348A1E10D4DB2412AC3(L_3, NULL);
@@ -28983,7 +28978,7 @@ IL_006a:
 		L_22 = ListViewDragger_get_targetScrollView_m02748BB3D880B454FD1E0EB4137BC5B270F8C7A4(__this, NULL);
 		NullCheck(L_22);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_23;
-		L_23 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, L_22);
+		L_23 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, L_22);
 		NullCheck(L_23);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_24;
 		L_24 = VisualElement_get_worldBound_m2E4AF689F0B4AB06E1316348A1E10D4DB2412AC3(L_23, NULL);
@@ -29166,7 +29161,7 @@ IL_0021:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_15;
 		L_15 = StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019(L_14, NULL);
 		NullCheck(L_11);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_11, L_15);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_11, L_15);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_16 = __this->___m_DragHoverBar;
 		NullCheck(L_16);
 		RuntimeObject* L_17;
@@ -29174,7 +29169,7 @@ IL_0021:
 		StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D L_18;
 		L_18 = StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E(1, StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E_RuntimeMethod_var);
 		NullCheck(L_17);
-		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(159, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_17, L_18);
+		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(161, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_17, L_18);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_19 = __this->___m_DragHoverBar;
 		NullCheck(L_19);
 		VisualElement_set_pickingMode_m4B12358A0C59640E752A2BB5B3E6F5C76CB9ACD0(L_19, 1, NULL);
@@ -29240,7 +29235,7 @@ IL_00e6:
 		StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D L_33;
 		L_33 = StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E(1, StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E_RuntimeMethod_var);
 		NullCheck(L_32);
-		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(159, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_32, L_33);
+		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(161, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_32, L_33);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_34 = __this->___m_DragHoverItemMarker;
 		NullCheck(L_34);
 		VisualElement_set_pickingMode_m4B12358A0C59640E752A2BB5B3E6F5C76CB9ACD0(L_34, 1, NULL);
@@ -29263,7 +29258,7 @@ IL_00e6:
 		StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D L_42;
 		L_42 = StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E(1, StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E_RuntimeMethod_var);
 		NullCheck(L_41);
-		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(159, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_41, L_42);
+		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(161, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_41, L_42);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_43 = __this->___m_DragHoverSiblingMarker;
 		NullCheck(L_43);
 		VisualElement_set_pickingMode_m4B12358A0C59640E752A2BB5B3E6F5C76CB9ACD0(L_43, 1, NULL);
@@ -29506,7 +29501,7 @@ IL_003d:
 		L_13 = ListViewDragger_get_targetScrollView_m02748BB3D880B454FD1E0EB4137BC5B270F8C7A4(__this, NULL);
 		NullCheck(L_13);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_14;
-		L_14 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, L_13);
+		L_14 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, L_13);
 		NullCheck(L_14);
 		Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D L_15;
 		L_15 = VisualElement_get_worldBound_m2E4AF689F0B4AB06E1316348A1E10D4DB2412AC3(L_14, NULL);
@@ -30258,7 +30253,7 @@ IL_021f:
 		L_108 = BaseVerticalCollectionView_get_scrollView_mB4F44C6276CC57A0D8AD030F3C396650532E83CC_inline(L_107, NULL);
 		NullCheck(L_108);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_109;
-		L_109 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(135, L_108);
+		L_109 = VirtualFuncInvoker0< VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* >::Invoke(136, L_108);
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_110 = ___1_pointerPosition;
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_111;
 		L_111 = VisualElementExtensions_WorldToLocal_m9AB4674D3198B2C87E9D53DB56077BA769059EF9(L_109, L_110, NULL);
@@ -30830,7 +30825,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ListViewDragger_PlaceHoverBarAt_m75ED501
 		StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D L_6;
 		L_6 = StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E(0, StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E_RuntimeMethod_var);
 		NullCheck(L_5);
-		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(159, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_5, L_6);
+		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(161, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_5, L_6);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_7 = __this->___m_DragHoverItemMarker;
 		V_0 = (bool)((!(((RuntimeObject*)(VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115*)L_7) <= ((RuntimeObject*)(RuntimeObject*)NULL)))? 1 : 0);
 		bool L_8 = V_0;
@@ -30847,7 +30842,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ListViewDragger_PlaceHoverBarAt_m75ED501
 		StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D L_11;
 		L_11 = StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E(0, StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E_RuntimeMethod_var);
 		NullCheck(L_10);
-		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(159, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_10, L_11);
+		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(161, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_10, L_11);
 	}
 
 IL_0055:
@@ -30886,7 +30881,7 @@ IL_0055:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_24;
 		L_24 = StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019(((float)il2cpp_codegen_subtract(L_22, L_23)), NULL);
 		NullCheck(L_19);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_19, L_24);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_19, L_24);
 		float L_25 = ___2_siblingBottom;
 		if ((!(((float)L_25) > ((float)(0.0f)))))
 		{
@@ -30930,7 +30925,7 @@ IL_00be:
 		StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D L_34;
 		L_34 = StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E(0, StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E_RuntimeMethod_var);
 		NullCheck(L_33);
-		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(159, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_33, L_34);
+		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(161, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_33, L_34);
 		VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* L_35 = __this->___m_DragHoverSiblingMarker;
 		NullCheck(L_35);
 		RuntimeObject* L_36;
@@ -30972,7 +30967,7 @@ IL_010c:
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_47;
 		L_47 = StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019(L_46, NULL);
 		NullCheck(L_43);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_43, L_47);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_43, L_47);
 	}
 
 IL_0152:
@@ -31129,7 +31124,7 @@ IL_0079:
 		StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D L_23;
 		L_23 = StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E(1, StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E_RuntimeMethod_var);
 		NullCheck(L_22);
-		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(159, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_22, L_23);
+		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(161, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_22, L_23);
 	}
 
 IL_009d:
@@ -31150,7 +31145,7 @@ IL_009d:
 		StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D L_28;
 		L_28 = StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E(1, StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E_RuntimeMethod_var);
 		NullCheck(L_27);
-		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(159, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_27, L_28);
+		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(161, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_27, L_28);
 	}
 
 IL_00c3:
@@ -31171,7 +31166,7 @@ IL_00c3:
 		StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D L_33;
 		L_33 = StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E(1, StyleEnum_1_op_Implicit_m31B19E05201FD8DD47FDC5352F7A052FACC3782E_RuntimeMethod_var);
 		NullCheck(L_32);
-		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(159, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_32, L_33);
+		InterfaceActionInvoker1< StyleEnum_1_t4ADD569E34B475D3DC8CA33E13A80CA59AA1C07D >::Invoke(161, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_32, L_33);
 	}
 
 IL_00e9:
@@ -31382,7 +31377,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ListViewDragger_U3CApplyDragAndDropUIU3E
 		StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 L_5;
 		L_5 = StyleLength_op_Implicit_mA1ED6E9AD696C34231A35B83084B1298A700B019(L_4, NULL);
 		NullCheck(L_1);
-		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(163, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_1, L_5);
+		InterfaceActionInvoker1< StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 >::Invoke(165, IStyle_t4FD66C97CA5F46BFE328FED0C65277A37E0A89F7_il2cpp_TypeInfo_var, L_1, L_5);
 		return;
 	}
 }

@@ -54,6 +54,7 @@ void    UnityLowMemory(void);
 void    UnityPause(int pause);
 void    UnitySuppressPauseMessage(void);
 int     UnityIsPaused(void);                // 0 if player is running, 1 if paused
+int     UnityIsFocused(void);               // 1 if player is focused, 0 if in the background
 void    UnityWillPause(void);               // send the message that app will pause
 void    UnityWillResume(void);              // send the message that app will resume
 void    UnityDeliverUIEvents(void);         // unity processing impacting UI will be called in there
@@ -281,6 +282,7 @@ void            UnityFramerateChangeCallback(int targetFPS);
 void            UnitySelectRenderingAPI(void);
 int             UnitySelectedRenderingAPI(void);
 int             UnityIsBatchmode(void);
+int             UnityShouldRunInBackground(void);
 
 NSBundle*           UnityGetMetalBundle(void);
 MTLDeviceRef        UnityGetMetalDevice(void);

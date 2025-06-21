@@ -5739,7 +5739,7 @@ IL_0042:
 		Type_t* L_10 = ___0_type;
 		NullCheck(L_10);
 		TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* L_11;
-		L_11 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(109, L_10);
+		L_11 = VirtualFuncInvoker0< TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* >::Invoke(111, L_10);
 		V_0 = (bool)0;
 		V_1 = L_11;
 		V_2 = 0;
@@ -5835,7 +5835,7 @@ IL_0091:
 		Type_t* L_34 = ___0_type;
 		NullCheck(L_34);
 		Type_t* L_35;
-		L_35 = VirtualFuncInvoker0< Type_t* >::Invoke(107, L_34);
+		L_35 = VirtualFuncInvoker0< Type_t* >::Invoke(109, L_34);
 		___0_type = L_35;
 		Type_t* L_36 = ___0_type;
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
@@ -5870,7 +5870,7 @@ IL_00b9:
 		Type_t* L_42 = ___0_type;
 		NullCheck(L_42);
 		Type_t* L_43;
-		L_43 = VirtualFuncInvoker0< Type_t* >::Invoke(107, L_42);
+		L_43 = VirtualFuncInvoker0< Type_t* >::Invoke(109, L_42);
 		___0_type = L_43;
 		Type_t* L_44 = ___0_type;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_45 = { reinterpret_cast<intptr_t> (&il2cpp_defaults.object_class->byval_arg) };

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54852d38690404c42b68675e755d13dc, type: 3}
+  m_Name: Q2
+  m_EditorClassIdentifier: 
+  questionID: 234567
+  questionText: "buras\u0131 soru 2 k\u0131sm\u0131 olucak"
+  options:
+  - "buras\u0131 A \u015F\u0131kk\u0131"
+  - "buras\u0131 B \u015F\u0131kk\u0131"
+  - "buras\u0131 C \u015F\u0131kk\u0131"
+  - "buras\u0131 D \u015F\u0131kk\u0131"
+  - "buras\u0131 E \u015F\u0131kk\u0131"
+  correctAnswer: 68

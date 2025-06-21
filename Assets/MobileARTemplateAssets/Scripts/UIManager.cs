@@ -280,6 +280,34 @@ public class UIManager : MonoBehaviour
     }
     HidePanels();
 }
+public void ClearSelectionAndUI()
+{
+    isHideOthersActive = false;
+    isFadeActive = false;
+    isHideActive = false;
+    othersHidden = false;
+    isFaded = false;
+    isHidden = false;
+
+    UpdateButtonColors();
+
+    selectedBone = null;
+    selectedMaterial = null;
+    originalMaterials.Clear();
+
+    // Highlight sıfırlama
+    Renderer[] allRenderers = skeletonRoot.GetComponentsInChildren<Renderer>(true);
+    foreach (Renderer rend in allRenderers)
+    {
+        foreach (Material mat in rend.materials)
+        {
+            mat.color = Color.white;
+        }
+    }
+
+    // Panelleri kapat
+    HidePanels();
+}
 
     public Vector3 GetModelBoundsCenter()
     {
@@ -551,5 +579,6 @@ public class UIManager : MonoBehaviour
     isRightPanelVisible = false;
     isMiddlePanelVisible = false;
 }
+
 
 } 

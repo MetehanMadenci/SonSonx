@@ -160,6 +160,11 @@ if([obj respondsToSelector:sel])                        \
     UnitySetAbsoluteURL(url);
 }
 
+- (int)shouldRunInBackground
+{
+    return UnityShouldRunInBackground();
+}
+
 @end
 
 

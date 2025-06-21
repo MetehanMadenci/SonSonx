@@ -9903,7 +9903,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824
 	{
 		StylePropertyValue_tED32F617FABE99611B213BFCF9D1D909E7F141C2 L_3 = ___0_value;
 		int32_t L_4;
-		L_4 = StylePropertyReader_ReadEnum_m0E176F34E0453A57FF828CB600562E0DD06AF17F(((int32_t)21), L_3, NULL);
+		L_4 = StylePropertyReader_ReadEnum_m0E176F34E0453A57FF828CB600562E0DD06AF17F(((int32_t)22), L_3, NULL);
 		V_1 = L_4;
 		int32_t L_5 = V_1;
 		V_3 = L_5;
@@ -24129,7 +24129,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleValues_t4AED947A53B84B62EF2B589A40B74911
 		bool L_2 = V_1;
 		if (!L_2)
 		{
-			goto IL_02cf;
+			goto IL_02d3;
 		}
 	}
 	{
@@ -24146,7 +24146,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleValues_t4AED947A53B84B62EF2B589A40B74911
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_02bf:
+FINALLY_02c3:
 			{
 				Enumerator_Dispose_m1F4E04F6F817CA0C550E88CACDBF06CECEEBA5A4((&V_2), Enumerator_Dispose_m1F4E04F6F817CA0C550E88CACDBF06CECEEBA5A4_RuntimeMethod_var);
 				return;
@@ -24155,7 +24155,7 @@ FINALLY_02bf:
 		try
 		{
 			{
-				goto IL_02b1_1;
+				goto IL_02b5_1;
 			}
 
 IL_0031_1:
@@ -24214,7 +24214,7 @@ IL_0081_1:
 				int32_t L_24 = V_6;
 				if ((!(((uint32_t)((int32_t)il2cpp_codegen_subtract((int32_t)L_24, (-1)))) > ((uint32_t)1))))
 				{
-					goto IL_02a5_1;
+					goto IL_02a9_1;
 				}
 			}
 			{
@@ -24226,11 +24226,11 @@ IL_00ab_1:
 				int32_t L_25 = V_6;
 				if ((((int32_t)L_25) == ((int32_t)((int32_t)65536))))
 				{
-					goto IL_0280_1;
+					goto IL_0284_1;
 				}
 			}
 			{
-				goto IL_02a5_1;
+				goto IL_02a9_1;
 			}
 
 IL_00bc_1:
@@ -24238,7 +24238,7 @@ IL_00bc_1:
 				int32_t L_26 = V_6;
 				if ((((int32_t)L_26) == ((int32_t)((int32_t)65537))))
 				{
-					goto IL_025b_1;
+					goto IL_025f_1;
 				}
 			}
 			{
@@ -24252,28 +24252,28 @@ IL_00ca_1:
 				{
 					case 0:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 1:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 2:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 3:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 4:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 				}
 			}
 			{
-				goto IL_02a5_1;
+				goto IL_02a9_1;
 			}
 
 IL_00f0_1:
@@ -24288,7 +24288,7 @@ IL_00f0_1:
 				int32_t L_29 = V_6;
 				if ((!(((uint32_t)((int32_t)il2cpp_codegen_subtract((int32_t)L_29, ((int32_t)65549)))) > ((uint32_t)1))))
 				{
-					goto IL_02a5_1;
+					goto IL_02a9_1;
 				}
 			}
 			{
@@ -24302,140 +24302,140 @@ IL_010c_1:
 				{
 					case 0:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 1:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 2:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 3:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 4:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 5:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 6:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 7:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 8:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 9:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 10:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 11:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 12:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 13:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 14:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 15:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 16:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 17:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 18:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 19:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 20:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 21:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 22:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 23:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 24:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 25:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 26:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 27:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 28:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 29:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 30:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 31:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 32:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 				}
 			}
 			{
-				goto IL_02a5_1;
+				goto IL_02a9_1;
 			}
 
 IL_01a2_1:
@@ -24445,173 +24445,177 @@ IL_01a2_1:
 				{
 					case 0:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 1:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 2:
 					{
-						goto IL_0280_1;
+						goto IL_0284_1;
 					}
 					case 3:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 4:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 5:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 6:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 7:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 8:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 9:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
+					}
+					case 10:
+					{
+						goto IL_02a9_1;
 					}
 				}
 			}
 			{
-				goto IL_01d9_1;
+				goto IL_01dd_1;
 			}
 
-IL_01d9_1:
+IL_01dd_1:
 			{
 				int32_t L_32 = V_6;
 				switch (((int32_t)il2cpp_codegen_subtract((int32_t)L_32, ((int32_t)262145))))
 				{
 					case 0:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 1:
 					{
-						goto IL_0280_1;
+						goto IL_0284_1;
 					}
 					case 2:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 3:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 4:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 5:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 6:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 7:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 8:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 				}
 			}
 			{
-				goto IL_020c_1;
+				goto IL_0210_1;
 			}
 
-IL_020c_1:
+IL_0210_1:
 			{
 				int32_t L_33 = V_6;
 				switch (((int32_t)il2cpp_codegen_subtract((int32_t)L_33, ((int32_t)458752))))
 				{
 					case 0:
 					{
-						goto IL_0280_1;
+						goto IL_0284_1;
 					}
 					case 1:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 2:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 3:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 4:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 5:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 6:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 7:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 8:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 9:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 10:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 11:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 					case 12:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 13:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 14:
 					{
-						goto IL_025b_1;
+						goto IL_025f_1;
 					}
 					case 15:
 					{
-						goto IL_02a5_1;
+						goto IL_02a9_1;
 					}
 				}
 			}
 			{
-				goto IL_02a5_1;
+				goto IL_02a9_1;
 			}
 
-IL_025b_1:
+IL_025f_1:
 			{
 				StyleValue_t56307594EC04E04EFBCC3220595B4AAD66FF93C5 L_34 = V_3;
 				int32_t L_35 = L_34.___id;
@@ -24623,10 +24627,10 @@ IL_025b_1:
 				float L_41;
 				L_41 = Lerp_Interpolate_m6600A3C40476BFAFF0B91EBDD50B8DA0695DEB44(L_37, L_39, L_40, NULL);
 				StyleValues_SetValue_m0A2171A1F7DA8AC12ADF95B63B0EF7E446A6D6BA((&V_0), L_35, L_41, NULL);
-				goto IL_02b0_1;
+				goto IL_02b4_1;
 			}
 
-IL_0280_1:
+IL_0284_1:
 			{
 				StyleValue_t56307594EC04E04EFBCC3220595B4AAD66FF93C5 L_42 = V_3;
 				int32_t L_43 = L_42.___id;
@@ -24638,21 +24642,21 @@ IL_0280_1:
 				Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_49;
 				L_49 = Lerp_Interpolate_m3670F7FFEB36D2A5485DB0A46111608451725E7D(L_45, L_47, L_48, NULL);
 				StyleValues_SetValue_mBAC6E9C25500E6660F25A0D6F87E2C1594D64A7D((&V_0), L_43, L_49, NULL);
-				goto IL_02b0_1;
+				goto IL_02b4_1;
 			}
 
-IL_02a5_1:
+IL_02a9_1:
 			{
 				ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263* L_50 = (ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263_il2cpp_TypeInfo_var)));
 				ArgumentException__ctor_m026938A67AF9D36BB7ED27F80425D7194B514465(L_50, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralCD257F752DD9F10B9231939923CC54ECADEF521B)), NULL);
 				IL2CPP_RAISE_MANAGED_EXCEPTION(L_50, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Lerp_Interpolate_mB8C742AFAB0D735F42E1D3271520B0F4870C13F3_RuntimeMethod_var)));
 			}
 
-IL_02b0_1:
+IL_02b4_1:
 			{
 			}
 
-IL_02b1_1:
+IL_02b5_1:
 			{
 				bool L_51;
 				L_51 = Enumerator_MoveNext_m382A4115E9B245542508429960929A5A5A2DBC52((&V_2), Enumerator_MoveNext_m382A4115E9B245542508429960929A5A5A2DBC52_RuntimeMethod_var);
@@ -24662,7 +24666,7 @@ IL_02b1_1:
 				}
 			}
 			{
-				goto IL_02ce;
+				goto IL_02d2;
 			}
 		}
 		catch(Il2CppExceptionWrapper& e)
@@ -24671,18 +24675,18 @@ IL_02b1_1:
 		}
 	}
 
-IL_02ce:
+IL_02d2:
 	{
 	}
 
-IL_02cf:
+IL_02d3:
 	{
 		StyleValues_t4AED947A53B84B62EF2B589A40B74911CA77D11A L_52 = V_0;
 		V_8 = L_52;
-		goto IL_02d4;
+		goto IL_02d8;
 	}
 
-IL_02d4:
+IL_02d8:
 	{
 		StyleValues_t4AED947A53B84B62EF2B589A40B74911CA77D11A L_53 = V_8;
 		return L_53;

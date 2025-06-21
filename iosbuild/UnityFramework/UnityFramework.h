@@ -64,4 +64,6 @@ __attribute__ ((visibility("default")))
 - (void)setExecuteHeader:(const MachHeader*)header;
 - (void)sendMessageToGOWithName:(const char*)goName functionName:(const char*)name message:(const char*)msg;
 
+- (int)shouldRunInBackground;
+
 @end

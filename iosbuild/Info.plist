@@ -24,12 +24,43 @@
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0.0</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>google</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>com.googleusercontent.apps.402540702522-b13nko1avapf3eufe3qv089cat16e920</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>skelex.ios</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>skelex.ios</string>
+        </array>
+      </dict>
+    </array>
     <key>CFBundleVersion</key>
     <string>0</string>
     <key>LSRequiresIPhoneOS</key>
     <true />
     <key>NSCameraUsageDescription</key>
-    <string>AR Camera</string>
+    <string>The app requires access to the camera to take pictures or record videos with it.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>The app will capture microphone input in the recorded video.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>The app requires access to Photos to save media to it.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>The app requires access to Photos to interact with it.</string>
+    <key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
+    <true />
     <key>UILaunchStoryboardName</key>
     <string>LaunchScreen-iPhone</string>
     <key>UILaunchStoryboardName~ipad</key>

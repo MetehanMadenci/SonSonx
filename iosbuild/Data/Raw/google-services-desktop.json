@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "402540702522",
+    "project_id": "ocrscene",
+    "storage_bucket": "ocrscene.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402540702522:android:fc72d241bcb3b6e4293e03",
+        "android_client_info": {
+          "package_name": "skelex.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2CoCcK6eMJ8RZXyeQ1OmDU2QMuyJVYuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

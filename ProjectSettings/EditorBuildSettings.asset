@@ -11,9 +11,33 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARScene.unity
     guid: f02922f0bfbd70d4d9294aa461a49d25
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OCRScene.unity
     guid: c5f9c5ac125a54950beb8fbff1651487
+  - enabled: 0
+    path: Assets/Scenes/QuizHomeScene.unity
+    guid: 3dbbb499545ad64439044a82c0eb40d3
+  - enabled: 0
+    path: Assets/Scenes/Join_CreateRoomScene.unity
+    guid: ab8758faac69dff40957f826672204c5
+  - enabled: 0
+    path: Assets/Scenes/JoinRoomScene.unity
+    guid: 61f2df24c01f00746b6f4190ce88d889
+  - enabled: 0
+    path: Assets/Scenes/CreateRoomScene.unity
+    guid: 13fbd7bbb35f0ed4bb83e1fc39072ad9
+  - enabled: 0
+    path: Assets/Scenes/QuizScene.unity
+    guid: 0c63ea9eb1621bf448d6de3a268ba3ad
+  - enabled: 0
+    path: Assets/Scenes/QuizSettingsScene.unity
+    guid: 3c5da981a46000c4b80e25808d4ff964
+  - enabled: 0
+    path: Assets/Scenes/ResultScene.unity
+    guid: 898f83c0ee12d3a4cbe9911f3e174504
+  - enabled: 0
+    path: Assets/Scenes/WaitingRoomScene.unity
+    guid: 09d3e32f3b6f33148b053ebd62d86b0b
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af,
       type: 2}
