@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5da04ae5bd81f4b2bbeb6ebcae2c0fe0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d02989691b9b47abb923353c03ccc81, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4297,8 +4297,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2084591554}
-        m_TargetAssemblyTypeName: ARCloseButtonHandler, Assembly-CSharp
-        m_MethodName: CloseARScene
+        m_TargetAssemblyTypeName: ARSceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4355,10 +4355,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2084591549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20d5c9d9cea004220b456cda9f391150, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b038a6744d97624fa7b89ef7e42ce3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSceneName: HomeScene
+  sceneName: HomeScene
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

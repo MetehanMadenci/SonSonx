@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class ARSceneLoader : MonoBehaviour
 {
-    public string sceneName = "ARScene"; // Geçilecek sahne ismi
+    public string sceneName = "ARScene"; // Geï¿½ilecek sahne ismi
 
-    public void LoadARScene()
+    public void LoadScene()
     {
         SceneManager.LoadScene(sceneName);
     }

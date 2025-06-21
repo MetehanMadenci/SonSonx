@@ -1,10 +1,19 @@
 # ninja log v5
-2	46378	1749903691132290971	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	a07b22cb4ab6116b
-1	46404	1749903691159027543	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	c17cd1fde0bdbfa
+1	46564	1749903691321251788	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	218c4f8a3d5e6151
+62898	65505	1749903710248303046	/Users/metehanmadenci/Downloads/MobileSonGuncelX-main/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3a2x5q52/obj/arm64-v8a/libgame.so	b1ba7694fc0c3a4d
+3	62897	1749903707656462287	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	2cd1cb54e53734d3
+2	46523	1749903691279941423	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	9acf71b2c8c5ca36
+1	46440	1749903691198095476	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	eb23bd476c8d183f
 3	46416	1749903691172276976	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	d92bab18063fb32b
 2	46417	1749903691171938147	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	bf0cc1e5680e9d73
-1	46440	1749903691198095476	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	eb23bd476c8d183f
-2	46523	1749903691279941423	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	9acf71b2c8c5ca36
-1	46564	1749903691321251788	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	218c4f8a3d5e6151
-3	62897	1749903707656462287	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	2cd1cb54e53734d3
-62898	65505	1749903710248303046	/Users/metehanmadenci/Downloads/MobileSonGuncelX-main/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3a2x5q52/obj/arm64-v8a/libgame.so	b1ba7694fc0c3a4d
+1	46404	1749903691159027543	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	c17cd1fde0bdbfa
+2	46378	1749903691132290971	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	a07b22cb4ab6116b
+14	54279	1750286116801840896	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	a07b22cb4ab6116b
+11	54281	1750286116801271700	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	c17cd1fde0bdbfa
+12	54284	1750286116800076768	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	bf0cc1e5680e9d73
+15	54294	1750286116819191761	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	d92bab18063fb32b
+13	54402	1750286116925462611	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	9acf71b2c8c5ca36
+10	54428	1750286116952177519	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	218c4f8a3d5e6151
+12	54956	1750286117482791079	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	eb23bd476c8d183f
+16	62765	1750286125290722883	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	2cd1cb54e53734d3
+62765	80281	1750286142790884393	/Users/metehanmadenci/Downloads/MobileSonGuncelX-main/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3a2x5q52/obj/arm64-v8a/libgame.so	b1ba7694fc0c3a4d
