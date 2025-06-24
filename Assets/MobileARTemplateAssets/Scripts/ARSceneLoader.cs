@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class ARSceneLoader : MonoBehaviour
 {
-    public string sceneName = "ARScene"; // Ge�ilecek sahne ismi
+    public string sceneName = "ARScene"; 
 
     public void LoadScene()
     {

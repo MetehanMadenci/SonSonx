@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/WaitingRoomScene.unity
     guid: 09d3e32f3b6f33148b053ebd62d86b0b
+  - enabled: 0
+    path: Assets/Scenes/PreviewOcrScene.unity
+    guid: bfd00d0a4e6154a6d8e4f74613bd9e9c
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6ee72d15cf39dd748a13eac57397b9af,
       type: 2}

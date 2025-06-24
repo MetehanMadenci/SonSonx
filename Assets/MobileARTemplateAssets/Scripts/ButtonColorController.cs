@@ -8,15 +8,15 @@ public class ButtonColorController : MonoBehaviour, IPointerEnterHandler, IPoint
     public TextMeshProUGUI buttonText;
 
     public Color normalText = Color.white;
-    public Color hoverText = new Color32(48, 140, 238, 255);    // #308CE
-    public Color activeText = new Color32(0, 4, 49, 255);        // #000431
+    public Color hoverText = new Color32(48, 140, 238, 255);    
+    public Color activeText = new Color32(0, 4, 49, 255);        
     public Color disabledText = Color.red;
 
     private bool isToggled = false;
     private bool isPointerOver = false;
     private Button button;
 
-    public bool disableToggle = false;  // Reset gibi aktifleþmeyecek butonlar için
+    public bool disableToggle = false;  
 
     void Awake()
     {

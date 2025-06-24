@@ -24,7 +24,7 @@ public class SliderScaleController : MonoBehaviour
         initialScale = model.transform.localScale;
         lastValue = 1f;
         scaleSlider.value = lastValue;
-        scaleSlider.gameObject.SetActive(true); // 🔹 Model geldi, slider'ı göster
+        scaleSlider.gameObject.SetActive(true); 
     }
 }
 
@@ -33,7 +33,6 @@ public class SliderScaleController : MonoBehaviour
     {
         if (targetModel == null) return;
 
-        // K���k de�i�ikliklerde g�ncelleme yapma
         if (Mathf.Abs(value - lastValue) < 0.01f) return;
 
         targetModel.transform.localScale = initialScale * value;

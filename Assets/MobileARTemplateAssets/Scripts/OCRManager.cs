@@ -19,7 +19,8 @@ public class OCRManager : MonoBehaviour
     public GameObject cropPanel;
     public GameObject editPanel;
 
-    private string functionUrl = "https://ocrfromimage-ufmxmu7iha-uc.a.run.app";
+
+    private string functionUrl = "https://ocrfromimage-hpei5lppxq-uc.a.run.app";
     private Texture2D originalTexture;
 
     void Start()
@@ -163,7 +164,7 @@ public void ShowEditPanel()
     IEnumerator UploadAndOCR(string filePath)
     {
         FirebaseStorage storage = FirebaseStorage.DefaultInstance;
-        StorageReference storageRef = storage.GetReferenceFromUrl("gs://ocrscene.firebasestorage.app");
+        StorageReference storageRef = storage.GetReferenceFromUrl("gs://skelexauth-7bb2d.firebasestorage.app");
         StorageReference imageRef = storageRef.Child("questions/" + Path.GetFileName(filePath));
 
         byte[] fileBytes = File.ReadAllBytes(filePath);
@@ -249,10 +250,11 @@ public void ShowEditPanel()
             currentOptionIndex = 3;
             options[3] = CleanOption(line.Substring(2).Trim());
         }
+
         else if (line.StartsWith("E)"))
         {
-            currentOptionIndex = 4;
-            options[4] = CleanOption(line.Substring(2).Trim());
+                        options[4] = CleanOption(line.Substring(2).Trim());
+
         }
         else if (currentOptionIndex >= 0)
         {
@@ -302,6 +304,10 @@ string CleanOption(string input)
 public void CancelCropPanel()
 {
      ShowEditPanel();
+}
+public void CancelEditPanel()
+{
+     ShowCropPanel();
 }
 
 // Yeniden fotoğraf seçmek için

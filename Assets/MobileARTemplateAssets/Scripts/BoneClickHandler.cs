@@ -10,14 +10,19 @@ public class BoneClickHandler : MonoBehaviour
     [SerializeField] private Material highlightBaseMaterial;
     [SerializeField] private float isolateDistance = 1.0f;
 
+    void OnMouseDown()
+    {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
+        SelectBone();
+    }
+
     public void SelectBone()
     {
-
         string boneName = gameObject.name;
         UIManager ui = FindObjectOfType<UIManager>();
         if (ui == null) return;
 
-        // Önceki highlight'ı geri al
+        // Önceki seçimi eski haline getir
         if (previouslySelected != null && previousOriginalMaterials.Count > 0)
         {
             Renderer[] prevRenderers = previouslySelected.GetComponentsInChildren<Renderer>();
@@ -32,7 +37,7 @@ public class BoneClickHandler : MonoBehaviour
             previousOriginalMaterials.Clear();
         }
 
-        // Yeni seçilen kemiğin renderer'larını bul
+        // Yeni seçimi vurgula
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
         foreach (Renderer r in renderers)
         {
@@ -53,8 +58,7 @@ public class BoneClickHandler : MonoBehaviour
 
         previouslySelected = gameObject;
         ui.SetSelectedBone(gameObject, null, isolateDistance);
-
-        FindObjectOfType<UIManager>().DisplayBoneInfo(boneName);
+        ui.DisplayBoneInfo(boneName);
     }
 
     private void EnableTransparency(Material mat)

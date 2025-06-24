@@ -17,7 +17,6 @@ public class XRBoneClickHandler : MonoBehaviour
         XRUIManager ui = FindObjectOfType<XRUIManager>();
         if (ui == null) return;
 
-        // Önceki highlight'ı geri al
         if (previouslySelected != null && previousOriginalMaterials.Count > 0)
         {
             Renderer[] prevRenderers = previouslySelected.GetComponentsInChildren<Renderer>();
@@ -32,7 +31,6 @@ public class XRBoneClickHandler : MonoBehaviour
             previousOriginalMaterials.Clear();
         }
 
-        // Yeni seçilen kemiğin renderer'larını bul
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
         foreach (Renderer r in renderers)
         {

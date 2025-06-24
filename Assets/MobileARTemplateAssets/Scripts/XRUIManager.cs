@@ -10,8 +10,9 @@ public class XRUIManager : MonoBehaviour
     private bool isFadeActive = false;
     private bool isHideActive = false;
 
-    //public Transform screenCenterTarget;
     private Dictionary<string, BoneInfo> boneInfoLookup;
+    private Dictionary<Renderer, Material[]> originalMaterials = new Dictionary<Renderer, Material[]>();
+    
     public GameObject rightPanel;
     public GameObject middlePanel;
 
@@ -36,7 +37,7 @@ public class XRUIManager : MonoBehaviour
     private GameObject lastBoneForWhichPanelWasHidden = null;
 
     public static XRUIManager Instance;
-    private Dictionary<Renderer, Material[]> originalMaterials = new Dictionary<Renderer, Material[]>();
+    
 
     private void Awake()
     {
@@ -114,7 +115,6 @@ public class XRUIManager : MonoBehaviour
         isHidden = !isHidden;
         selectedBone.SetActive(!isHidden);
 
-        // Update button color
         UpdateButtonColors();
     }
 
@@ -144,13 +144,11 @@ public class XRUIManager : MonoBehaviour
             }
         }
 
-        // Update button color
         UpdateButtonColors();
     }
 
     private void UpdateButtonColors()
     {
-        // Update fade button color
         ColorBlock fadeColors = fadeButton.colors;
         fadeColors.normalColor = isFaded ? activeColor : normalColor;
         fadeColors.selectedColor = isFaded ? activeColor : normalColor;
@@ -158,7 +156,6 @@ public class XRUIManager : MonoBehaviour
         fadeColors.pressedColor = isFaded ? activeColor : normalColor;
         fadeButton.colors = fadeColors;
 
-        // Update hide button color
         ColorBlock hideColors = hideButton.colors;
         hideColors.normalColor = isHidden ? activeColor : normalColor;
         hideColors.selectedColor = isHidden ? activeColor : normalColor;
@@ -217,7 +214,6 @@ public void ClearSelectionAndUI()
 
     UpdateButtonColors();
 
-    // 🔄 Orijinal materyalleri geri yükle
     if (originalMaterials != null)
     {
         foreach (var kvp in originalMaterials)
@@ -233,7 +229,6 @@ public void ClearSelectionAndUI()
     selectedBone = null;
     selectedMaterial = null;
 
-    // Panelleri kapat
     HidePanels();
 }
 
@@ -261,7 +256,6 @@ public void ClearSelectionAndUI()
     }
     public void OnHideOthersStateChanged(bool state)
 {
-    // You can add any UI updates needed when hide others state changes
 }
 public void HidePanels()
 {

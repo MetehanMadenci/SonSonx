@@ -21,7 +21,7 @@ public class ResizeHandle : MonoBehaviour, IDragHandler, IPointerDownHandler
         Vector2 delta = eventData.delta;
 
 #if UNITY_ANDROID || UNITY_IOS
-        delta *= 1.0f; // gerekirse hız ayarı yapılabilir
+        delta *= 1.0f;
 #endif
 
         Vector2 size = targetRect.sizeDelta;

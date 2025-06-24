@@ -39,7 +39,6 @@ public class EmptyClickHandlerXR : MonoBehaviour
             }
         }
 
-        // Eğer hiçbir bone'a tıklanmadıysa, seçimi temizle
         if (!hitBone)
         {
             XRUIManager.Instance?.ClearSelectionAndUI();
